@@ -10,11 +10,11 @@ import Foundation
 
 internal struct ChargeCard : Decodable {
     
-       var reference: String?
-       var status: String?
-       var redirectUrl: String?
-       var message: String?
-       var reason: String?
-       var responseAction: String?
+       var reference : String?
+       var status  : String?
+       var redirectUrl : String?
+       var message : String?
+       var reason : String?
+       var responseAction : String?
     
 }

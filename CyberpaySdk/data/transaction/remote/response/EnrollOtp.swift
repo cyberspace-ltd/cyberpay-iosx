@@ -9,7 +9,7 @@
 import Foundation
 
 internal struct EnrollOtp : Decodable {
-    var status: String? = nil
-    var message: String? = nil
-    var reference: String? = nil
+    var status : String? = nil
+    var message : String? = nil
+    var reference : String? = nil
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 internal struct SetTransaction : Decodable {
-    var transactionReference: String?
-    var charge: Int?
-    var redirectUrl: String?
+    var transactionReference : String?
+    var charge : Int?
+    var redirectUrl : String?
 }
