@@ -1,0 +1,778 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4772FD8E238D22A4007F305D /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772FD8D238D22A4007F305D /* Mode.swift */; };
+		4772FD90238E915D007F305D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772FD8F238E915D007F305D /* Transaction.swift */; };
+		4772FD92238E927D007F305D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772FD91238E927D007F305D /* Card.swift */; };
+		4772FD94238E94DD007F305D /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772FD93238E94DD007F305D /* Split.swift */; };
+		4772FD9B238E97F4007F305D /* PaymentOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772FD9A238E97F4007F305D /* PaymentOption.swift */; };
+		47836186238A8A1F00A463B6 /* CyberpaySdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4783617C238A8A1F00A463B6 /* CyberpaySdk.framework */; };
+		4783618B238A8A1F00A463B6 /* CyberpaySdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783618A238A8A1F00A463B6 /* CyberpaySdkTests.swift */; };
+		4783618D238A8A1F00A463B6 /* CyberpaySdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 4783617F238A8A1F00A463B6 /* CyberpaySdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4783619C238A8AAD00A463B6 /* CyberpaySdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783619B238A8AAD00A463B6 /* CyberpaySdk.swift */; };
+		47B13E85238FB271002EC4CC /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E84238FB271002EC4CC /* ApiResponse.swift */; };
+		47B13E87238FB2A4002EC4CC /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E86238FB2A4002EC4CC /* ApiClient.swift */; };
+		47B13E8D238FB7AC002EC4CC /* Advice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E8C238FB7AC002EC4CC /* Advice.swift */; };
+		47B13E8F238FB7C9002EC4CC /* SetTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E8E238FB7C9002EC4CC /* SetTransaction.swift */; };
+		47B13E91238FB858002EC4CC /* ChargeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E90238FB858002EC4CC /* ChargeCard.swift */; };
+		47B13E93238FB8D2002EC4CC /* VerifyTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E92238FB8D2002EC4CC /* VerifyTransaction.swift */; };
+		47B13E95238FB910002EC4CC /* VerifyMerchantTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E94238FB910002EC4CC /* VerifyMerchantTransaction.swift */; };
+		47B13E97238FB9EC002EC4CC /* VerifyOtp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E96238FB9EC002EC4CC /* VerifyOtp.swift */; };
+		47B13E99238FBA8E002EC4CC /* EnrollOtp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E98238FBA8E002EC4CC /* EnrollOtp.swift */; };
+		64016EF5C9CC0AC7A372BE9D /* Pods_CyberpaySdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6378A4CAEB837D1DD94E883 /* Pods_CyberpaySdk.framework */; };
+		B2906063AC2CDBCA6C0BE168 /* Pods_CyberpaySdk_CyberpaySdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90207AA19A5126AF11A4B00B /* Pods_CyberpaySdk_CyberpaySdkTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		47836187238A8A1F00A463B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 47836173238A8A1F00A463B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4783617B238A8A1F00A463B6;
+			remoteInfo = CyberpaySdk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2448C09339573C2C6D2EA792 /* Pods-CyberpaySdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk.debug.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk/Pods-CyberpaySdk.debug.xcconfig"; sourceTree = "<group>"; };
+		4772FD8D238D22A4007F305D /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		4772FD8F238E915D007F305D /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		4772FD91238E927D007F305D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		4772FD93238E94DD007F305D /* Split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Split.swift; sourceTree = "<group>"; };
+		4772FD9A238E97F4007F305D /* PaymentOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOption.swift; sourceTree = "<group>"; };
+		4783617C238A8A1F00A463B6 /* CyberpaySdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CyberpaySdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4783617F238A8A1F00A463B6 /* CyberpaySdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CyberpaySdk.h; sourceTree = "<group>"; };
+		47836180238A8A1F00A463B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47836185238A8A1F00A463B6 /* CyberpaySdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CyberpaySdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4783618A238A8A1F00A463B6 /* CyberpaySdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberpaySdkTests.swift; sourceTree = "<group>"; };
+		4783618C238A8A1F00A463B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4783619B238A8AAD00A463B6 /* CyberpaySdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberpaySdk.swift; sourceTree = "<group>"; };
+		47B13E84238FB271002EC4CC /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		47B13E86238FB2A4002EC4CC /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		47B13E8C238FB7AC002EC4CC /* Advice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advice.swift; sourceTree = "<group>"; };
+		47B13E8E238FB7C9002EC4CC /* SetTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTransaction.swift; sourceTree = "<group>"; };
+		47B13E90238FB858002EC4CC /* ChargeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeCard.swift; sourceTree = "<group>"; };
+		47B13E92238FB8D2002EC4CC /* VerifyTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyTransaction.swift; sourceTree = "<group>"; };
+		47B13E94238FB910002EC4CC /* VerifyMerchantTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyMerchantTransaction.swift; sourceTree = "<group>"; };
+		47B13E96238FB9EC002EC4CC /* VerifyOtp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOtp.swift; sourceTree = "<group>"; };
+		47B13E98238FBA8E002EC4CC /* EnrollOtp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollOtp.swift; sourceTree = "<group>"; };
+		5974C7D81BACAE66C2C75048 /* Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk-CyberpaySdkTests/Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		90207AA19A5126AF11A4B00B /* Pods_CyberpaySdk_CyberpaySdkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CyberpaySdk_CyberpaySdkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCF1C04CD6FF004F26BAE629 /* Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk-CyberpaySdkTests/Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig"; sourceTree = "<group>"; };
+		EC3E5A191F4E25A01D2F8242 /* Pods-CyberpaySdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk.release.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk/Pods-CyberpaySdk.release.xcconfig"; sourceTree = "<group>"; };
+		F6378A4CAEB837D1DD94E883 /* Pods_CyberpaySdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CyberpaySdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47836179238A8A1F00A463B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64016EF5C9CC0AC7A372BE9D /* Pods_CyberpaySdk.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47836182238A8A1F00A463B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47836186238A8A1F00A463B6 /* CyberpaySdk.framework in Frameworks */,
+				B2906063AC2CDBCA6C0BE168 /* Pods_CyberpaySdk_CyberpaySdkTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4772FD8A238D08AE007F305D /* remote */ = {
+			isa = PBXGroup;
+			children = (
+				47B13E84238FB271002EC4CC /* ApiResponse.swift */,
+				47B13E86238FB2A4002EC4CC /* ApiClient.swift */,
+			);
+			path = remote;
+			sourceTree = "<group>";
+		};
+		4772FD8B238D08B6007F305D /* local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = local;
+			sourceTree = "<group>";
+		};
+		4772FD8C238D2274007F305D /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				4772FD8D238D22A4007F305D /* Mode.swift */,
+				4772FD9A238E97F4007F305D /* PaymentOption.swift */,
+			);
+			path = enums;
+			sourceTree = "<group>";
+		};
+		4772FD95238E964F007F305D /* checkout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = checkout;
+			sourceTree = "<group>";
+		};
+		4772FD96238E965A007F305D /* otp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = otp;
+			sourceTree = "<group>";
+		};
+		4772FD97238E9662007F305D /* pin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = pin;
+			sourceTree = "<group>";
+		};
+		4772FD98238E966C007F305D /* enroll_otp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = enroll_otp;
+			sourceTree = "<group>";
+		};
+		4772FD99238E9676007F305D /* secured3d */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = secured3d;
+			sourceTree = "<group>";
+		};
+		47836172238A8A1F00A463B6 = {
+			isa = PBXGroup;
+			children = (
+				4783617E238A8A1F00A463B6 /* CyberpaySdk */,
+				47836189238A8A1F00A463B6 /* CyberpaySdkTests */,
+				4783617D238A8A1F00A463B6 /* Products */,
+				5AA01B7CEEBA8699640772F5 /* Pods */,
+				D9A1BCCD73FE0E647E909D91 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4783617D238A8A1F00A463B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4783617C238A8A1F00A463B6 /* CyberpaySdk.framework */,
+				47836185238A8A1F00A463B6 /* CyberpaySdkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4783617E238A8A1F00A463B6 /* CyberpaySdk */ = {
+			isa = PBXGroup;
+			children = (
+				4772FD8C238D2274007F305D /* enums */,
+				47836199238A8A6300A463B6 /* model */,
+				47836198238A8A5A00A463B6 /* utils */,
+				47836197238A8A4C00A463B6 /* data */,
+				47836196238A8A4400A463B6 /* ui */,
+				4783617F238A8A1F00A463B6 /* CyberpaySdk.h */,
+				47836180238A8A1F00A463B6 /* Info.plist */,
+				4783619B238A8AAD00A463B6 /* CyberpaySdk.swift */,
+			);
+			path = CyberpaySdk;
+			sourceTree = "<group>";
+		};
+		47836189238A8A1F00A463B6 /* CyberpaySdkTests */ = {
+			isa = PBXGroup;
+			children = (
+				4783618A238A8A1F00A463B6 /* CyberpaySdkTests.swift */,
+				4783618C238A8A1F00A463B6 /* Info.plist */,
+			);
+			path = CyberpaySdkTests;
+			sourceTree = "<group>";
+		};
+		47836196238A8A4400A463B6 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				4772FD99238E9676007F305D /* secured3d */,
+				4772FD98238E966C007F305D /* enroll_otp */,
+				4772FD97238E9662007F305D /* pin */,
+				4772FD96238E965A007F305D /* otp */,
+				4772FD95238E964F007F305D /* checkout */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		47836197238A8A4C00A463B6 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				478361A0238A8D4800A463B6 /* auth */,
+				4783619F238A8D3900A463B6 /* bank */,
+				4783619E238A8D0800A463B6 /* transaction */,
+				4783619D238A8CF800A463B6 /* base */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		47836198238A8A5A00A463B6 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		47836199238A8A6300A463B6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4772FD8F238E915D007F305D /* Transaction.swift */,
+				4772FD91238E927D007F305D /* Card.swift */,
+				4772FD93238E94DD007F305D /* Split.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4783619D238A8CF800A463B6 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				4772FD8B238D08B6007F305D /* local */,
+				4772FD8A238D08AE007F305D /* remote */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		4783619E238A8D0800A463B6 /* transaction */ = {
+			isa = PBXGroup;
+			children = (
+				47B13E8A238FB77C002EC4CC /* local */,
+				47B13E89238FB775002EC4CC /* remote */,
+			);
+			path = transaction;
+			sourceTree = "<group>";
+		};
+		4783619F238A8D3900A463B6 /* bank */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = bank;
+			sourceTree = "<group>";
+		};
+		478361A0238A8D4800A463B6 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		47B13E89238FB775002EC4CC /* remote */ = {
+			isa = PBXGroup;
+			children = (
+				47B13E8B238FB793002EC4CC /* response */,
+			);
+			path = remote;
+			sourceTree = "<group>";
+		};
+		47B13E8A238FB77C002EC4CC /* local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = local;
+			sourceTree = "<group>";
+		};
+		47B13E8B238FB793002EC4CC /* response */ = {
+			isa = PBXGroup;
+			children = (
+				47B13E8C238FB7AC002EC4CC /* Advice.swift */,
+				47B13E8E238FB7C9002EC4CC /* SetTransaction.swift */,
+				47B13E90238FB858002EC4CC /* ChargeCard.swift */,
+				47B13E92238FB8D2002EC4CC /* VerifyTransaction.swift */,
+				47B13E94238FB910002EC4CC /* VerifyMerchantTransaction.swift */,
+				47B13E96238FB9EC002EC4CC /* VerifyOtp.swift */,
+				47B13E98238FBA8E002EC4CC /* EnrollOtp.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
+		5AA01B7CEEBA8699640772F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2448C09339573C2C6D2EA792 /* Pods-CyberpaySdk.debug.xcconfig */,
+				EC3E5A191F4E25A01D2F8242 /* Pods-CyberpaySdk.release.xcconfig */,
+				5974C7D81BACAE66C2C75048 /* Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig */,
+				DCF1C04CD6FF004F26BAE629 /* Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D9A1BCCD73FE0E647E909D91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6378A4CAEB837D1DD94E883 /* Pods_CyberpaySdk.framework */,
+				90207AA19A5126AF11A4B00B /* Pods_CyberpaySdk_CyberpaySdkTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		47836177238A8A1F00A463B6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4783618D238A8A1F00A463B6 /* CyberpaySdk.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4783617B238A8A1F00A463B6 /* CyberpaySdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47836190238A8A1F00A463B6 /* Build configuration list for PBXNativeTarget "CyberpaySdk" */;
+			buildPhases = (
+				A7FFDAD0F2DF215B40ECFE24 /* [CP] Check Pods Manifest.lock */,
+				47836177238A8A1F00A463B6 /* Headers */,
+				47836178238A8A1F00A463B6 /* Sources */,
+				47836179238A8A1F00A463B6 /* Frameworks */,
+				4783617A238A8A1F00A463B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CyberpaySdk;
+			productName = CyberpaySdk;
+			productReference = 4783617C238A8A1F00A463B6 /* CyberpaySdk.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		47836184238A8A1F00A463B6 /* CyberpaySdkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47836193238A8A1F00A463B6 /* Build configuration list for PBXNativeTarget "CyberpaySdkTests" */;
+			buildPhases = (
+				0958F24500D25652BEDD3F0B /* [CP] Check Pods Manifest.lock */,
+				47836181238A8A1F00A463B6 /* Sources */,
+				47836182238A8A1F00A463B6 /* Frameworks */,
+				47836183238A8A1F00A463B6 /* Resources */,
+				61F93EAB7D3D534312A3DD0D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				47836188238A8A1F00A463B6 /* PBXTargetDependency */,
+			);
+			name = CyberpaySdkTests;
+			productName = CyberpaySdkTests;
+			productReference = 47836185238A8A1F00A463B6 /* CyberpaySdkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47836173238A8A1F00A463B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = cyberspace;
+				TargetAttributes = {
+					4783617B238A8A1F00A463B6 = {
+						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
+					};
+					47836184238A8A1F00A463B6 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 47836176238A8A1F00A463B6 /* Build configuration list for PBXProject "CyberpaySdk" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 47836172238A8A1F00A463B6;
+			productRefGroup = 4783617D238A8A1F00A463B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4783617B238A8A1F00A463B6 /* CyberpaySdk */,
+				47836184238A8A1F00A463B6 /* CyberpaySdkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4783617A238A8A1F00A463B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47836183238A8A1F00A463B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0958F24500D25652BEDD3F0B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CyberpaySdk-CyberpaySdkTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61F93EAB7D3D534312A3DD0D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CyberpaySdk-CyberpaySdkTests/Pods-CyberpaySdk-CyberpaySdkTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CyberpaySdk-CyberpaySdkTests/Pods-CyberpaySdk-CyberpaySdkTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CyberpaySdk-CyberpaySdkTests/Pods-CyberpaySdk-CyberpaySdkTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7FFDAD0F2DF215B40ECFE24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CyberpaySdk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47836178238A8A1F00A463B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47B13E99238FBA8E002EC4CC /* EnrollOtp.swift in Sources */,
+				4772FD8E238D22A4007F305D /* Mode.swift in Sources */,
+				4783619C238A8AAD00A463B6 /* CyberpaySdk.swift in Sources */,
+				47B13E97238FB9EC002EC4CC /* VerifyOtp.swift in Sources */,
+				47B13E8D238FB7AC002EC4CC /* Advice.swift in Sources */,
+				4772FD90238E915D007F305D /* Transaction.swift in Sources */,
+				47B13E91238FB858002EC4CC /* ChargeCard.swift in Sources */,
+				47B13E93238FB8D2002EC4CC /* VerifyTransaction.swift in Sources */,
+				47B13E95238FB910002EC4CC /* VerifyMerchantTransaction.swift in Sources */,
+				47B13E87238FB2A4002EC4CC /* ApiClient.swift in Sources */,
+				47B13E85238FB271002EC4CC /* ApiResponse.swift in Sources */,
+				4772FD9B238E97F4007F305D /* PaymentOption.swift in Sources */,
+				4772FD92238E927D007F305D /* Card.swift in Sources */,
+				4772FD94238E94DD007F305D /* Split.swift in Sources */,
+				47B13E8F238FB7C9002EC4CC /* SetTransaction.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47836181238A8A1F00A463B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4783618B238A8A1F00A463B6 /* CyberpaySdkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		47836188238A8A1F00A463B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4783617B238A8A1F00A463B6 /* CyberpaySdk */;
+			targetProxy = 47836187238A8A1F00A463B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4783618E238A8A1F00A463B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4783618F238A8A1F00A463B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		47836191238A8A1F00A463B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2448C09339573C2C6D2EA792 /* Pods-CyberpaySdk.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7ZD786582M;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CyberpaySdk/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyberspace.CyberpaySdk;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		47836192238A8A1F00A463B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC3E5A191F4E25A01D2F8242 /* Pods-CyberpaySdk.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7ZD786582M;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CyberpaySdk/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyberspace.CyberpaySdk;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		47836194238A8A1F00A463B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5974C7D81BACAE66C2C75048 /* Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7ZD786582M;
+				INFOPLIST_FILE = CyberpaySdkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyberspace.CyberpaySdkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		47836195238A8A1F00A463B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCF1C04CD6FF004F26BAE629 /* Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7ZD786582M;
+				INFOPLIST_FILE = CyberpaySdkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyberspace.CyberpaySdkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47836176238A8A1F00A463B6 /* Build configuration list for PBXProject "CyberpaySdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4783618E238A8A1F00A463B6 /* Debug */,
+				4783618F238A8A1F00A463B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47836190238A8A1F00A463B6 /* Build configuration list for PBXNativeTarget "CyberpaySdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47836191238A8A1F00A463B6 /* Debug */,
+				47836192238A8A1F00A463B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47836193238A8A1F00A463B6 /* Build configuration list for PBXNativeTarget "CyberpaySdkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47836194238A8A1F00A463B6 /* Debug */,
+				47836195238A8A1F00A463B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 47836173238A8A1F00A463B6 /* Project object */;
+}
