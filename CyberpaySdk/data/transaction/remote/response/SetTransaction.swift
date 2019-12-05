@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal struct SetTransaction : Decodable {
+internal struct SetTransaction : Codable {
     var transactionReference : String?
     var charge : Int?
     var redirectUrl : String?

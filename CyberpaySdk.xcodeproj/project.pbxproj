@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470E718623951A7100029FEA /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470E718523951A7100029FEA /* TransactionRepository.swift */; };
+		4764D1EA2398F0F700037C42 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4764D1E92398F0F700037C42 /* Exception.swift */; };
 		4772FD8E238D22A4007F305D /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772FD8D238D22A4007F305D /* Mode.swift */; };
 		4772FD90238E915D007F305D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772FD8F238E915D007F305D /* Transaction.swift */; };
 		4772FD92238E927D007F305D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772FD91238E927D007F305D /* Card.swift */; };
@@ -25,8 +27,10 @@
 		47B13E95238FB910002EC4CC /* VerifyMerchantTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E94238FB910002EC4CC /* VerifyMerchantTransaction.swift */; };
 		47B13E97238FB9EC002EC4CC /* VerifyOtp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E96238FB9EC002EC4CC /* VerifyOtp.swift */; };
 		47B13E99238FBA8E002EC4CC /* EnrollOtp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E98238FBA8E002EC4CC /* EnrollOtp.swift */; };
-		64016EF5C9CC0AC7A372BE9D /* Pods_CyberpaySdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6378A4CAEB837D1DD94E883 /* Pods_CyberpaySdk.framework */; };
-		B2906063AC2CDBCA6C0BE168 /* Pods_CyberpaySdk_CyberpaySdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90207AA19A5126AF11A4B00B /* Pods_CyberpaySdk_CyberpaySdkTests.framework */; };
+		47B13E9B238FC399002EC4CC /* RequestMehtod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E9A238FC399002EC4CC /* RequestMehtod.swift */; };
+		47B13E9D2394FC9F002EC4CC /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E9C2394FC9F002EC4CC /* RequestType.swift */; };
+		47B13E9F239505BC002EC4CC /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13E9E239505BC002EC4CC /* ApiRequest.swift */; };
+		47B13EA5239509B6002EC4CC /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B13EA4239509B6002EC4CC /* TransactionService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		2448C09339573C2C6D2EA792 /* Pods-CyberpaySdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk.debug.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk/Pods-CyberpaySdk.debug.xcconfig"; sourceTree = "<group>"; };
+		470E718523951A7100029FEA /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
+		4764D1E92398F0F700037C42 /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
 		4772FD8D238D22A4007F305D /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		4772FD8F238E915D007F305D /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4772FD91238E927D007F305D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -62,11 +68,13 @@
 		47B13E94238FB910002EC4CC /* VerifyMerchantTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyMerchantTransaction.swift; sourceTree = "<group>"; };
 		47B13E96238FB9EC002EC4CC /* VerifyOtp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOtp.swift; sourceTree = "<group>"; };
 		47B13E98238FBA8E002EC4CC /* EnrollOtp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollOtp.swift; sourceTree = "<group>"; };
+		47B13E9A238FC399002EC4CC /* RequestMehtod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMehtod.swift; sourceTree = "<group>"; };
+		47B13E9C2394FC9F002EC4CC /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		47B13E9E239505BC002EC4CC /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		47B13EA4239509B6002EC4CC /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		5974C7D81BACAE66C2C75048 /* Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk-CyberpaySdkTests/Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig"; sourceTree = "<group>"; };
-		90207AA19A5126AF11A4B00B /* Pods_CyberpaySdk_CyberpaySdkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CyberpaySdk_CyberpaySdkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCF1C04CD6FF004F26BAE629 /* Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk-CyberpaySdkTests/Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC3E5A191F4E25A01D2F8242 /* Pods-CyberpaySdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk.release.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk/Pods-CyberpaySdk.release.xcconfig"; sourceTree = "<group>"; };
-		F6378A4CAEB837D1DD94E883 /* Pods_CyberpaySdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CyberpaySdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64016EF5C9CC0AC7A372BE9D /* Pods_CyberpaySdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,18 +90,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				47836186238A8A1F00A463B6 /* CyberpaySdk.framework in Frameworks */,
-				B2906063AC2CDBCA6C0BE168 /* Pods_CyberpaySdk_CyberpaySdkTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4764D1E82398EBAF00037C42 /* exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				4764D1E92398F0F700037C42 /* Exception.swift */,
+			);
+			path = exceptions;
+			sourceTree = "<group>";
+		};
 		4772FD8A238D08AE007F305D /* remote */ = {
 			isa = PBXGroup;
 			children = (
 				47B13E84238FB271002EC4CC /* ApiResponse.swift */,
 				47B13E86238FB2A4002EC4CC /* ApiClient.swift */,
+				47B13E9A238FC399002EC4CC /* RequestMehtod.swift */,
+				47B13E9C2394FC9F002EC4CC /* RequestType.swift */,
+				47B13E9E239505BC002EC4CC /* ApiRequest.swift */,
 			);
 			path = remote;
 			sourceTree = "<group>";
@@ -173,6 +190,7 @@
 		4783617E238A8A1F00A463B6 /* CyberpaySdk */ = {
 			isa = PBXGroup;
 			children = (
+				4764D1E82398EBAF00037C42 /* exceptions */,
 				4772FD8C238D2274007F305D /* enums */,
 				47836199238A8A6300A463B6 /* model */,
 				47836198238A8A5A00A463B6 /* utils */,
@@ -246,6 +264,7 @@
 		4783619E238A8D0800A463B6 /* transaction */ = {
 			isa = PBXGroup;
 			children = (
+				47B13EA32395098C002EC4CC /* repository */,
 				47B13E8A238FB77C002EC4CC /* local */,
 				47B13E89238FB775002EC4CC /* remote */,
 			);
@@ -270,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				47B13E8B238FB793002EC4CC /* response */,
+				47B13EA4239509B6002EC4CC /* TransactionService.swift */,
 			);
 			path = remote;
 			sourceTree = "<group>";
@@ -295,6 +315,14 @@
 			path = response;
 			sourceTree = "<group>";
 		};
+		47B13EA32395098C002EC4CC /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				470E718523951A7100029FEA /* TransactionRepository.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
 		5AA01B7CEEBA8699640772F5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,8 +337,6 @@
 		D9A1BCCD73FE0E647E909D91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F6378A4CAEB837D1DD94E883 /* Pods_CyberpaySdk.framework */,
-				90207AA19A5126AF11A4B00B /* Pods_CyberpaySdk_CyberpaySdkTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -496,16 +522,22 @@
 				4772FD8E238D22A4007F305D /* Mode.swift in Sources */,
 				4783619C238A8AAD00A463B6 /* CyberpaySdk.swift in Sources */,
 				47B13E97238FB9EC002EC4CC /* VerifyOtp.swift in Sources */,
+				470E718623951A7100029FEA /* TransactionRepository.swift in Sources */,
 				47B13E8D238FB7AC002EC4CC /* Advice.swift in Sources */,
+				4764D1EA2398F0F700037C42 /* Exception.swift in Sources */,
 				4772FD90238E915D007F305D /* Transaction.swift in Sources */,
 				47B13E91238FB858002EC4CC /* ChargeCard.swift in Sources */,
 				47B13E93238FB8D2002EC4CC /* VerifyTransaction.swift in Sources */,
+				47B13E9B238FC399002EC4CC /* RequestMehtod.swift in Sources */,
 				47B13E95238FB910002EC4CC /* VerifyMerchantTransaction.swift in Sources */,
+				47B13E9D2394FC9F002EC4CC /* RequestType.swift in Sources */,
 				47B13E87238FB2A4002EC4CC /* ApiClient.swift in Sources */,
 				47B13E85238FB271002EC4CC /* ApiResponse.swift in Sources */,
 				4772FD9B238E97F4007F305D /* PaymentOption.swift in Sources */,
+				47B13E9F239505BC002EC4CC /* ApiRequest.swift in Sources */,
 				4772FD92238E927D007F305D /* Card.swift in Sources */,
 				4772FD94238E94DD007F305D /* Split.swift in Sources */,
+				47B13EA5239509B6002EC4CC /* TransactionService.swift in Sources */,
 				47B13E8F238FB7C9002EC4CC /* SetTransaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

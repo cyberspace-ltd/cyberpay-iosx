@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal struct Advice : Decodable {
+internal struct Advice : Codable {
     var reference: String? = nil
     var merchantRef: String? = nil
 }

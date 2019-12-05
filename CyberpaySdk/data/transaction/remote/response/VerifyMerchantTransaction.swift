@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal struct VerifyMerchantTransaction : Decodable {
+internal struct VerifyMerchantTransaction : Codable {
       var status : String? = nil
       var processorCode : String? = nil
       var advice : Advice? = nil

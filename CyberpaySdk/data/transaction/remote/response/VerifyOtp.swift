@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal struct VerifyOtp : Decodable {
+internal struct VerifyOtp : Codable {
     var reference : String? = nil
     var processorReference : String? = nil
     var status : String? = nil

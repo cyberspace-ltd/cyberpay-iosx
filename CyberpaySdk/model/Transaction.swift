@@ -10,8 +10,8 @@ import Foundation
 class Transaction {
     
     var card : Card!
-    internal var reference : String!
-    var merchantReference : String!
+    internal var reference : String?
+    var merchantReference : String?
     var currency = "NGN"
     var returnUrl = "url"
     var channel = "None"
@@ -27,4 +27,6 @@ class Transaction {
     var dateOfBirth : String? = ""
     var bvn : String? =  ""
     internal var clientType = "Mobile"
+    var splits : Array<Split> = Array()
+    
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal struct EnrollOtp : Decodable {
+internal struct EnrollOtp : Codable {
     var status : String? = nil
     var message : String? = nil
     var reference : String? = nil

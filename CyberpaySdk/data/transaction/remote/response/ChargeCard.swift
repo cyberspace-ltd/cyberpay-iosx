@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal struct ChargeCard : Decodable {
+internal struct ChargeCard : Codable {
     
        var reference : String?
        var status  : String?

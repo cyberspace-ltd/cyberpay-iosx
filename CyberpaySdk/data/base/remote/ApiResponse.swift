@@ -9,7 +9,7 @@
 import Foundation
 
 // Generic response payload
-struct ApiResponse<T: Decodable>: Decodable {
+struct ApiResponse<T: Codable>: Codable {
     
     let data: T?
     var message: String?

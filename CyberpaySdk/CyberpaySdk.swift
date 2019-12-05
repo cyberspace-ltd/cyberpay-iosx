@@ -10,10 +10,11 @@ import Foundation
 
 class CyberpaySdk {
     
-    static let instance = CyberpaySdk()
-    private static var key : String!
-    private static var envMode = Mode.Debug
+    public static let INSTANCE = CyberpaySdk()
+    private  var key : String!
+    internal var envMode = Mode.Debug
     
+
     private init(){
         
     }
@@ -22,8 +23,8 @@ class CyberpaySdk {
         
     }
     
-    public func initialise(intigrationKey : String, str : String){
-        
+    func initialise(intigrationKey : String, mode : Mode){
+        envMode = mode
     }
     
     private func validateKey(){
@@ -31,59 +32,79 @@ class CyberpaySdk {
     }
     
     
-    private func verifyCardOtp(){
+    static func verifyCardOtp(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+                              onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->() ){
+        
         
     }
     
-    private func verifyBankOtp(){
+    private func verifyBankOtp(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
-    private func processBankOtp(){
+    private func processBankOtp(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
-    private func processCardOtp(){
+    private func processCardOtp(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
-    private func processSecure3dPayment(){
+    private func processSecure3dPayment(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
-    private func chargeCardWithoutPin(){
+    private func chargeCardWithoutPin(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
-    private func chargeCardWithPin(){
+    private func chargeCardWithPin(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
-    private func enrollCardOtp(){
+    private static func enrollCardOtp(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
-    private func enrollBankOtp(){
+    private func enrollBankOtp(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
-    public func chargeBank(){
+    public func chargeBank(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
            
     }
     
-    public func createTransaction(){
+    public func createTransaction(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
-    public func getPayment(){
+    public func getPayment(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
-    public func chargeCard(){
+    public func chargeCard(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
-    public func checkoutTransaction(){
+    public  func checkoutTransaction(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+        
+    }
+    
+    private func processPayment(transaction: Transaction, onSucess: @escaping (Transaction)->(),
+    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     

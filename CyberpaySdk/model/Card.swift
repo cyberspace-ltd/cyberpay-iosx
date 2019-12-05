@@ -9,14 +9,16 @@
 import Foundation
 
 class Card{
-    var number : String!
-    var name : String!
-    var email : String!
-    var address : String!
-    var last4Digits : String!
-    var phoneNumber : String!
-    var cvv : String!
-    var expiryMonth : Int!
-    var expiryYear : Int!
-    var pin : Int!
+    var number : String?
+    var name : String?
+    internal var expiry : String?
+    var email : String?
+    var address : String?
+    var last4Digits : String?
+    var phoneNumber : String?
+    var cvv : String?
+    var expiryMonth : Int?
+    var expiryYear : Int?
+    internal var pin : Int?
+
 }
