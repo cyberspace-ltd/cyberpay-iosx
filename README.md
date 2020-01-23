@@ -15,4 +15,4 @@ The SDK is designed and written in Kotlin, using the singleton pattern so only o
 
 # Tools Used
 ## IDE 
-Android studio is the official integrated development environment (IDE) for Android development, built on JetBrains IntelliJ IDEA software and designed specifically for android development
+Xcode is the official integrated development environment (IDE) for Android development, built on JetBrains IntelliJ IDEA software and designed specifically for android development
