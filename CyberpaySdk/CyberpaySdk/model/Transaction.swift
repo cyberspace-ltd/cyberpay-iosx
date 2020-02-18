@@ -32,6 +32,8 @@ public class Transaction {
     internal var clientType = "Mobile"
     public var splits : Array<Split> = Array()
     
+    var message = ""
+
     public var reference : String {
         return self.ref!
     }

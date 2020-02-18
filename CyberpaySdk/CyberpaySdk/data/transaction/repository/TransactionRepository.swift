@@ -26,10 +26,10 @@ internal class TransactionRepository {
         request.parameters["customerEmail"] = transaction.customerEmail
         request.parameters["clientType"] = transaction.clientType
         request.parameters["splits"] = transaction.splits
-         
-        return service.begingTransaction(request: request)
+        
+        return service.beginTransaction(request: request)
             .flatMap{
-             result -> Observable<ApiResponse<SetTransaction>> in
+                result -> Observable<ApiResponse<SetTransaction>> in
                 return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
         }
         
@@ -48,8 +48,8 @@ internal class TransactionRepository {
         }
         
         return service.chargeCard(request: request)
-        .flatMap{
-             result -> Observable<ApiResponse<ChargeCard>> in
+            .flatMap{
+                result -> Observable<ApiResponse<ChargeCard>> in
                 return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
         }
     }
@@ -57,13 +57,43 @@ internal class TransactionRepository {
     
     func verifyTransactionByReference(reference : String) -> Observable<ApiResponse<VerifyTransaction>> {
         
-        return  service.verifyTransactionByReference(ref: reference)
-        .flatMap{
-             result -> Observable<ApiResponse<VerifyTransaction>> in
+        return  service.verifyTransactionByReference(reference: reference)
+            .flatMap{
+                result -> Observable<ApiResponse<VerifyTransaction>> in
                 return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
         }
         
     }
+    
+    private func getTransactionAdvice(transaction: Transaction, channelCode: ChannelCode)->  Observable<ApiResponse<Advice>> {
+        
+        var channel: String
+        switch channelCode {
+        case ChannelCode.Card:
+            channel = "Card"
+            break
+        case ChannelCode.BankAccount:
+            channel = "BankAccount"
+            break
+        }
+        return service.getTransactionAdvice(transaction: transaction, channelCode: channel)
+            .flatMap{
+                result -> Observable<ApiResponse<Advice>> in
+                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
+        }
+    }
+    
+    
+    func getCardTransactionAdvice(transaction: Transaction) -> Observable<Advice>? {
+        fatalError("Not Implemented")
+    }
+    
+    
+    func getBankTransactionAdvice(transaction: Transaction) -> Observable<Advice>? {
+        
+        fatalError("Not Implemented")
+    }
+    
     
     func verifyCardOtp(transaction : Transaction) ->  Observable<ApiResponse<VerifyOtp>> {
         let request = ApiRequest()
@@ -71,8 +101,8 @@ internal class TransactionRepository {
         request.parameters["reference"] = transaction.reference
         
         return  service.verifyCardOtp(request: request)
-        .flatMap{
-             result -> Observable<ApiResponse<VerifyOtp>> in
+            .flatMap{
+                result -> Observable<ApiResponse<VerifyOtp>> in
                 return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
         }
     }
@@ -83,8 +113,8 @@ internal class TransactionRepository {
         request.parameters["reference"] = transaction.reference
         
         return service.verifyBankOtp(request: request)
-        .flatMap{
-             result -> Observable<ApiResponse<VerifyOtp>> in
+            .flatMap{
+                result -> Observable<ApiResponse<VerifyOtp>> in
                 return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
         }
     }
@@ -99,8 +129,8 @@ internal class TransactionRepository {
         request.parameters["bvn"] = transaction.bvn
         
         return service.chargeBank(request: request)
-        .flatMap{
-             result -> Observable<ApiResponse<ChargeBank>> in
+            .flatMap{
+                result -> Observable<ApiResponse<ChargeBank>> in
                 return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
         }
     }
@@ -111,28 +141,46 @@ internal class TransactionRepository {
         request.parameters["reference"] = transaction.reference
         
         return service.enrollBankOtp(request: request)
-        .flatMap{
-             result -> Observable<ApiResponse<EnrollOtp>> in
+            .flatMap{
+                result -> Observable<ApiResponse<EnrollOtp>> in
                 return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
         }
         
     }
     
     func enrollCardOtp(transaction : Transaction) -> Observable<ApiResponse<EnrollOtp>> {
-    
+        
         let request = ApiRequest()
         request.parameters["reference"] = transaction.reference
         request.parameters["registeredPhoneNumber"] = transaction.card.phoneNumber
         request.parameters["cardModel"] = transaction.card.toJson
         
         return service.enrollCardOtp(request: request)
-        .flatMap{
-             result -> Observable<ApiResponse<EnrollOtp>> in
+            .flatMap{
+                result -> Observable<ApiResponse<EnrollOtp>> in
                 return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
         }
         
     }
     
-    
+    func cancelTransaction(transaction: Transaction) -> Observable<ApiResponse<AnyCodable>>? {
+        
+        
+        let request = ApiRequest()
+        request.parameters["reference"] = transaction.reference
+        request.parameters["registeredPhoneNumber"] = transaction.card.phoneNumber
+        request.parameters["cardModel"] = transaction.card.toJson
+        
+        return service.cancelTransaction(transaction: transaction, request: request)
+            .flatMap{
+                result -> Observable<ApiResponse<AnyCodable>> in
+                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
+                
+        }
+        
+        
+        
+    }
     
 }
+

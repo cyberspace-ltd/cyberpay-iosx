@@ -11,6 +11,7 @@ import MaterialComponents.MaterialBottomSheet
 
 class Checkout : MDCBottomSheetController {
     
+    var presenter: CheckoutViewPresenter!
      var btContinue = UIButton()
      var pageTitle = UILabel()
      var debugText = UILabel()
@@ -126,7 +127,7 @@ class Checkout : MDCBottomSheetController {
         scrollView.addSubview(btContinue)
         btContinue.translatesAutoresizingMaskIntoConstraints = false
     
-        btContinue.setTitle("Pay ₦\(transaction.amount)", for: UIControl.State.normal)
+        btContinue.setTitle("Pay ₦\(transaction.amount / 100)", for: UIControl.State.normal)
         btContinue.backgroundColor = UIColor.init(hexString: Constants.primaryColor)
       
         btContinue.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
@@ -173,6 +174,16 @@ class Checkout : MDCBottomSheetController {
      
         disablePay()
     }
+    
+    private func showProgress(message: String)
+     {
+         LoadingIndicatorView.show(message)
+     }
+     
+     private func dismissProgress(){
+         LoadingIndicatorView.hide()
+     }
+     
     
     func enablePay(){
         self.btContinue.isEnabled = true
@@ -284,6 +295,64 @@ class Checkout : MDCBottomSheetController {
            setupComponents()
        }
     
+    
+    
+}
+
+extension Checkout: CheckoutView {
+    func onError(message: String) {
+        fatalError("Not Implemented")
+    }
+    
+    func onBankPay() {
+                fatalError("Not Implemented")
+
+    }
+    
+    func onCardPay() {
+                fatalError("Not Implemented")
+
+    }
+    
+    func onLoad() {
+                fatalError("Not Implemented")
+
+    }
+    
+    func onLoadComplete(banks: Array<BankResponse>) {
+                fatalError("Not Implemented")
+
+    }
+    
+    func onAccountName(account: AccountResponse) {
+                fatalError("Not Implemented")
+
+    }
+    
+    func onUpdateAdvice(advice: Advice) {
+                fatalError("Not Implemented")
+
+    }
+    
+    func onCancelTransaction(transaction: Transaction) {
+                fatalError("Not Implemented")
+
+    }
+    
+    func onCancelTransactionError(transaction: Transaction) {
+                fatalError("Not Implemented")
+
+    }
+    
+    func onDisablePay() {
+                fatalError("Not Implemented")
+
+    }
+    
+    func onEnablePay() {
+                fatalError("Not Implemented")
+
+    }
     
     
 }

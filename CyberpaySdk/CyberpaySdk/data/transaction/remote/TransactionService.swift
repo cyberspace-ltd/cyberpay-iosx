@@ -10,14 +10,15 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class TransactionService {
+class TransactionService: TransactionServiceProtocol {
+
     
     private let apiClient = ApiClient()
     
     /*
      set transaction to get transaction reference
      */
-    func begingTransaction(request : ApiRequest) -> Observable<ApiResponse<SetTransaction>> {
+    func beginTransaction(request : ApiRequest) -> Observable<ApiResponse<SetTransaction>> {
         request.path = "payments"
         return apiClient.send(apiRequest: request)
     }
@@ -30,27 +31,32 @@ class TransactionService {
         return apiClient.send(apiRequest: request)
     }
     
+    func getTransactionAdvice(transaction : Transaction, channelCode: String) -> Observable<ApiResponse<Advice>> {
+           let request = ApiRequest()
+        request.path = "payments/\(transaction.reference)/advice/?channelcode=\(channelCode)"
+            request.method = RequestType.GET
+            return apiClient.send(apiRequest: request)
+    }
+    
     /*
      verify transation status given the transaction reference
      */
-    func verifyTransactionByReference(ref : String) -> Observable<ApiResponse<VerifyTransaction>> {
+    func verifyTransactionByReference(reference : String) -> Observable<ApiResponse<VerifyTransaction>> {
         let request = ApiRequest()
-        request.path = "payments/" + ref
+        request.path = "payments/" + reference
         request.method = RequestType.GET
         return apiClient.send(apiRequest: request)
     }
     
     /*
      verify transation status given the merchant transaction reference
-     
-    func verifyTransactionByMerchantReference(ref : String) -> Observable<ApiResponse<VerifyMerchantTransaction>> {
-        let request = ApiRequest()
-        request.path = "payments/" + ref
-        request.method = RequestType.GET
-        return apiClient.send(apiRequest: request)
-    }
      */
-    
+       func verifyTransactionByMerchantReference(merchantReference: String) -> Observable<ApiResponse<VerifyMerchantTransaction>> {
+         let request = ApiRequest()
+              request.path = "transactions/transactionsBymerchantRef/?merchantRef=\(merchantReference)"
+              request.method = RequestType.GET
+              return apiClient.send(apiRequest: request)
+     }
     
     /*
         verify card otp to complete transaction
@@ -94,4 +100,38 @@ class TransactionService {
     }
     
     
+
+      func enrolBank(request: ApiRequest) -> Observable<ApiResponse<EnrollBank>> {
+          fatalError("Must be overridden")
+      }
+    
+    func finalBankOtp(request: ApiRequest) -> Observable<ApiResponse<VerifyOtp>> {
+                  fatalError("Must be overridden")
+
+    }
+    
+    func mandateBankOtp(request: ApiRequest) -> Observable<ApiResponse<EnrollOtp>> {
+                  fatalError("Must be overridden")
+
+    }
+    
+    func getCardTransactionAdvice(request: ApiRequest) -> Observable<Advice> {
+                  fatalError("Must be overridden")
+
+    }
+    
+    func getBankTransactionAdvice(request: ApiRequest) -> Observable<Advice> {
+                  fatalError("Must be overridden")
+
+    }
+    
+    func updateTransactionClientType(request: ApiRequest) -> Observable<ApiResponse<EnrollOtp>> {
+                  fatalError("Must be overridden")
+
+    }
+    
+    func cancelTransaction(transaction : Transaction, request: ApiRequest) -> Observable<ApiResponse<AnyCodable>> {
+        request.path = "payments/\(transaction.reference)/cancel"
+        return apiClient.send(apiRequest: request)
+    }
 }

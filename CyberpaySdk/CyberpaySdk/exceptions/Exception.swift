@@ -13,14 +13,14 @@ public enum Exception : Error {
     case InvalidIntegrationException(message: String)
     case CyberpayException(message: String)
     case CardNotSetException(message: String)
-    
+    case TransactionNotFoundException(message: String)
     var localizedDescription: String? {
         switch self {
         case let .SDKNotInitializedException(message),
              let .InvalidIntegrationException(message),
              let .CardNotSetException(message),
-             let .CyberpayException(message):
-        
+             let .CyberpayException(message),
+             let .TransactionNotFoundException(message):
             return message
         
         }

@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         transaction.customerEmail = "test@email.com"
         transaction.merchantReference = "heplehnjdnjnene3t" + String(Int.random(in: 100 ..< 1000))
 
+        CyberpaySdk.INSTANCE.initialise(integrationKey: "5704d9ab0e114746accc5db8e927821b", mode: Mode.Live)
         CyberpaySdk.INSTANCE.checkoutTransaction(rootController: self, transaction: transaction,
            onSucess: {result in
             print(result.reference)

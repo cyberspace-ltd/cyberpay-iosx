@@ -13,42 +13,36 @@ import FittedSheets
 public class CyberpaySdk {
     
     public static let INSTANCE = CyberpaySdk()
-    private  var key : String = "*"
+    internal  var key : String = "*"
     internal var envMode = Mode.Debug
     private var maskView = ProgressMaskView()
-   
+    internal var isServerTransaction =  false
+    internal var autoGenerateMerchantReference = false
     var bottomSheetController : UIViewController = UIViewController()
     
     private var repository = TransactionRepository()
     private var progressController = UIViewController()
     
-    private func showProgress(controller: UIViewController,message: String)
+    private func showProgress(message: String)
     {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
-
-        alert.view.addSubview(loadingIndicator)
+        LoadingIndicatorView.show(message)
     }
     
     private func dismissProgress(){
-        maskView.hideIn(second: 1.0, uninstall: true)
+        LoadingIndicatorView.hide()
     }
-
+    
     private init(){
         
     }
     
-    public func initialise(intigrationKey : String){
-        key = intigrationKey
+    public func initialise(integrationKey : String){
+        key = integrationKey
     }
     
-    func initialise(intigrationKey : String, mode : Mode){
+    public func initialise(integrationKey : String, mode : Mode){
         envMode = mode
-        key = intigrationKey
+        key = integrationKey
     }
     
     private func validateKey() throws {
@@ -63,117 +57,120 @@ public class CyberpaySdk {
     
     
     static func verifyCardOtp(rootController: UIViewController, transaction: Transaction, onSucess: @escaping(Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->() ){
+                              onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->() ){
         
-    
+        
     }
     
     private func verifyBankOtp(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+                               onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
     private func processBankOtp(rootController: UIViewController, transaction: Transaction, onSucess: @escaping(Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+                                onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
     private func processCardOtp(rootController: UIViewController, transaction: Transaction, onSucess: @escaping(Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+                                onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
     private func processSecure3dPayment(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+                                        onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
     private func chargeCardWithoutPin(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+                                      onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
         repository.chargeCard(transaction: transaction)
-        .subscribe(onNext: {
-            result in
-        
-            switch(result.data?.status){
-            case "Success", "Successful":
-                onSucess(transaction)
-                
-            case "Otp" :
-                print("")
-                
-            case "ProvidePin" :
-                print("")
-                
-            case "EnrollOtp" :
-                print("")
-                
-            case "ProcessACS", "Secure3D" , "Secure3DMpgs" :
-               transaction.returnUrl = (result.data?.redirectUrl)!
-            
-            default  :
-                onError( transaction, Exception.CyberpayException(message: result.message!))
-            }
-            //onSucess(transaction)
-            
-        }, onError: {
-            error in
-            onError(transaction,error)
-        })
-        
-    }
-    
-    private func chargeCardWithPin(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
-        
-    }
-    
-    private static func enrollCardOtp(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
-        
-    }
-    
-    private func enrollBankOtp(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
-        
-    }
-    
-    private func chargeBank(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
-           
-    }
-    
-    public func createTransaction(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
-        transaction.key = self.key
-        
-        // code for merchant reference auto generate here
-    
-        repository.beginTransaction(transaction: transaction)
             .subscribe(onNext: {
                 result in
-                transaction.ref = result.data?.transactionReference
-                transaction.charge = result.data?.charge
-                onSucess(transaction)
                 
-              
+                switch(result.data?.status){
+                case "Success", "Successful":
+                    onSucess(transaction)
+                    
+                case "Otp" :
+                    print("")
+                    
+                case "ProvidePin" :
+                    print("")
+                    
+                case "EnrollOtp" :
+                    print("")
+                    
+                case "ProcessACS", "Secure3D" , "Secure3DMpgs" :
+                    transaction.returnUrl = (result.data?.redirectUrl)!
+                    
+                default  :
+                    onError( transaction, Exception.CyberpayException(message: result.message!))
+                }
+                //onSucess(transaction)
+                
             }, onError: {
                 error in
                 onError(transaction,error)
             })
-         
+        
+    }
+    
+    private func chargeCardWithPin(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
+                                   onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+        
+    }
+    
+    private static func enrollCardOtp(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
+                                      onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+        
+    }
+    
+    private func enrollBankOtp(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
+                               onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+        
+    }
+    
+    private func chargeBank(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
+                            onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+        
+    }
+    
+    public func createTransaction(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
+                                  onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+        transaction.key = self.key
+        
+        // code for merchant reference auto generate here
+        
+        repository.beginTransaction(transaction: transaction)
+            .subscribe(onNext: {
+                result in
                 
+                print("begin Transaction, on Next \(String(describing: result.data))")
+                
+                transaction.ref = result.data?.transactionReference
+                transaction.charge = result.data?.charge
+                onSucess(transaction)
+                
+                
+            }, onError: {
+                error in
+                onError(transaction,error)
+            })
+        
+        
     }
     
     public func getPayment(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()) throws {
+                           onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()) throws {
         
         transaction.type = TransactionType.Card
         
         self.createTransaction(rootController: rootController, transaction: transaction, onSucess: {
             result in
             
-           //try self.processPayment(rootController: rootController, transaction: transaction, onSucess: onSucess, onError: onError, onValidate: onValidate)
+            //try self.processPayment(rootController: rootController, transaction: transaction, onSucess: onSucess, onError: onError, onValidate: onValidate)
             
         }, onError: onError, onValidate: onValidate)
         
@@ -182,57 +179,80 @@ public class CyberpaySdk {
     }
     
     public func chargeCard(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+                           onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
     }
     
     public func checkoutTransaction(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
-        
+                                    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+        try! validateKey()
         transaction.key = self.key
         self.bottomSheetController = rootController
         
         
         
         DispatchQueue.main.async {
-                        
-          let checkout = Checkout(transaction: transaction,rootController: self.bottomSheetController, onCardSubmit: { card in
-              
-            //create transaction
-            DispatchQueue.main.async{
+            
+            let checkout = Checkout(transaction: transaction,rootController: self.bottomSheetController, onCardSubmit: { card in
                 
-            print("card transationc")
-                print(Thread.current.nextSequenceId())
-            //self.showProgress(controller: self.bottomSheetController, message: "Processing...")
-                
-            }
-            
-            
-            
-          },
-           onBankSubmit: { bank in
-              
-          },
-           onRedirect: { bank in
-              
-          })
-          
-          rootController.present(checkout, animated: true, completion: nil)
-          
-          //self.showProgress(controller: pin, message: "Proccessing...")
-          
+                //create transaction
+                DispatchQueue.main.async{
+                    
+                    print("card transationc")
+                    print(Thread.current.nextSequenceId())
+                    self.showProgress( message: "Processing...")
+                    
+                    self.createTransaction(rootController: rootController, transaction: transaction, onSucess: { (trans) in
+                        self.dismissProgress()
                         
+                    }, onError: { (trans, err) in
+                        self.dismissProgress()
+                        onError(trans,err)
+                        
+                    }) { (trans) in
+                        self.dismissProgress()
+                        onValidate(trans)
+                    }
+                    
+                }
+                
+                
+                
+            },
+                                    onBankSubmit: { bank in
+                                        
+            },
+                                    onRedirect: { bank in
+                                        
+            })
+            
+            rootController.present(checkout, animated: true, completion: nil)
+            
+            //self.showProgress(controller: pin, message: "Proccessing...")
+            
+            
         }
         
     }
     
     public func completeCheckoutTransaction(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+                                            onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()) throws {
+        try! validateKey()
+        
+        if transaction.reference.isEmpty {
+            throw Exception.TransactionNotFoundException(message: "Transaction reference not found. Kindly set transaction before calling this method")
+        }
+        
+        isServerTransaction =  true
+        showProgress(message: "Processing Transaction")
+        
+        fatalError("Not Implemented")
+        
         
     }
     
     private func processPayment(rootController: UIViewController, transaction: Transaction, onSucess: @escaping (Transaction)->(),
-    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->())  throws {
+                                onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->())  throws {
         
         if(transaction.card == nil){
             throw Exception.CardNotSetException(message: "Card Not Found. Card cannot be empty")
@@ -242,7 +262,7 @@ public class CyberpaySdk {
         if(transaction.card.cardType == SwiftLuhn.CardType.verve){
             
         }
-        
+            
         else {
             
         }

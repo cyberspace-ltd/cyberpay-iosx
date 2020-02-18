@@ -12,7 +12,7 @@ class ApiRequest {
     var method: RequestType = RequestType.POST
     var path: String!
     var parameters: [String : Any]! = [String : Any]()
-
+    var headers : [String : Any]! = [String : Any]()
     
     func request(with baseURL: URL) -> URLRequest {
         guard let components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: false) else {
@@ -35,6 +35,13 @@ class ApiRequest {
             }
         
         }
+        if(headers.count>0) {
+                    for (key, value) in headers {
+                        let valueinString =  value as! String
+                        request.addValue(valueinString, forHTTPHeaderField: key)
+                    }
+              
+              }
  
         //set custom headers
         request.addValue("application/json", forHTTPHeaderField: "Accept")
