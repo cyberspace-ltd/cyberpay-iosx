@@ -271,10 +271,10 @@ class Checkout : MDCBottomSheetController {
     }
     
     private var onCard : ((Card) -> Void)?
-    private var onBank : ((BankResponse) -> Void)?
+    private var onBank : ((BankAccount) -> Void)?
     private var onBankRedirect : ((BankResponse) -> Void)?
     
-    init(transaction: Transaction,rootController: UIViewController, onCardSubmit: @escaping (_ card: Card)->(), onBankSubmit: @escaping (_ card: BankResponse)->(), onRedirect: @escaping (_ bank: BankResponse)->()) {
+    init(transaction: Transaction,rootController: UIViewController, onCardSubmit: @escaping (_ card: Card)->(), onBankSubmit: @escaping (_ card: BankAccount)->(), onRedirect: @escaping (_ bank: BankResponse)->()) {
         
         self.transaction = transaction
         

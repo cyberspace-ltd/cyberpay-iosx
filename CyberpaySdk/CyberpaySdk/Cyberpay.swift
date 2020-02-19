@@ -12,21 +12,6 @@ import Foundation
 import UIKit
 import FittedSheets
 
-/// A protocol for observing the status of your transactions within the `CyberpaySdk`
-public protocol CyberpayDelegate {
-    
-    /// Called when 3DS  authentication for the transaction is completed.
-    ///
-    /// - Parameters:
-    ///   - for transaction: The Transaction that the  `CyberpaySdk` was handling.
-    func onCyberpayDidReturnWithSuccess(for transaction: Transaction)
-    
-    func onCyberpayDidReturnWithError(for transaction: Transaction?, withError error: Error)
-    
-    func onCyberpayDidReturnWithValidate(for transaction: Transaction)
-    
-    
-}
 
 public class CyberpaySdk {
     
@@ -41,16 +26,20 @@ public class CyberpaySdk {
     
     private var repository: TransactionRepository = TransactionRepositoryImpl()
     private var progressController = UIViewController()
-    private var delegate: CyberpayDelegate? = nil
     
     private func clearTempAdvice(){
         TransactionRepositoryImpl.bankAdvice = nil
         TransactionRepositoryImpl.cardAdvice = nil
     }
     
-    private func showProgress(message: String)
+    private func showProgress(message: String = "")
     {
-        LoadingIndicatorView.show(message)
+        if message.isEmpty {
+            LoadingIndicatorView.show()
+        }
+        else {
+            LoadingIndicatorView.show(message)
+        }
     }
     
     private func dismissProgress(){
@@ -71,10 +60,6 @@ public class CyberpaySdk {
     }
     
     private func validate() throws {
-        if(delegate == nil){
-            throw Exception.InvalidIntegrationException(message: "CyberpayDelegate has not been initialised!")
-        }
-        
         if(key=="*"){
             throw Exception.SDKNotInitializedException(message: "Cyberpay sdk has not been initialised!")
         }
@@ -191,6 +176,7 @@ public class CyberpaySdk {
     
     
     
+    
     private func processSecure3dPayment(rootController: UIViewController, transaction: Transaction, onSuccess: @escaping (Transaction)->(),
                                         onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
@@ -199,15 +185,89 @@ public class CyberpaySdk {
         DispatchQueue.main.async {
             
             if !transaction.returnUrl.isEmpty {
-                let secure3dView =  Secure3DViewController(nibName: nil, bundle: nil)
-                rootController.present(secure3dView, animated: true)
-                secure3dView.initialize(with: transaction)
+                
+                DispatchQueue.main.async {
+                    
+                    let secure3dView = Secure3DViewController(contentViewController: self.bottomSheetController, transaction: transaction, onFinished: { (transaction) in
+                        
+                        self.repository.verifyTransactionByReference(reference: transaction.reference).subscribe(onNext: { (result) in
+                            
+                            transaction.message =  result.data!.message!
+                            
+                            switch(result.data?.status){
+                            case "Successful", "Success":
+                                onSuccess(transaction)
+                                break
+                                
+                            default  :
+                                onError( transaction, Exception.CyberpayException(message: result.data!.message!))
+                                break
+                                
+                            }
+                            
+                            
+                        }, onError: { (error) in
+                            
+                            onError(transaction, error)
+                            
+                        })
+                        
+                    }) { (errorMessage) in
+                        onError(transaction, Exception.CyberpayException(message: errorMessage))
+                        
+                    }
+                    
+                    
+                    rootController.present(secure3dView, animated: true, completion: nil)
+                    
+                }
+                
+                
                 
             } else {
                 onError( transaction, Exception.CyberpayException(message: "The transaction did not contain a URL for 3DSecure "))
             }
             
         }
+        
+    }
+    
+    private func processMandateBankOtp(rootController: UIViewController, transaction: Transaction, onSuccess: @escaping (Transaction)->(),
+                                       onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+        
+        repository.chargeCard(transaction: transaction)
+            .subscribe(onNext: {
+                result in
+                
+                switch(result.data?.status){
+                case "Success", "Successful":
+                    onSuccess(transaction)
+                    break
+                case "FinalOtp" :
+                    DispatchQueue.main.async {
+                        
+                        let otpView = PinPad(contentViewController: self.bottomSheetController, inputType: InputType.Otp) { (otp) in
+                            
+                            transaction.otp = otp
+                            self.enrollCardOtp(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
+                            
+                        }
+                        
+                        rootController.present(otpView, animated: true, completion: nil)
+                        
+                    }
+                    break
+                    
+                default  :
+                    onError( transaction, Exception.CyberpayException(message: result.data!.message!))
+                    break
+                    
+                }
+                
+            }, onError: {
+                error in
+                onError(transaction,error)
+            })
         
     }
     
@@ -335,6 +395,44 @@ public class CyberpaySdk {
         
     }
     
+    private func enrollBank(rootController: UIViewController, transaction: Transaction, onSuccess: @escaping (Transaction)->(),
+                            onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+        
+        repository.enrolBank(transaction: transaction)
+            .subscribe(onNext: { (result) in
+                transaction.message = result.data!.message!
+                switch result.data?.status {
+                case "Successful", "Success":
+                    onSuccess(transaction)
+                    break
+                case "MandateOtp":
+                    
+                    DispatchQueue.main.async {
+                        
+                        let otpView = PinPad(contentViewController: self.bottomSheetController, inputType: InputType.BankOtp) { (otp) in
+                            
+                            transaction.otp = otp
+                            self.processMandateBankOtp(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
+                            
+                        }
+                        
+                        rootController.present(otpView, animated: true, completion: nil)
+                        
+                    }
+                    
+                    break
+                default :
+                    onError(transaction, Exception.CyberpayException(message: result.message!) )
+                    break
+                }
+                
+            }, onError: { (error) in
+                onError(transaction, error)
+                
+            })
+        
+    }
+    
     private func processBankFinalOtp(rootController: UIViewController, transaction: Transaction, onSuccess: @escaping (Transaction)->(),
                                      onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         
@@ -373,11 +471,23 @@ public class CyberpaySdk {
                 
                 switch result.data?.requiredParameters![0].param {
                 case "dob":
-                    /// TODO: BUILD Date of Birth View
+                    self.bottomSheetController = rootController
+                    
+                    DispatchQueue.main.async {
+                        
+                        let dobView = DateOfBirthView(contentViewController: self.bottomSheetController, message: result.data?.requiredParameters![0].message! ?? "") { (dob) in
+                            
+                            transaction.bankAccount?.dateOfBirth = dob
+                            self.enrollBank(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
+                            
+                        }
+                        rootController.present(dobView, animated: true, completion: nil)
+                        
+                    }
+                    
                     break
                 case "bvn":
                     /// TODO:  Add BVN implementationj
-                    
                     break
                 default:
                     
@@ -405,7 +515,7 @@ public class CyberpaySdk {
             case  "EnrollOtp":
                 DispatchQueue.main.async {
                     
-                    let otpView = PinPad(contentViewController: self.bottomSheetController, inputType: InputType.Otp) { (otp) in
+                    let otpView = PinPad(contentViewController: self.bottomSheetController, inputType: InputType.BankOtp) { (otp) in
                         
                         transaction.otp = otp
                         self.enrollBankOtp(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
@@ -492,6 +602,57 @@ public class CyberpaySdk {
         transaction.key = self.key
         self.bottomSheetController = rootController
         
+        showProgress(message: "Processing Transaction")
+        
+        createTransaction(rootController: self.bottomSheetController, transaction: transaction, onSuccess: { (transaction) in
+            
+            DispatchQueue.main.async {
+                self.dismissProgress()
+            }
+            
+            try! self.completeTransaction(rootController: self.bottomSheetController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
+            
+        }, onError: { (transaction, error) in
+            
+            DispatchQueue.main.async {
+                self.dismissProgress()
+            }
+            onError(transaction, error)
+            
+        }) { (transaction) in
+            DispatchQueue.main.async {
+                self.dismissProgress()
+            }
+            onValidate(transaction)
+            
+        }
+        
+    }
+    
+    public func completeTransaction(rootController: UIViewController, transaction: Transaction, onSuccess: @escaping (Transaction)->(),
+                                    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()) throws {
+        try! validate()
+        
+        if transaction.reference.isEmpty {
+            throw Exception.TransactionNotFoundException(message: "Transaction reference not found. Kindly set transaction before calling this method")
+        }
+        
+        isServerTransaction =  false
+        clearTempAdvice()
+        transaction.key = key
+        
+        if (transaction.merchantReference?.isEmpty ?? true) && !autoGenerateMerchantReference {
+            autoGenerateMerchantReference =  true
+        }
+        
+        if autoGenerateMerchantReference {
+            transaction.merchantReference =  "heplehnjdnjnene3t" + String(Int.random(in: 100 ..< 1000))
+        }
+        
+        showProgress(message: "Processing Transaction")
+        
+        self.bottomSheetController = rootController
+        
         
         
         DispatchQueue.main.async {
@@ -501,37 +662,106 @@ public class CyberpaySdk {
                 //create transaction
                 DispatchQueue.main.async{
                     
-                    print("card transationc")
-                    print(Thread.current.nextSequenceId())
                     self.showProgress( message: "Processing...")
                     
-                    self.createTransaction(rootController: rootController, transaction: transaction, onSuccess: { (trans) in
-                        self.dismissProgress()
+                    transaction.card = card
+                    
+                    try! self.processPayment(rootController: rootController, transaction: transaction, onSuccess: { (transaction) in
                         
-                    }, onError: { (trans, err) in
-                        self.dismissProgress()
-                        onError(trans,err)
+                        DispatchQueue.main.async {
+                            self.dismissProgress()
+                            rootController.dismiss(animated: true, completion: nil)
+                        }
+                        onSuccess(transaction)
                         
-                    }) { (trans) in
-                        self.dismissProgress()
-                        onValidate(trans)
+                    }, onError: { (transaction, error) in
+                        DispatchQueue.main.async {
+                            self.dismissProgress()
+                            if !self.autoGenerateMerchantReference {
+                                rootController.dismiss(animated: true, completion: nil)
+                                
+                            }
+                            onError(transaction, error)
+                            
+                        }
+                        
+                    }) { (transaction) in
+                        DispatchQueue.main.async {
+                            self.dismissProgress()
+                        }
+                        onValidate(transaction)
+                        
+                    }
+                    
+                    
+                }
+                
+            },onBankSubmit: { bank in
+                transaction.bankAccount = bank
+                DispatchQueue.main.async{
+                    self.showProgress()
+                    
+                    self.chargeBank(rootController: rootController, transaction: transaction, onSuccess: { (transaction) in
+                        
+                        DispatchQueue.main.async {
+                            self.dismissProgress()
+                            rootController.dismiss(animated: true, completion: nil)
+                        }
+                        onSuccess(transaction)
+                    }, onError: { (transaction, error) in
+                        
+                        DispatchQueue.main.async {
+                            self.dismissProgress()
+                            
+                            onError(transaction, error)
+                            
+                        }
+                        
+                    }) { (transaction) in
+                        
+                        DispatchQueue.main.async {
+                            self.dismissProgress()
+                            
+                            
+                        }
+                        onValidate(transaction)
+                        
                     }
                     
                 }
                 
                 
+            },onRedirect: { bankResponse in
+                transaction.returnUrl = "\(bankResponse.externalRedirectUrl!)?reference=\(transaction.reference)"
                 
-            },
-                                    onBankSubmit: { bank in
-                                        
-            },
-                                    onRedirect: { bank in
-                                        
+                DispatchQueue.main.async{
+                    self.dismissProgress()
+                    
+                    self.processSecure3dPayment(rootController: rootController, transaction: transaction, onSuccess: { (transaction) in
+                        DispatchQueue.main.async {
+                            self.dismissProgress()
+                        }
+                        onSuccess(transaction)
+                    }, onError: { (transaction, error) in
+                        DispatchQueue.main.async {
+                            self.dismissProgress()
+                        }
+                        onError(transaction,error)
+                    }) { (transaction) in
+                        DispatchQueue.main.async {
+                            self.dismissProgress()
+                        }
+                        onValidate(transaction)
+                    }
+                    
+                    
+                    
+                }
+                
             })
             
             rootController.present(checkout, animated: true, completion: nil)
             
-            //self.showProgress(controller: pin, message: "Proccessing...")
             
             
         }
@@ -549,7 +779,24 @@ public class CyberpaySdk {
         isServerTransaction =  true
         showProgress(message: "Processing Transaction")
         
-        fatalError("Not Implemented")
+        repository.getTransactionAdvice(transaction: transaction, channelCode: .Card)
+            .subscribe(onNext: { (advice) in
+                
+                DispatchQueue.main.async {
+                    self.dismissProgress()
+                }
+                
+                transaction.amount =  advice.amount!
+                transaction.charge = advice.charge!
+                
+                try! self.completeTransaction(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
+                
+            }, onError: { (error) in
+                DispatchQueue.main.async {
+                    self.dismissProgress()
+                }
+                onError(transaction, error)
+            })
         
         
     }
@@ -562,16 +809,43 @@ public class CyberpaySdk {
         }
         
         
-        if(transaction.card.cardType == SwiftLuhn.CardType.verve){
+        switch transaction.card.cardType {
+        case .verve:
+            transaction.message = "To ensure you own this card, kindly enter your pin to continue"
+            DispatchQueue.main.async {
+                
+                let pinView = PinPad(contentViewController: self.bottomSheetController, inputType: InputType.Pin) { (pin) in
+                    
+                    transaction.card?.pin = pin
+                    self.chargeCardWithoutPin(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
+                    
+                }
+                rootController.present(pinView, animated: true, completion: nil)
+            }
+            break
+        case .visa:
             
-        }
+            if isServerTransaction {
+                repository.updateTransactionClientType(transaction: transaction)
+                    .subscribe(onNext: { (result) in
+                        self.chargeCardWithoutPin(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
+                    }, onError: {(error) in
+                        onError(transaction,error)
+                        
+                    })
+            }
+            else {
+                self.chargeCardWithoutPin(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
+            }
+            break
             
-        else {
-            
+        default:
+            self.chargeCardWithoutPin(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
         }
         
+        
+        
     }
-    
     
     
     
@@ -579,35 +853,3 @@ public class CyberpaySdk {
     
 }
 
-extension CyberpaySdk : Secure3DControllerDelegate {
-    
-    
-    public func secure3dViewController(_ secureDsView: Secure3DViewController, didComplete authenticated: Bool, for transaction: Transaction) {
-        
-        repository.verifyTransactionByReference(reference: transaction.reference).subscribe(onNext: { (result) in
-            transaction.message = result.data!.message!
-            
-            switch result.data?.status {
-            case "Successful", "Success":
-                self.delegate?.onCyberpayDidReturnWithSuccess(for: transaction)
-                break
-            default :
-                self.delegate?.onCyberpayDidReturnWithError(for: transaction, withError: Exception.CyberpayException(message: result.message!))
-                break
-            }
-            
-        }, onError: { error in
-            self.delegate?.onCyberpayDidReturnWithError(for: transaction, withError: error)
-            
-        })
-    }
-    
-    public func secure3dViewController(_ secureDsView: Secure3DViewController, didError error: String, for transaction: Transaction) {
-        self.delegate?.onCyberpayDidReturnWithError(for: transaction, withError: Exception.CyberpayException(message: error))
-        
-    }
-    
-    public func secure3dViewControllerDidCancel(_ secureDsView: Secure3DViewController) {
-        self.delegate?.onCyberpayDidReturnWithError(for: nil, withError: Exception.CyberpayException(message: "3DSecure authentication cancelled has been cancelled."))
-    }
-}

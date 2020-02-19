@@ -10,30 +10,16 @@ import Foundation
 
 import UIKit
 import WebKit
+import MaterialComponents.MaterialBottomSheet
 
 
-/// A protocol for observing the status of the 3DS  transaction being authenticated with a `Secure3DViewController`
-public protocol Secure3DControllerDelegate {
-    
-    /// Called when 3DS  authentication for the transaction is completed.
-    ///
-    /// - Parameters:
-    ///   - secureDsView: The `Secure3DViewController`
-    ///   - authenticated: This returns true or false, depending on if the authentication was successful.
-    ///   - for transaction: The Transaction that the  `Secure3DViewController` was authenticating.
-    func secure3dViewController(_ secureDsView: Secure3DViewController, didComplete authenticated: Bool, for transaction: Transaction)
-    
-    func secure3dViewController(_ secureDsView: Secure3DViewController, didError error: String, for transaction: Transaction)
-    
-    func secure3dViewControllerDidCancel(_ secureDsView: Secure3DViewController)
-    
-}
 
 /// A view controller for performing 3DS authentication.
-public class Secure3DViewController: UIViewController {
+public class Secure3DViewController: MDCBottomSheetController {
     
-    /// A delegate for being notified of completion or cancellation of the process
-    private var delegate: Secure3DControllerDelegate? = nil
+    private var uiController : UIViewController?
+    private var onCompleted : ((Transaction) -> Void)?
+    private var onErrorReturned : ((String) -> Void)?
     
     lazy var webView =  lazyWebView()
     lazy var activityIndicator = lazyActivityIndicator()
@@ -46,8 +32,15 @@ public class Secure3DViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height)
+        
+        self.dismissOnDraggingDownSheet = false
+        self.dismissOnBackgroundTap = false
+        
         setupNavigationItem()
         setupView()
+        
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -57,15 +50,25 @@ public class Secure3DViewController: UIViewController {
     }
     
     
-    public func initialize(with transaction: Transaction)  {
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    init(contentViewController: UIViewController, transaction: Transaction, onFinished: @escaping (Transaction)->(), onError: @escaping (_ errorMessage: String)->()) {
+        super.init(contentViewController: contentViewController)
+        
+        onCompleted = onFinished
+        onErrorReturned = onError
+        uiController = contentViewController
+        
         currentTransaction = transaction
-//        delegate = secure3dDelegate
         guard let url = URL(string: transaction.returnUrl) else { return }
         let request = URLRequest(url: url)
         webView.load(request)
         
+        
     }
-    
     
     
 }
@@ -94,7 +97,7 @@ extension Secure3DViewController {
     }
     
     @objc func cancel() {
-        delegate?.secure3dViewControllerDidCancel(self)
+        onErrorReturned!("User Cancelled the authentication process - 3DSecure Environment")
     }
 }
 
@@ -119,35 +122,35 @@ extension Secure3DViewController: WKNavigationDelegate {
         
         switch urlString {
         case let str where str.starts(with: "https://payment.staging.cyberpay.ng/notify?ref="):
-            delegate?.secure3dViewController(self, didComplete: true, for: currentTransaction!)
+            onCompleted!(currentTransaction!)
             dismiss(animated: true, completion: nil)
             break
         case let str where str.starts(with: "https://payment.cyberpay.ng/url?ref="):
-            delegate?.secure3dViewController(self, didComplete: true, for: currentTransaction!)
+            onCompleted!(currentTransaction!)
             dismiss(animated: true, completion: nil)
             
             break
             
         case let str where str.starts(with: "https://payment.cyberpay.ng/url?ref="):
-            delegate?.secure3dViewController(self, didComplete: true, for: currentTransaction!)
+            onCompleted!(currentTransaction!)
             dismiss(animated: true, completion: nil)
             
             break
             
         case let str where str.starts(with: "https://payment.cyberpay.ng/pay?reference="):
-            delegate?.secure3dViewController(self, didComplete: true, for: currentTransaction!)
+            onCompleted!(currentTransaction!)
             dismiss(animated: true, completion: nil)
             
             break
             
         case let str where str.starts(with: "https://payment.staging.cyberpay.ng/url?ref"):
-            delegate?.secure3dViewController(self, didComplete: true, for: currentTransaction!)
+            onCompleted!(currentTransaction!)
             dismiss(animated: true, completion: nil)
             
             break
             
         case let str where str.starts(with: "https://payment.cyberpay.ng/notify?ref="):
-            delegate?.secure3dViewController(self, didComplete: true, for: currentTransaction!)
+            onCompleted!(currentTransaction!)
             dismiss(animated: true, completion: nil)
             
             break

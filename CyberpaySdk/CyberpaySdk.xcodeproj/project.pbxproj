@@ -75,8 +75,8 @@
 		A653036723FCC96B00703B89 /* Secure3dView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A653036623FCC96B00703B89 /* Secure3dView.swift */; };
 		A653036923FCCC3700703B89 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A653036823FCCC3700703B89 /* UIView.swift */; };
 		A653036D23FCE22200703B89 /* Cyberpay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A653036C23FCE22200703B89 /* Cyberpay.swift */; };
-		A65303AD23FDBCE700703B89 /* DobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65303AC23FDBCE700703B89 /* DobViewController.swift */; };
 		A6CF28B423FAE72E0078285D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CF28B323FAE72E0078285D /* Assets.xcassets */; };
+		A6CF87B423FDBDF400F2A623 /* DateOfBirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CF87B323FDBDF400F2A623 /* DateOfBirthView.swift */; };
 		C6F696B7AE03F500CE27391B /* Pods_CyberpaySdk_CyberpaySdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DC5D0DB2B6B1FE50725B62 /* Pods_CyberpaySdk_CyberpaySdkTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -165,8 +165,8 @@
 		A653036623FCC96B00703B89 /* Secure3dView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Secure3dView.swift; path = CyberpaySdk/data/transaction/repository/Secure3dView.swift; sourceTree = SOURCE_ROOT; };
 		A653036823FCCC3700703B89 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		A653036C23FCE22200703B89 /* Cyberpay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cyberpay.swift; sourceTree = "<group>"; };
-		A65303AC23FDBCE700703B89 /* DobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DobViewController.swift; path = ../../../../../../../Downloads/DobViewController.swift; sourceTree = "<group>"; };
 		A6CF28B323FAE72E0078285D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A6CF87B323FDBDF400F2A623 /* DateOfBirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthView.swift; sourceTree = "<group>"; };
 		DCF1C04CD6FF004F26BAE629 /* Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk-CyberpaySdkTests/Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC3E5A191F4E25A01D2F8242 /* Pods-CyberpaySdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk.release.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk/Pods-CyberpaySdk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -330,8 +330,8 @@
 		47836196238A8A4400A463B6 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				A6CF87B223FDBDDC00F2A623 /* dob */,
 				4768AE7A239FB68400A30D8A /* widget */,
-				47935DD9239F90CF0056502E /* dob */,
 				47935DD8239F90C90056502E /* bvn */,
 				4772FD99238E9676007F305D /* secured3d */,
 				4772FD98238E966C007F305D /* enroll_otp */,
@@ -417,14 +417,6 @@
 			children = (
 			);
 			path = bvn;
-			sourceTree = "<group>";
-		};
-		47935DD9239F90CF0056502E /* dob */ = {
-			isa = PBXGroup;
-			children = (
-				A65303AC23FDBCE700703B89 /* DobViewController.swift */,
-			);
-			path = dob;
 			sourceTree = "<group>";
 		};
 		47B13E89238FB775002EC4CC /* remote */ = {
@@ -537,6 +529,14 @@
 				A653034A23FC6E0000703B89 /* AccountResponse.swift */,
 			);
 			path = response;
+			sourceTree = "<group>";
+		};
+		A6CF87B223FDBDDC00F2A623 /* dob */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF87B323FDBDF400F2A623 /* DateOfBirthView.swift */,
+			);
+			path = dob;
 			sourceTree = "<group>";
 		};
 		D9A1BCCD73FE0E647E909D91 /* Frameworks */ = {
@@ -772,6 +772,7 @@
 				4768AE8723A0E21700A30D8A /* Constants.swift in Sources */,
 				47D6C64623CDCC6600B2407A /* Tools.swift in Sources */,
 				47D6C64A23CF69D300B2407A /* BankAccount.swift in Sources */,
+				A6CF87B423FDBDF400F2A623 /* DateOfBirthView.swift in Sources */,
 				A653035B23FC806600703B89 /* BankServiceProtocol.swift in Sources */,
 				47CA971E23C774F600E34BD5 /* PaymentMethod.swift in Sources */,
 				47B13E9F239505BC002EC4CC /* ApiRequest.swift in Sources */,
@@ -783,7 +784,6 @@
 				47C841F3239E77C500F19B31 /* ChargeBank.swift in Sources */,
 				47C841F1239E534F00F19B31 /* TransactionType.swift in Sources */,
 				47B13EA5239509B6002EC4CC /* TransactionService.swift in Sources */,
-				A65303AD23FDBCE700703B89 /* DobViewController.swift in Sources */,
 				A653035F23FC83BD00703B89 /* BankRepositoryImpl.swift in Sources */,
 				47D6C63523CCC38B00B2407A /* JMStringMask.swift in Sources */,
 				47B13E8F238FB7C9002EC4CC /* SetTransaction.swift in Sources */,
