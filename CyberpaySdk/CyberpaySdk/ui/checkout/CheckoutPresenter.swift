@@ -12,9 +12,9 @@ internal class CheckoutPresenter: CheckoutViewPresenter {
  
     
     weak var view: CheckoutView?
-    private var transactionRepository = TransactionRepository()
+    private var transactionRepository: TransactionRepository = TransactionRepositoryImpl()
     
-    private var bankRepository = BankRepository()
+    private var bankRepository: BankRepository = BankRepositoryImpl()
 
     private var isLoading = false
     var paymentOption = TransactionType.Card
@@ -54,7 +54,7 @@ internal class CheckoutPresenter: CheckoutViewPresenter {
     
     
     func getCardTransactionAdvice(transaction: Transaction) {
-        transactionRepository.getCardTransactionAdvice(transaction: transaction)?.subscribe(onNext: { (advice) in
+          transactionRepository.getTransactionAdvice(transaction: transaction, channelCode: ChannelCode.Card).subscribe(onNext: { (advice) in
         
             self.view?.onUpdateAdvice(advice: advice)
             
@@ -64,7 +64,8 @@ internal class CheckoutPresenter: CheckoutViewPresenter {
     }
     
     func getBankTransactionAdvice(transaction: Transaction) {
-        transactionRepository.getBankTransactionAdvice(transaction: transaction)?.subscribe(onNext: { (advice) in
+        
+        transactionRepository.getTransactionAdvice(transaction: transaction, channelCode: ChannelCode.BankAccount).subscribe(onNext: { (advice) in
         
             self.view?.onUpdateAdvice(advice: advice)
             
@@ -74,7 +75,7 @@ internal class CheckoutPresenter: CheckoutViewPresenter {
     }
     
     func cancelTransaction(transaction: Transaction) {
-        transactionRepository.cancelTransaction(transaction: transaction)?
+        transactionRepository.cancelTransaction(transaction: transaction)
         .subscribe(onNext: { (result) in
             transaction.message =  result.message!
             self.view?.onCancelTransaction(transaction: transaction)

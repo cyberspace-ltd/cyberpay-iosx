@@ -24,8 +24,7 @@ internal protocol TransactionServiceProtocol {
     func enrolBank(request: ApiRequest) -> Observable<ApiResponse<EnrollBank>>
     func finalBankOtp(request: ApiRequest) -> Observable<ApiResponse<VerifyOtp>>
     func mandateBankOtp(request: ApiRequest) -> Observable<ApiResponse<EnrollOtp>>
-    func getCardTransactionAdvice(request: ApiRequest) -> Observable<Advice>
-    func getBankTransactionAdvice(request: ApiRequest) -> Observable<Advice>
+   
     func updateTransactionClientType(request: ApiRequest) -> Observable<ApiResponse<EnrollOtp>>
     func cancelTransaction(transaction : Transaction,request: ApiRequest) -> Observable<ApiResponse<AnyCodable>>
 

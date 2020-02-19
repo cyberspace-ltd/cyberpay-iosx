@@ -14,7 +14,7 @@ internal struct BankResponse : Codable {
     var bankName: String?  = ""
     var isActive : Bool? = false
     var providerCode : Int?  = 0
-//    var bankProviders : [Any]? = []
+    var bankProviders : [AnyCodable]? = []
     var processingType : String? = ""
     var externalRedirectUrl : String? = ""
 }

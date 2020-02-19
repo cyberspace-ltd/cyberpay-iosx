@@ -34,6 +34,8 @@ public class Transaction {
     
     var message = ""
 
+    internal var bankAccount: BankAccount? = nil
+
     public var reference : String {
         return self.ref!
     }

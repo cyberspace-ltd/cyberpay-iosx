@@ -12,6 +12,7 @@ import RxSwift
 
 class TransactionService: TransactionServiceProtocol {
 
+
     
     private let apiClient = ApiClient()
     
@@ -102,31 +103,25 @@ class TransactionService: TransactionServiceProtocol {
     
 
       func enrolBank(request: ApiRequest) -> Observable<ApiResponse<EnrollBank>> {
-          fatalError("Must be overridden")
+        request.path = "payments/bank/enroll"
+        return apiClient.send(apiRequest: request)
       }
     
     func finalBankOtp(request: ApiRequest) -> Observable<ApiResponse<VerifyOtp>> {
-                  fatalError("Must be overridden")
-
+     request.path = "payments/bank/finalotp"
+     return apiClient.send(apiRequest: request)
     }
     
     func mandateBankOtp(request: ApiRequest) -> Observable<ApiResponse<EnrollOtp>> {
-                  fatalError("Must be overridden")
-
+          request.path = "payments/bank/mandateotp"
+          return apiClient.send(apiRequest: request)
     }
     
-    func getCardTransactionAdvice(request: ApiRequest) -> Observable<Advice> {
-                  fatalError("Must be overridden")
 
-    }
-    
-    func getBankTransactionAdvice(request: ApiRequest) -> Observable<Advice> {
-                  fatalError("Must be overridden")
-
-    }
     
     func updateTransactionClientType(request: ApiRequest) -> Observable<ApiResponse<EnrollOtp>> {
-                  fatalError("Must be overridden")
+       request.path = "payments/clienttype"
+       return apiClient.send(apiRequest: request)
 
     }
     

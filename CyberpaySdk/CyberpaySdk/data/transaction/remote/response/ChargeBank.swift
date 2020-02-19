@@ -12,4 +12,11 @@ internal struct ChargeBank : Codable {
     var status: String?
     var message: String?
     var responseAction: String?
+    var requiredParameters : [RequiredParameters]? = nil
+}
+
+
+internal struct RequiredParameters: Codable {
+    var param : String? = ""
+    var message : String? = ""
 }

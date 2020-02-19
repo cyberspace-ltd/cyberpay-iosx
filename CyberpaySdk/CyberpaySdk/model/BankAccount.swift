@@ -9,7 +9,7 @@
 import Foundation
 
 internal class BankAccount {
-    var bank: Bank? = nil
+    var bank: BankResponse? = nil
     var accountNumber: String? = ""
     var accountName: String? = ""
     var dateOfBirth : String? = ""

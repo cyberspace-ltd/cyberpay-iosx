@@ -7,24 +7,28 @@
 //
 
 import Foundation
-
-import Foundation
 import RxCocoa
 import RxSwift
 
-class BankRepository {
+class BankRepositoryImpl: BankRepository {
+    
+ 
     
     let service = BankService()
     
-    func banks() -> Observable<ApiResponse<[BankResponse]>> {
+    func getBanks() -> Observable<[BankResponse]> {
         let request = ApiRequest()
-        return service.banks(request: request)
-            .flatMap{
-                result -> Observable<ApiResponse<[BankResponse]>> in
-                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
-                
-                
+        if (Bank.list == nil) {
+            return service.banks(request: request)
+                .flatMap{
+                    result -> Observable<[BankResponse]> in
+                    return result.succeeded ? Observable.just(result.data!) : Observable.error(Exception.CyberpayException(message: result.message!))
+            }
         }
+        else  {
+            return Observable.just(Bank.list!)
+        }
+        
     }
     
     func getAllBanks() -> Observable<ApiResponse<[BankResponse]>> {
