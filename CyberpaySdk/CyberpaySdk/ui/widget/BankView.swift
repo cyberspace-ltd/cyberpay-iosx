@@ -11,8 +11,8 @@ import UIKit
 
 internal class BankView : UIView {
     
-    var bankName = UITextField()
-    var accoutNumber = UITextField()
+    var bankName = JMMaskTextField()
+    var accoutNumber = JMMaskTextField()
     var accountName = UILabel()
     
     let verificationStack = UIStackView()
@@ -51,7 +51,8 @@ internal class BankView : UIView {
         bankName.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0).isActive = true
         
         bankName.placeholder = "Bank Name"
-        
+        bankName.tintColor = UIColor.clear
+
         bankName.keyboardType = UIKeyboardType.phonePad
         bankName.setCorner(radius: 4)
         if #available(iOS 13.0, *) {
@@ -77,7 +78,8 @@ internal class BankView : UIView {
         
         accoutNumber.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        
+        accoutNumber.maskString = "0000000000"
+
         accoutNumber.placeholder = "Account Number"
         accoutNumber.setRightPadding(10)
         accoutNumber.setLeftPadding(10)
@@ -99,7 +101,7 @@ internal class BankView : UIView {
         
         accountName.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         accountName.textAlignment = .right
-        accountName.text  = "David Ehigiator"
+        accountName.text  = ""
         accountName.backgroundColor  = UIColor.clear
         accountName.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1)
               
@@ -108,6 +110,7 @@ internal class BankView : UIView {
         verificationStack.distribution  = UIStackView.Distribution.fill
         verificationStack.alignment = UIStackView.Alignment.center
         verificationStack.spacing   = 4.0
+        verificationStack.alpha = 0
         
         if #available(iOS 13.0, *) {
             let smallConfigurationVerification = UIImage.SymbolConfiguration(scale: .small)

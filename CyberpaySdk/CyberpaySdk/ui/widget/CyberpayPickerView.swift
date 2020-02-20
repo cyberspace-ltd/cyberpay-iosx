@@ -13,7 +13,8 @@ class CyberpayPickerView : UIPickerView, UIPickerViewDataSource, UIPickerViewDel
     
     var pickerData : [String]!
     var pickerTextField : UITextField!
-    
+    var selectionHandler : ((_ selectedText: String) -> Void)?
+
     init(pickerData: [String], dropdownField: UITextField) {
         super.init(frame: CGRect.zero)
         
@@ -38,6 +39,14 @@ class CyberpayPickerView : UIPickerView, UIPickerViewDataSource, UIPickerViewDel
         
         
     }
+    
+
+    convenience init(pickerData: [String], dropdownField: UITextField, onSelect selectionHandler : @escaping (_ selectedText: String) -> Void) {
+      self.init(pickerData: pickerData, dropdownField: dropdownField)
+
+      self.selectionHandler = selectionHandler
+    
+       }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -65,5 +74,9 @@ class CyberpayPickerView : UIPickerView, UIPickerViewDataSource, UIPickerViewDel
 extension UITextField {
     func loadDropdownData(data: [String]) {
         self.inputView = CyberpayPickerView(pickerData: data, dropdownField: self)
+    }
+    
+    func loadDropdownData(data: [String], onSelect selectionHandler : @escaping (_ selectedText: String) -> Void) {
+        self.inputView = CyberpayPickerView(pickerData: data, dropdownField: self, onSelect: selectionHandler)
     }
 }

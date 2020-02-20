@@ -37,6 +37,9 @@ class Checkout : MDCBottomSheetController {
     
     var card = Card()
     
+    private var bankAccount = BankAccount()
+    
+    
     let scrollView: UIScrollView = {
         let v = UIScrollView()
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +49,7 @@ class Checkout : MDCBottomSheetController {
     
     func setupComponents() {
         
-//        self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height)
+        //        self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height)
         
         self.view.addSubview(scrollView)
         self.dismissOnDraggingDownSheet = false
@@ -77,11 +80,16 @@ class Checkout : MDCBottomSheetController {
                 self.cardView.isHidden = false
                 self.bankView.isHidden = true
                 self.transactionType = TransactionType.Card
+                self.presenter.cardPay()
+                self.view.endEditing(true)
             }
             else {
                 self.cardView.isHidden = true
                 self.bankView.isHidden = false
                 self.transactionType = TransactionType.Bank
+                self.presenter.bankPay()
+                self.view.endEditing(true)
+
             }
         })
         
@@ -131,11 +139,13 @@ class Checkout : MDCBottomSheetController {
         bankView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         
+        
         //set up pay button
         //setup button
         scrollView.addSubview(btContinue)
         btContinue.translatesAutoresizingMaskIntoConstraints = false
-        
+        btContinue.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+
         btContinue.setTitle("Pay ₦\(transaction.amount / 100)", for: UIControl.State.normal)
         btContinue.backgroundColor = UIColor.init(hexString: Constants.primaryColor)
         
@@ -155,9 +165,11 @@ class Checkout : MDCBottomSheetController {
         //secured
         
         secureImage.translatesAutoresizingMaskIntoConstraints = false
-        secureImage.image = UIImage(named: "secured-logo")
+        
+        secureImage.image = UIImage(named: "payment-logo-gray")
+        //        secureImage.image = UIImage(named: "secured-logo")
         secureImage.contentMode = .scaleAspectFit
-
+        
         scrollView.addSubview(secureImage)
         
         
@@ -175,9 +187,15 @@ class Checkout : MDCBottomSheetController {
         
         cardView.cardExpiry.setOnTextChanged(onTextChanged: cardExpiryChanged(text:))
         
-        self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: (self.contentViewController.view.frame.size.height))
+        bankView.accoutNumber.setOnTextChanged(onTextChanged: accountNumberChanged(text:))
 
-        disablePay()
+        bankView.accoutNumber.isEnabled = false
+        bankView.bankName.setOnTextChanged(onTextChanged: bankName_onSelect(selectedText: ))
+
+        self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: (self.contentViewController.view.frame.size.height))
+        
+        
+        onDisablePay()
     }
     
     private func showProgress(message: String)
@@ -190,15 +208,27 @@ class Checkout : MDCBottomSheetController {
     }
     
     
-    func enablePay(){
-        self.btContinue.isEnabled = true
-        self.btContinue.alpha = 1.0
+  
+    
+    func accountNumberChanged(text: String) {
+        if (text.count == 10){
+            view.endEditing(true)
+            canContinue = true
+            bankView.verificationStack.alpha = 1
+            onDisablePay()
+            btContinue.setTitle("Verifying...)", for: UIControl.State.normal)
+            presenter.getAccountName(bankCode: bankAccount.bank!.bankCode!, account: text)
+        }
     }
     
-    func disablePay(){
-        self.btContinue.isEnabled = false
-        self.btContinue.alpha = 0.4
-    }
+  
+    
+    func bankName_onSelect(selectedText: String) {
+        // check bank processing type,
+        if let selectedBank = bankList.first(where: { $0.bankName == selectedText }) {
+            print("The Bank Chosen is \(selectedBank).")
+        }
+     }
     
     func cardCvvChanged(text: String) {
         if(text.isValidCvv()){
@@ -208,12 +238,12 @@ class Checkout : MDCBottomSheetController {
             
             if(self.card.number?.isValidCardNumber() ?? false &&  self.card.expiry?.isValidExpiry() ?? false)
             {
-                enablePay()
+                onEnablePay()
             }
         }
             
         else {
-            disablePay()
+            onDisablePay()
         }
     }
     
@@ -225,13 +255,13 @@ class Checkout : MDCBottomSheetController {
             
             if(self.card.number?.isValidCardNumber() ?? false &&  self.card.cvv?.isValidCvv() ?? false)
             {
-                enablePay()
+                onEnablePay()
             }
             
             
         }
         else {
-            disablePay()
+            onDisablePay()
         }
     }
     
@@ -244,12 +274,12 @@ class Checkout : MDCBottomSheetController {
             
             if(self.card.expiry?.isValidExpiry() ?? false &&  self.card.cvv?.isValidCvv() ?? false)
             {
-                enablePay()
+                onEnablePay()
             }
             
         }
         else {
-            disablePay()
+            onDisablePay()
         }
         
         
@@ -258,7 +288,7 @@ class Checkout : MDCBottomSheetController {
     
     @objc func actionView(sender: UIGestureRecognizer) -> Void {
         
-        if(transactionType == TransactionType.Card){
+        if(presenter.paymentOption == TransactionType.Card){
             
             self.card.cvv = cardView.cardCvv.text!
             self.card.number = cardView.cardNumber.text!.formattedCardNumber()
@@ -269,6 +299,20 @@ class Checkout : MDCBottomSheetController {
             self.card.expiryYear = exp[1]
             
             onCard!(self.card)
+            
+        }
+        else if(presenter.paymentOption == TransactionType.Bank){
+            
+            switch bankAccount.bank?.processingType {
+            case "External":
+                onBankRedirect!(self.bankAccount.bank!)
+                break
+            case "Internal":
+                onBank!(self.bankAccount)
+                break
+            default:
+                break
+            }
             
         }
     }
@@ -308,107 +352,103 @@ extension Checkout: CheckoutView {
     
     func onError(message: String) {
         
-        bankView.accoutNumber.isEnabled = true
-        bankView.accountName.text = ""
-        
-        //             accountNumber.error = "Verify Error"
-        //             verified.visibility = View.GONE
-        //             accountName.text = ""
-        //             pay.text = String.format("Pay ₦%s",transaction.amountToPay)
-        //             verify_layout.visibility = View.GONE
+           DispatchQueue.main.async {
+            self.bankView.accoutNumber.isEnabled = true
+            self.bankView.accountName.text = ""
+            self.btContinue.setTitle("Pay \(self.transaction.amountToPay)", for: UIControl.State.normal)
+            self.bankView.verificationStack.alpha = 0
+            
+        }
     }
     
     func onBankPay() {
-        fatalError("Not Implemented")
-        //        cardIndicator.setBackgroundResource(R.color.white)
-        //              bankIndicator.setBackgroundResource(R.color.primaryColorDark)
-        //              bankLayout.visibility = View.VISIBLE
-        //              cardLayout.visibility = View.GONE
-        //              viewPresenter.loadBanks()
-        //              viewPresenter.getBankTransactionAdvice(transaction)
-        //              onDisablePay()
+        presenter.loadBanks()
+        presenter.getBankTransactionAdvice(transaction: transaction)
+        onDisablePay()
         
     }
     
     func onCardPay() {
-        fatalError("Not Implemented")
-        //        bankIndicator.setBackgroundResource(R.color.white)
-        //        cardIndicator.setBackgroundResource(R.color.primaryColorDark)
-        //        bankLayout.visibility = View.GONE
-        //        cardLayout.visibility = View.VISIBLE
-        //        viewPresenter.getCardTransactionAdvice(transaction)
-        //        onDisablePay()
+        presenter.getCardTransactionAdvice(transaction: transaction)
+        onDisablePay()
         
     }
     
     func onLoad() {
-        fatalError("Not Implemented")
         
-        //        bankName.hint = "Loading..."
-        //              bank_loading.visibility = View.VISIBLE
+        DispatchQueue.main.async {
+        
+            self.bankView.bankName.placeholder = "Loading..."
+        }
     }
     
     func onLoadComplete(banks: Array<BankResponse>) {
-        fatalError("Not Implemented")
-        //        bankList = banks
-        //            bankName.hint = "Select Bank"
-        //            bank_loading.visibility = View.GONE
+        
+           DispatchQueue.main.async {
+            
+            self.bankList = banks
+            self.bankView.bankName.placeholder = "Select Bank"
+            self.bankView.accoutNumber.isEnabled = true
+            self.bankView.bankName.loadDropdownData(data:  self.bankList.map {$0.bankName!}, onSelect: self.bankName_onSelect)
+        }
         
     }
     
     func onAccountName(account: AccountResponse) {
-        fatalError("Not Implemented")
+         DispatchQueue.main.async {
+            self.bankView.accoutNumber.isEnabled = true
+          self.bankAccount.accountNumber =   self.bankView.accoutNumber.text
         
-        //        verified.visibility = View.VISIBLE
-        //              accountNumber.isEnabled = true
-        //
-        //              bankAccount.accountNumber = accountNumber.text.toString()
-        //              bankAccount.accountName = account.accountName
-        //
-        //              account.accountName.split(' ').map {
-        //                  accountName.text = "${accountName.text} ${it.toLowerCase().capitalize()}"
-        //              }
-        //
-        //              verify_layout.visibility = View.GONE
-        //              pay.text = String.format("Pay ₦%s",transaction.amountToPay)
-        //              onEnablePay()
+         account.accountName.split(separator: " ").map({ name in
+            self.bankView.accountName.text = "\(  self.bankView.accountName.text ?? "") \(name.localizedCapitalized)"
+        })
+          self.bankView.verificationStack.alpha = 1
+          self.btContinue.setTitle("Pay \(  self.transaction.amountToPay)", for: UIControl.State.normal)
+        }
+              self.onEnablePay()
+        
     }
     
     func onUpdateAdvice(advice: Advice) {
-        fatalError("Not Implemented")
-        //        pay.text = String.format("Pay ₦%s",advice.amountToPay)
-        //            transaction.amount = advice.amount!!
-        //            transaction.charge = advice.charge!!
-        //            onEnablePay()
+         DispatchQueue.main.async {
+          self.btContinue.setTitle("Pay \(advice.amountToPay)", for: UIControl.State.normal)
+          self.transaction.amount = advice.amount!
+          self.transaction.charge = advice.charge!
+         self.onEnablePay()
+        }
         
     }
     
     func onCancelTransaction(transaction: Transaction) {
-        fatalError("Not Implemented")
-        //        progress.dismiss()
-        //              dismiss()
+        DispatchQueue.main.async {
+            self.dismissProgress()
+            self.dismiss(animated: true, completion: nil)
+        }
+      
         //              listener.onCancel(transaction)
     }
     
     func onCancelTransactionError(transaction: Transaction) {
-        fatalError("Not Implemented")
-        //        progress.dismiss()
-        
-        
+        DispatchQueue.main.async {
+            self.dismissProgress()
+
+              }
     }
     
     func onDisablePay() {
-        fatalError("Not Implemented")
-        //        pay.isEnabled = false
-        //             pay.alpha = 0.3f
-        
+          DispatchQueue.main.async {
+            self.btContinue.isEnabled =  false
+            self.btContinue.alpha = 0.3
+        }
+     
     }
     
     func onEnablePay() {
-        fatalError("Not Implemented")
-        //        pay.isEnabled = true
-        //              pay.alpha = 1f
-        
+        DispatchQueue.main.async {
+            self.btContinue.isEnabled =  true
+            self.btContinue.alpha = 1
+            }
+    
     }
     
     

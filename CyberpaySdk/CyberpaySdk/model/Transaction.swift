@@ -33,9 +33,21 @@ public class Transaction {
     public var splits : Array<Split> = Array()
     
     var message = ""
-
+    
+    public var amountToPay : String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        // localize to your grouping and decimal separator
+        currencyFormatter.locale = Locale(identifier: "ig_NG")
+        let priceString = currencyFormatter.string(from: NSNumber(value: (amount + charge!)/100))!
+        
+        return priceString
+    }
+    
+    
     internal var bankAccount: BankAccount? = nil
-
+    
     public var reference : String {
         return self.ref!
     }

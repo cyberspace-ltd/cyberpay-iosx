@@ -3,4 +3,54 @@
    uuid = "E33BAE52-6844-4327-97CB-4A4BFD15F445"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "585609CA-7455-450A-8E26-8F4E73131222"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CyberpaySdk/CyberpaySdk/ui/checkout/Checkout.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "bankName_onSelect(selectedText:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "585609CA-7455-450A-8E26-8F4E73131222 - 4105f0e3d389d6a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CyberpaySdk.Checkout.bankName_onSelect(selectedText: Swift.String) -&gt; ()"
+                  moduleName = "CyberpaySdk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidehigiator/Documents/cyberspace/cyberpay-iosx/CyberpaySdk/CyberpaySdk/ui/checkout/Checkout.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "135">
+               </Location>
+               <Location
+                  uuid = "585609CA-7455-450A-8E26-8F4E73131222 - c7774e35838618c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (CyberpaySdk.BankResponse) -&gt; Swift.Bool in CyberpaySdk.Checkout.bankName_onSelect(selectedText: Swift.String) -&gt; ()"
+                  moduleName = "CyberpaySdk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davidehigiator/Documents/cyberspace/cyberpay-iosx/CyberpaySdk/CyberpaySdk/ui/checkout/Checkout.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "38">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
