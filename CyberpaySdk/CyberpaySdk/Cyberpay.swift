@@ -16,7 +16,7 @@ import FittedSheets
 public class CyberpaySdk {
     
     
-    public static let INSTANCE = CyberpaySdk()
+    public static let shared = CyberpaySdk()
     internal  var key : String = "*"
     internal  var envMode = Mode.Debug
     private var maskView = ProgressMaskView()
@@ -128,7 +128,7 @@ public class CyberpaySdk {
                 
             }
             
-            rootController.present(otpView, animated: true, completion: nil)
+            rootController.presentOnRoot(with: otpView)
             
         }
         
@@ -148,7 +148,7 @@ public class CyberpaySdk {
                 
             }
             
-            rootController.present(otpView, animated: true, completion: nil)
+            rootController.presentOnRoot(with: otpView)
             
         }
         
@@ -168,7 +168,7 @@ public class CyberpaySdk {
                 
             }
             
-            rootController.present(otpView, animated: true, completion: nil)
+            rootController.presentOnRoot(with: otpView)
             
         }
         
@@ -188,7 +188,7 @@ public class CyberpaySdk {
                 
                 DispatchQueue.main.async {
                     
-                    let secure3dView = Secure3DViewController(contentViewController: self.bottomSheetController, transaction: transaction, onFinished: { (transaction) in
+                    let secure3dView = Secure3DViewController(rootController: self.bottomSheetController, transaction: transaction, onFinished: { (transaction) in
                         
                         self.repository.verifyTransactionByReference(reference: transaction.reference).subscribe(onNext: { (result) in
                             
@@ -217,8 +217,8 @@ public class CyberpaySdk {
                         
                     }
                     
+                    rootController.presentOnRoot(with: secure3dView)
                     
-                    rootController.present(secure3dView, animated: true, completion: nil)
                     
                 }
                 
@@ -252,8 +252,7 @@ public class CyberpaySdk {
                             self.enrollCardOtp(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
                             
                         }
-                        
-                        rootController.present(otpView, animated: true, completion: nil)
+                        rootController.presentOnRoot(with: otpView)
                         
                     }
                     break
@@ -285,8 +284,16 @@ public class CyberpaySdk {
                     self.processCardOtp(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
                     
                 case "ProvidePin" :
-                    fatalError("Not Implemented")
-                    
+                    DispatchQueue.main.async {
+                                   
+                    let pinView = PinPad(contentViewController: self.bottomSheetController, inputType: InputType.Pin) { (pin) in
+                        
+                        transaction.card?.pin = pin
+                        self.chargeCardWithPin(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
+                        
+                    }
+                    rootController.presentOnRoot(with: pinView)
+                    }
                 case "EnrollOtp" :
                     self.processEnrollCardOtp(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
                     
@@ -319,9 +326,6 @@ public class CyberpaySdk {
                     onSuccess(transaction)
                 case "Otp" :
                     self.processCardOtp(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
-                    
-                case "ProvidePin" :
-                    fatalError("Not Implemented")
                     
                 case "EnrollOtp" :
                     self.processEnrollCardOtp(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
@@ -416,7 +420,7 @@ public class CyberpaySdk {
                             
                         }
                         
-                        rootController.present(otpView, animated: true, completion: nil)
+                        rootController.presentOnRoot(with: otpView)
                         
                     }
                     
@@ -481,7 +485,7 @@ public class CyberpaySdk {
                             self.enrollBank(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
                             
                         }
-                        rootController.present(dobView, animated: true, completion: nil)
+                        rootController.presentOnRoot(with: dobView)
                         
                     }
                     
@@ -507,7 +511,7 @@ public class CyberpaySdk {
                         
                     }
                     
-                    rootController.present(otpView, animated: true, completion: nil)
+                    rootController.presentOnRoot(with: otpView)
                     
                 }
                 
@@ -522,7 +526,7 @@ public class CyberpaySdk {
                         
                     }
                     
-                    rootController.present(otpView, animated: true, completion: nil)
+                    rootController.presentOnRoot(with: otpView)
                     
                 }
                 
@@ -646,17 +650,17 @@ public class CyberpaySdk {
         }
         
         if autoGenerateMerchantReference {
-            transaction.merchantReference =  "heplehnjdnjnene3t" + String(Int.random(in: 100 ..< 1000))
+            transaction.merchantReference =  UUID().uuidString
         }
         
-             
+        
         DispatchQueue.main.async {
             
             self.showProgress(message: "Processing Transaction")
-        
-        self.bottomSheetController = rootController
-        
-     
+            
+            self.bottomSheetController = rootController
+            
+            
             
             let checkout = Checkout(transaction: transaction,rootController: self.bottomSheetController, onCardSubmit: { card in
                 
@@ -761,7 +765,7 @@ public class CyberpaySdk {
                 
             })
             
-            rootController.present(checkout, animated: true, completion: nil)
+            rootController.presentOnRoot(with: checkout)
             
             
             
@@ -821,7 +825,8 @@ public class CyberpaySdk {
                     self.chargeCardWithoutPin(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
                     
                 }
-                rootController.present(pinView, animated: true, completion: nil)
+                rootController.presentOnRoot(with: pinView)
+                
             }
             break
         case .visa:

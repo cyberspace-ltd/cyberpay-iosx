@@ -45,7 +45,7 @@ class BankRepositoryImpl: BankRepository {
         request.parameters["accountId"] = accountNo
         request.parameters["bankCode"] = bankCode
         
-        let keyInBase64 =  CyberpaySdk.INSTANCE.key.data(using: .utf8)?.base64EncodedString()
+        let keyInBase64 =  CyberpaySdk.shared.key.data(using: .utf8)?.base64EncodedString()
         
         return service.getAccountName(apiKey: keyInBase64!, request: request)
             .flatMap{

@@ -156,3 +156,13 @@ extension UIColor {
         return nil
     }
 }
+
+
+extension UIViewController {
+    func presentOnRoot(with viewController : UIViewController){
+//        let navigationController = UINavigationController(rootViewController: viewController)
+//        navigationController.modalPresentationStyle = UIModalPresentationStyle.pageSheet
+        self.presentedViewController?.dismiss(animated: false, completion: nil)
+        self.present(viewController, animated: false, completion: nil)
+    }
+}

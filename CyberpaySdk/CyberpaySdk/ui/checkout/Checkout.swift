@@ -89,7 +89,7 @@ class Checkout : MDCBottomSheetController {
                 self.transactionType = TransactionType.Bank
                 self.presenter.bankPay()
                 self.view.endEditing(true)
-
+                
             }
         })
         
@@ -145,7 +145,7 @@ class Checkout : MDCBottomSheetController {
         scrollView.addSubview(btContinue)
         btContinue.translatesAutoresizingMaskIntoConstraints = false
         btContinue.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-
+        
         btContinue.setTitle("Pay ₦\(transaction.amount / 100)", for: UIControl.State.normal)
         btContinue.backgroundColor = UIColor.init(hexString: Constants.primaryColor)
         
@@ -188,10 +188,10 @@ class Checkout : MDCBottomSheetController {
         cardView.cardExpiry.setOnTextChanged(onTextChanged: cardExpiryChanged(text:))
         
         bankView.accoutNumber.setOnTextChanged(onTextChanged: accountNumberChanged(text:))
-
+        
         bankView.accoutNumber.isEnabled = false
         bankView.bankName.setOnTextChanged(onTextChanged: bankName_onSelect(selectedText: ))
-
+        
         self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: (self.contentViewController.view.frame.size.height))
         
         
@@ -208,7 +208,7 @@ class Checkout : MDCBottomSheetController {
     }
     
     
-  
+    
     
     func accountNumberChanged(text: String) {
         if (text.count == 10){
@@ -221,14 +221,14 @@ class Checkout : MDCBottomSheetController {
         }
     }
     
-  
+    
     
     func bankName_onSelect(selectedText: String) {
         // check bank processing type,
         if let selectedBank = bankList.first(where: { $0.bankName == selectedText }) {
             print("The Bank Chosen is \(selectedBank).")
         }
-     }
+    }
     
     func cardCvvChanged(text: String) {
         if(text.isValidCvv()){
@@ -298,17 +298,22 @@ class Checkout : MDCBottomSheetController {
             self.card.expiryMonth = exp[0]
             self.card.expiryYear = exp[1]
             
-            onCard!(self.card)
+         
+
+                onCard!(self.card)
+
             
         }
         else if(presenter.paymentOption == TransactionType.Bank){
             
             switch bankAccount.bank?.processingType {
             case "External":
-                onBankRedirect!(self.bankAccount.bank!)
+                self.onBankRedirect!(self.bankAccount.bank!)
+
                 break
             case "Internal":
-                onBank!(self.bankAccount)
+                self.onBank!(self.bankAccount)
+
                 break
             default:
                 break
@@ -352,7 +357,7 @@ extension Checkout: CheckoutView {
     
     func onError(message: String) {
         
-           DispatchQueue.main.async {
+        DispatchQueue.main.async {
             self.bankView.accoutNumber.isEnabled = true
             self.bankView.accountName.text = ""
             self.btContinue.setTitle("Pay \(self.transaction.amountToPay)", for: UIControl.State.normal)
@@ -377,44 +382,47 @@ extension Checkout: CheckoutView {
     func onLoad() {
         
         DispatchQueue.main.async {
-        
+            
             self.bankView.bankName.placeholder = "Loading..."
+            self.bankView.bankName.isLoading = true
         }
     }
     
     func onLoadComplete(banks: Array<BankResponse>) {
         
-           DispatchQueue.main.async {
+        DispatchQueue.main.async {
             
             self.bankList = banks
             self.bankView.bankName.placeholder = "Select Bank"
             self.bankView.accoutNumber.isEnabled = true
+            self.bankView.bankName.isLoading = false
+            
             self.bankView.bankName.loadDropdownData(data:  self.bankList.map {$0.bankName!}, onSelect: self.bankName_onSelect)
         }
         
     }
     
     func onAccountName(account: AccountResponse) {
-         DispatchQueue.main.async {
+        DispatchQueue.main.async {
             self.bankView.accoutNumber.isEnabled = true
-          self.bankAccount.accountNumber =   self.bankView.accoutNumber.text
-        
-         account.accountName.split(separator: " ").map({ name in
-            self.bankView.accountName.text = "\(  self.bankView.accountName.text ?? "") \(name.localizedCapitalized)"
-        })
-          self.bankView.verificationStack.alpha = 1
-          self.btContinue.setTitle("Pay \(  self.transaction.amountToPay)", for: UIControl.State.normal)
+            self.bankAccount.accountNumber =   self.bankView.accoutNumber.text
+            
+            account.accountName.split(separator: " ").map({ name in
+                self.bankView.accountName.text = "\(  self.bankView.accountName.text ?? "") \(name.localizedCapitalized)"
+            })
+            self.bankView.verificationStack.alpha = 1
+            self.btContinue.setTitle("Pay \(  self.transaction.amountToPay)", for: UIControl.State.normal)
         }
-              self.onEnablePay()
+        self.onEnablePay()
         
     }
     
     func onUpdateAdvice(advice: Advice) {
-         DispatchQueue.main.async {
-          self.btContinue.setTitle("Pay \(advice.amountToPay)", for: UIControl.State.normal)
-          self.transaction.amount = advice.amount!
-          self.transaction.charge = advice.charge!
-         self.onEnablePay()
+        DispatchQueue.main.async {
+            self.btContinue.setTitle("Pay \(advice.amountToPay)", for: UIControl.State.normal)
+            self.transaction.amount = advice.amount!
+            self.transaction.charge = advice.charge!
+            self.onEnablePay()
         }
         
     }
@@ -424,31 +432,31 @@ extension Checkout: CheckoutView {
             self.dismissProgress()
             self.dismiss(animated: true, completion: nil)
         }
-      
+        
         //              listener.onCancel(transaction)
     }
     
     func onCancelTransactionError(transaction: Transaction) {
         DispatchQueue.main.async {
             self.dismissProgress()
-
-              }
+            
+        }
     }
     
     func onDisablePay() {
-          DispatchQueue.main.async {
+        DispatchQueue.main.async {
             self.btContinue.isEnabled =  false
             self.btContinue.alpha = 0.3
         }
-     
+        
     }
     
     func onEnablePay() {
         DispatchQueue.main.async {
             self.btContinue.isEnabled =  true
             self.btContinue.alpha = 1
-            }
-    
+        }
+        
     }
     
     

@@ -17,16 +17,19 @@ class ApiClient {
 
     func send<T: Codable>(apiRequest: ApiRequest) -> Observable<T> {
         var url = urlDebug
-        if CyberpaySdk.INSTANCE.envMode == Mode.Live {
+        if CyberpaySdk.shared.envMode == Mode.Live {
             url = urlLive
         }
         
         return Observable<T>.create { observer in
             let request = apiRequest.request(with: url)
+            Logger.log(request: request)
+
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 do {
               
-                    print(response!)
+                    Logger.log(data: data, response: response as? HTTPURLResponse, error: error)
+                    
                     let model: T = try JSONDecoder().decode(T.self, from: data ?? Data())
                     observer.onNext(model)
                     

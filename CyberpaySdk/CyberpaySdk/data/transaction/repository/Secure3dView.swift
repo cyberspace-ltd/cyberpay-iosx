@@ -15,7 +15,7 @@ import MaterialComponents.MaterialBottomSheet
 
 
 /// A view controller for performing 3DS authentication.
-public class Secure3DViewController: MDCBottomSheetController {
+public class Secure3DViewController: UIViewController {
     
     private var uiController : UIViewController?
     private var onCompleted : ((Transaction) -> Void)?
@@ -33,14 +33,16 @@ public class Secure3DViewController: MDCBottomSheetController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height)
+//        self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height)
         
-        self.dismissOnDraggingDownSheet = false
-        self.dismissOnBackgroundTap = false
-        
+//        self.dismissOnDraggingDownSheet = false
+//        self.dismissOnBackgroundTap = false
+//
         setupNavigationItem()
         setupView()
-        
+        guard let url = URL(string: currentTransaction!.returnUrl) else { return }
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -55,18 +57,22 @@ public class Secure3DViewController: MDCBottomSheetController {
         super.init(coder: coder)
     }
     
-    init(contentViewController: UIViewController, transaction: Transaction, onFinished: @escaping (Transaction)->(), onError: @escaping (_ errorMessage: String)->()) {
-        super.init(contentViewController: contentViewController)
+    convenience init() {
+        self.init()
+    }
+    
+    init(rootController: UIViewController, transaction: Transaction, onFinished: @escaping (Transaction)->(), onError: @escaping (_ errorMessage: String)->()) {
         
+
         onCompleted = onFinished
         onErrorReturned = onError
-        uiController = contentViewController
+        uiController = rootController
         
         currentTransaction = transaction
-        guard let url = URL(string: transaction.returnUrl) else { return }
-        let request = URLRequest(url: url)
-        webView.load(request)
-        
+
+
+        super.init(nibName: nil, bundle: nil)
+
         
     }
     
@@ -111,58 +117,57 @@ extension Secure3DViewController: WKNavigationDelegate {
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         activityIndicator.stopAnimating()
         LoadingIndicatorView.hide()
-        
+        let urlString = webView.url?.absoluteString ?? ""
+        switch  urlString {
+          case let str where str.starts(with: "https://payment.staging.cyberpay.ng/notify?ref="):
+              onCompleted!(currentTransaction!)
+              dismiss(animated: true, completion: nil)
+              break
+          case let str where str.starts(with: "https://payment.cyberpay.ng/url?ref="):
+              onCompleted!(currentTransaction!)
+              dismiss(animated: true, completion: nil)
+              
+              break
+              
+          case let str where str.starts(with: "https://payment.cyberpay.ng/url?ref="):
+              onCompleted!(currentTransaction!)
+              dismiss(animated: true, completion: nil)
+              
+              break
+              
+          case let str where str.starts(with: "https://payment.cyberpay.ng/pay?reference="):
+              onCompleted!(currentTransaction!)
+              dismiss(animated: true, completion: nil)
+              
+              break
+              
+          case let str where str.starts(with: "https://payment.staging.cyberpay.ng/url?ref"):
+              onCompleted!(currentTransaction!)
+              dismiss(animated: true, completion: nil)
+              
+              break
+              
+          case let str where str.starts(with: "https://payment.cyberpay.ng/notify?ref="):
+              onCompleted!(currentTransaction!)
+              dismiss(animated: true, completion: nil)
+              
+              break
+              
+              
+              
+          default:
+              break
+          }
     }
     
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
-        let urlString = navigationAction.request.url?.absoluteString ?? ""
+//        let urlString = navigationAction.request.url?.absoluteString ?? ""
         
-        
-        switch urlString {
-        case let str where str.starts(with: "https://payment.staging.cyberpay.ng/notify?ref="):
-            onCompleted!(currentTransaction!)
-            dismiss(animated: true, completion: nil)
-            break
-        case let str where str.starts(with: "https://payment.cyberpay.ng/url?ref="):
-            onCompleted!(currentTransaction!)
-            dismiss(animated: true, completion: nil)
-            
-            break
-            
-        case let str where str.starts(with: "https://payment.cyberpay.ng/url?ref="):
-            onCompleted!(currentTransaction!)
-            dismiss(animated: true, completion: nil)
-            
-            break
-            
-        case let str where str.starts(with: "https://payment.cyberpay.ng/pay?reference="):
-            onCompleted!(currentTransaction!)
-            dismiss(animated: true, completion: nil)
-            
-            break
-            
-        case let str where str.starts(with: "https://payment.staging.cyberpay.ng/url?ref"):
-            onCompleted!(currentTransaction!)
-            dismiss(animated: true, completion: nil)
-            
-            break
-            
-        case let str where str.starts(with: "https://payment.cyberpay.ng/notify?ref="):
-            onCompleted!(currentTransaction!)
-            dismiss(animated: true, completion: nil)
-            
-            break
-            
-            
-            
-        default:
-            break
-        }
-        
-        
-        
+        decisionHandler(.allow)
+
+   
     }
 }
 

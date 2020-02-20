@@ -94,19 +94,25 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
         scrollView.addSubview(pinInput)
         pinInput.translatesAutoresizingMaskIntoConstraints = false
         
-        pinInput.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        pinInput.heightAnchor.constraint(equalToConstant: 40).isActive = true
         pinInput.topAnchor.constraint(equalTo: pageDesc.bottomAnchor, constant: 30).isActive = true
         pinInput.widthAnchor.constraint(equalToConstant: 200).isActive = true
         pinInput.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0).isActive = true
         pinInput.delegate = self
         
-        pinInput.layer.cornerRadius = 5
         pinInput.clipsToBounds = true
-        pinInput.layer.borderWidth = 1.0
         pinInput.textAlignment = NSTextAlignment.center
        
-        pinInput.backgroundColor = UIColor.init(named: "#F7F7F7")
-        pinInput.layer.borderColor = UIColor.init(named: "#A0A0A0")?.cgColor
+       pinInput.setCorner(radius: 4)
+           if #available(iOS 13.0, *) {
+               pinInput.setBorder(width: 2, color: UIColor.systemGray6)
+               pinInput.backgroundColor = UIColor.systemGray6
+               
+           } else {
+               // Fallback on earlier versions
+               pinInput.setBorder(width: 2, color: UIColor.init(named: Constants.lightGreyColor) ?? UIColor.lightGray)
+               pinInput.backgroundColor =  UIColor.init(named: Constants.lightGreyColor)
+           }
         pinInput.keyboardType = UIKeyboardType.phonePad
         
         
@@ -131,7 +137,7 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
         
          btContinue.centerXAnchor.constraint(equalToSystemSpacingAfter: view.centerXAnchor, multiplier: 0).isActive = true
           
-          btContinue.heightAnchor.constraint(equalToConstant: 45).isActive = true
+          btContinue.heightAnchor.constraint(equalToConstant: 40).isActive = true
           btContinue.widthAnchor.constraint(equalToConstant: 300).isActive = true
           btContinue.layer.cornerRadius = 5
           

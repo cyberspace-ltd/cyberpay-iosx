@@ -158,7 +158,7 @@ internal class TransactionRepositoryImpl : TransactionRepository {
         return  service.verifyTransactionByReference(reference: reference)
             .flatMap{
                 result -> Observable<ApiResponse<VerifyTransaction>> in
-                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
+                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.data!.message!))
         }
         
     }
