@@ -16,8 +16,8 @@ internal class CardView : UIView {
     var cardCvv = JMMaskTextField()
     
     @objc func dismissKeyboard() {
-           endEditing(true)
-       }
+        endEditing(true)
+    }
     
     func getKeyboardToolBar() -> UIToolbar {
         let keyboardToolbar = UIToolbar()
@@ -26,7 +26,7 @@ internal class CardView : UIView {
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissKeyboard))
         keyboardToolbar.items = [flexBarButton, doneBarButton]
         
-      return keyboardToolbar
+        return keyboardToolbar
     }
     
     
@@ -37,23 +37,27 @@ internal class CardView : UIView {
         // card number
         cardNumber.translatesAutoresizingMaskIntoConstraints = false
         addSubview(cardNumber)
-    
+        
         cardNumber.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        cardNumber.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        cardNumber.heightAnchor.constraint(equalToConstant: 40).isActive = true
         cardNumber.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
         cardNumber.setLeftPadding(10)
         cardNumber.setRightPadding(10)
         
+        cardNumber.setCorner(radius: 4)
+        if #available(iOS 13.0, *) {
+            cardNumber.setBorder(width: 2, color: UIColor.systemGray6)
+            cardNumber.backgroundColor = UIColor.systemGray6
+            
+        } else {
+            // Fallback on earlier versions
+            cardNumber.setBorder(width: 2, color: UIColor.init(named: Constants.lightGreyColor) ?? UIColor.lightGray)
+            cardNumber.backgroundColor =  UIColor.init(named: Constants.lightGreyColor)
+        }
         cardNumber.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
         cardNumber.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0).isActive = true
-       
         cardNumber.placeholder = "Card Number"
-        
-        cardNumber.layer.cornerRadius = 5
-        cardNumber.backgroundColor = UIColor.init(named: "#F7F7F7")
-        cardNumber.layer.borderColor = UIColor.init(named: "#F7F7F7")?.cgColor
         cardNumber.keyboardType = UIKeyboardType.phonePad
-        cardNumber.layer.borderWidth = 0.5
         
         // card expiry
         cardExpiry.translatesAutoresizingMaskIntoConstraints = false
@@ -63,25 +67,27 @@ internal class CardView : UIView {
         
         cardExpiry.topAnchor.constraint(equalTo: cardNumber.bottomAnchor, constant: 20 ).isActive = true
         
-        cardExpiry.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        cardExpiry.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         cardExpiry.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
         
         cardExpiry.placeholder = "MM/YY"
-        cardExpiry.layer.borderColor = UIColor.init(named: "#F7F7F7")?.cgColor
         cardExpiry.layer.borderWidth = 0.5
-        cardExpiry.layer.cornerRadius = 5
         cardExpiry.setRightPadding(10)
         cardExpiry.setLeftPadding(10)
+        cardExpiry.setCorner(radius: 4)
+        if #available(iOS 13.0, *) {
+            cardExpiry.setBorder(width: 2, color: UIColor.systemGray6)
+            cardExpiry.backgroundColor = UIColor.systemGray6
+            
+        } else {
+            // Fallback on earlier versions
+            cardExpiry.setBorder(width: 2, color: UIColor.init(named: Constants.lightGreyColor) ?? UIColor.lightGray)
+            cardExpiry.backgroundColor =  UIColor.init(named: Constants.lightGreyColor)
+            
+        }
         
-    
-        cardNumber.setLeftPadding(10)
-        cardNumber.setRightPadding(10)
         
-        cardNumber.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
-        
-        cardExpiry.backgroundColor = UIColor.init(named: "#F7F7F7")
-        cardExpiry.layer.borderColor = UIColor.init(named: "#A0A0A0")?.cgColor
         cardExpiry.keyboardType = UIKeyboardType.phonePad
         
         
@@ -90,13 +96,22 @@ internal class CardView : UIView {
         
         cardCvv.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
         cardCvv.rightAnchor.constraint(equalToSystemSpacingAfter: rightAnchor, multiplier: -2).isActive = true
-        cardCvv.layer.cornerRadius = 5
-        cardCvv.layer.borderWidth = 0.5
-        cardCvv.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        cardCvv.backgroundColor = UIColor.init(named: "#F7F7F7")
-        cardCvv.layer.borderColor = UIColor.init(named: "#A0A0A0")?.cgColor
+     
+        cardCvv.heightAnchor.constraint(equalToConstant: 40).isActive = true
         cardCvv.setRightPadding(10)
         cardCvv.setLeftPadding(10)
+        cardCvv.setCorner(radius: 4)
+            if #available(iOS 13.0, *) {
+                cardCvv.setBorder(width: 2, color: UIColor.systemGray6)
+                cardCvv.backgroundColor = UIColor.systemGray6
+                
+            } else {
+                // Fallback on earlier versions
+                cardCvv.setBorder(width: 2, color: UIColor.init(named: Constants.lightGreyColor) ?? UIColor.lightGray)
+                cardCvv.backgroundColor =  UIColor.init(named: Constants.lightGreyColor)
+                
+            }
+            
         cardCvv.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
         
         cardCvv.leftAnchor.constraint(equalToSystemSpacingAfter: cardExpiry.rightAnchor, multiplier: 10).isActive = true
@@ -106,7 +121,7 @@ internal class CardView : UIView {
         cardCvv.placeholder = "CVV"
         cardCvv.keyboardType = UIKeyboardType.phonePad
         
-    
+        
         cardExpiry.rightAnchor.constraint(equalTo: cardCvv.leftAnchor, constant: -10).isActive = true
         
         cardCvv.leftAnchor.constraint(equalTo: cardExpiry.rightAnchor, constant: 10).isActive = true
@@ -124,13 +139,13 @@ internal class CardView : UIView {
         cardCvv.maskString = "000"
         cardExpiry.maskString = "00/00"
     }
-
+    
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
         
         setupComponents();
-       // let _ = initViewComponents();
+        // let _ = initViewComponents();
         
     }
     
@@ -143,7 +158,7 @@ internal class CardView : UIView {
     override public init(frame: CGRect){
         super.init(frame: frame)
         setupComponents();
-       // let _ = initViewComponents();
+        // let _ = initViewComponents();
     }
     
     

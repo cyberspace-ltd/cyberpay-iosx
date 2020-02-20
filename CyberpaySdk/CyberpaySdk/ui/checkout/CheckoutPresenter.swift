@@ -9,14 +9,15 @@
 import Foundation
 
 internal class CheckoutPresenter: CheckoutViewPresenter {
- 
-    
+
+
     weak var view: CheckoutView?
     private var transactionRepository: TransactionRepository = TransactionRepositoryImpl()
     
     private var bankRepository: BankRepository = BankRepositoryImpl()
 
     private var isLoading = false
+    
     var paymentOption = TransactionType.Card
 
 
@@ -92,5 +93,29 @@ internal class CheckoutPresenter: CheckoutViewPresenter {
     func enablePay() {
         self.view?.onEnablePay()
     }
+    
+    
+    func loadBanks() {
+        
+        if isLoading {
+            return
+        }
+        
+        view?.onLoad()
+        
+        isLoading = true
+        
+        bankRepository.getBanks()
+            .subscribe(onNext: { (result) in
+                self.isLoading = false
+                self.view?.onLoadComplete(banks: result)
+            }, onError: { (error) in
+              self.isLoading = false
+                self.view?.onError(message: error.localizedDescription)
+
+            })
+        
+    }
+    
     
 }

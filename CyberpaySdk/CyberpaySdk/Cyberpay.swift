@@ -18,7 +18,7 @@ public class CyberpaySdk {
     
     public static let INSTANCE = CyberpaySdk()
     internal  var key : String = "*"
-    internal var envMode = Mode.Debug
+    internal  var envMode = Mode.Debug
     private var maskView = ProgressMaskView()
     internal var isServerTransaction =  false
     internal var autoGenerateMerchantReference = false
@@ -649,13 +649,14 @@ public class CyberpaySdk {
             transaction.merchantReference =  "heplehnjdnjnene3t" + String(Int.random(in: 100 ..< 1000))
         }
         
-        showProgress(message: "Processing Transaction")
+             
+        DispatchQueue.main.async {
+            
+            self.showProgress(message: "Processing Transaction")
         
         self.bottomSheetController = rootController
         
-        
-        
-        DispatchQueue.main.async {
+     
             
             let checkout = Checkout(transaction: transaction,rootController: self.bottomSheetController, onCardSubmit: { card in
                 

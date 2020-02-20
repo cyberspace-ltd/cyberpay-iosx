@@ -11,55 +11,64 @@ import MaterialComponents.MaterialBottomSheet
 
 class Checkout : MDCBottomSheetController {
     
-    var presenter: CheckoutViewPresenter!
-     var btContinue = UIButton()
-     var pageTitle = UILabel()
-     var debugText = UILabel()
-     var pageDesc = UILabel()
-     var merchantLogo = UIImageView()
- 
-     var secureImage = UIImageView()
-     var cyberpayLogo = UIImageView()
     
-     var cardView = CardView()
-     var bankView = BankView()
+    fileprivate lazy var presenter: CheckoutPresenter = {
+        return CheckoutPresenter(view: self)
+    }()
+    var btContinue = UIButton()
+    var debugText = UILabel()
+    var pageDesc = UILabel()
+    var merchantLogo = UIImageView()
+    
+    var secureImage = UIImageView()
+    var cyberpayLogo = UIImageView()
+    
+    var cardView = CardView()
+    var bankView = BankView()
     
     var transactionType = TransactionType.Card
     
-     var payMethod : PaymentMethod!
+    var payMethod : PaymentMethod!
     var transaction : Transaction!
     
-     var card = Card()
-       
-     let scrollView: UIScrollView = {
-              let v = UIScrollView()
-              v.translatesAutoresizingMaskIntoConstraints = false
-              v.backgroundColor = .white
-              return v
-          }()
+    private var bankList: [BankResponse] = []
+    
+    private var canContinue = false
+    
+    var card = Card()
+    
+    let scrollView: UIScrollView = {
+        let v = UIScrollView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.backgroundColor = .white
+        return v
+    }()
     
     func setupComponents() {
         
-       self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height)
-          
-       self.view.addSubview(scrollView)
-       self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: 400)
-       self.dismissOnDraggingDownSheet = false
-       self.dismissOnBackgroundTap = false
-
-       // constrain the scroll view to 8-pts on each side
-       scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
-       scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-       scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
-       scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+//        self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height)
         
-        pageTitle.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(pageTitle)
-        pageTitle.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
+        self.view.addSubview(scrollView)
+        self.dismissOnDraggingDownSheet = false
+        self.dismissOnBackgroundTap = false
         
-        pageTitle.text = "Pay"
-        pageTitle.font = UIFont.boldSystemFont(ofSize: 24)
-        pageTitle.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0).isActive = true
+        // constrain the scroll view to 8-pts on each side
+        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 220).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        
+        let logoImage = UIImageView()
+        
+        logoImage.translatesAutoresizingMaskIntoConstraints = false
+        logoImage.image = UIImage(named: "cyberpay-logo")
+        logoImage.contentMode = .scaleAspectFit
+        
+        scrollView.addSubview(logoImage)
+        
+        logoImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0).isActive = true
+        logoImage.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 40).isActive = true
+        logoImage.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         //payment method
         payMethod = PaymentMethod(onSelect: {
@@ -79,7 +88,7 @@ class Checkout : MDCBottomSheetController {
         payMethod.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(payMethod)
         
-        payMethod.topAnchor.constraint(equalTo: pageTitle.bottomAnchor, constant: 40).isActive = true
+        payMethod.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 40).isActive = true
         
         payMethod.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
@@ -126,19 +135,19 @@ class Checkout : MDCBottomSheetController {
         //setup button
         scrollView.addSubview(btContinue)
         btContinue.translatesAutoresizingMaskIntoConstraints = false
-    
+        
         btContinue.setTitle("Pay ₦\(transaction.amount / 100)", for: UIControl.State.normal)
         btContinue.backgroundColor = UIColor.init(hexString: Constants.primaryColor)
-      
+        
         btContinue.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        btContinue.heightAnchor.constraint(equalToConstant: 45).isActive = true
-       // btContinue.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        btContinue.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        // btContinue.widthAnchor.constraint(equalToConstant: 300).isActive = true
         btContinue.leftAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
         btContinue.rightAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.rightAnchor, constant: -20).isActive = true
         btContinue.layer.cornerRadius = 5
         
-        btContinue.topAnchor.constraint(equalTo: payMethod.bottomAnchor, constant: 200).isActive = true
+        btContinue.topAnchor.constraint(equalTo: payMethod.bottomAnchor, constant: 210).isActive = true
         
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.actionView))
         btContinue.addGestureRecognizer(gesture);
@@ -146,44 +155,40 @@ class Checkout : MDCBottomSheetController {
         //secured
         
         secureImage.translatesAutoresizingMaskIntoConstraints = false
-        secureImage.image = UIImage(named: "background")
-        
-    //    let image: UIImage = UIImage(named: "background")!
-        //secureImage.image = UIImage(named: "background")
-      //  secureImage.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 24, height: 24))
+        secureImage.image = UIImage(named: "secured-logo")
+        secureImage.contentMode = .scaleAspectFit
+
         scrollView.addSubview(secureImage)
         
         
-        //secureImage.backgroundColor = .red
-        
-        secureImage.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        secureImage.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        secureImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         secureImage.topAnchor.constraint(equalTo: btContinue.bottomAnchor, constant: 20).isActive = true
         secureImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-
-
+        
+        
         bankView.isHidden = true
-       
+        
         cardView.cardNumber.setOnTextChanged(onTextChanged: cardNumberChanged(text:))
         
         cardView.cardCvv.setOnTextChanged(onTextChanged: cardCvvChanged(text:))
         
         cardView.cardExpiry.setOnTextChanged(onTextChanged: cardExpiryChanged(text:))
         
-     
+        self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: (self.contentViewController.view.frame.size.height))
+
         disablePay()
     }
     
     private func showProgress(message: String)
-     {
-         LoadingIndicatorView.show(message)
-     }
-     
-     private func dismissProgress(){
-         LoadingIndicatorView.hide()
-     }
-     
+    {
+        LoadingIndicatorView.show(message)
+    }
+    
+    private func dismissProgress(){
+        LoadingIndicatorView.hide()
+    }
+    
     
     func enablePay(){
         self.btContinue.isEnabled = true
@@ -191,8 +196,8 @@ class Checkout : MDCBottomSheetController {
     }
     
     func disablePay(){
-         self.btContinue.isEnabled = false
-         self.btContinue.alpha = 0.4
+        self.btContinue.isEnabled = false
+        self.btContinue.alpha = 0.4
     }
     
     func cardCvvChanged(text: String) {
@@ -206,7 +211,7 @@ class Checkout : MDCBottomSheetController {
                 enablePay()
             }
         }
-        
+            
         else {
             disablePay()
         }
@@ -223,17 +228,17 @@ class Checkout : MDCBottomSheetController {
                 enablePay()
             }
             
-    
+            
         }
         else {
             disablePay()
         }
-   }
+    }
     
     func cardNumberChanged(text: String) {
-    
+        
         if(text.isValidCardNumber()){
-           
+            
             self.card.cardType = text.cardType()
             self.card.number = text
             
@@ -241,22 +246,20 @@ class Checkout : MDCBottomSheetController {
             {
                 enablePay()
             }
-        
+            
         }
         else {
             disablePay()
         }
         
-    
+        
     }
-    
-
     
     
     @objc func actionView(sender: UIGestureRecognizer) -> Void {
-
+        
         if(transactionType == TransactionType.Card){
-            print("hello ...")
+            
             self.card.cvv = cardView.cardCvv.text!
             self.card.number = cardView.cardNumber.text!.formattedCardNumber()
             
@@ -266,7 +269,7 @@ class Checkout : MDCBottomSheetController {
             self.card.expiryYear = exp[1]
             
             onCard!(self.card)
-        
+            
         }
     }
     
@@ -282,76 +285,130 @@ class Checkout : MDCBottomSheetController {
         onBank = onBankSubmit
         onBankRedirect = onRedirect
         
+        
         super.init(contentViewController: rootController)
-    
+        
         
     }
     
     required init?(coder: NSCoder) {
-            super.init(coder: coder)
-       }
-       
-   override func viewDidLoad() {
-           setupComponents()
-       }
+        super.init(coder: coder)
+    }
+    
+    override func viewDidLoad() {
+        presenter.viewDidLoad()
+        setupComponents()
+    }
     
     
     
 }
 
 extension Checkout: CheckoutView {
+    
     func onError(message: String) {
-        fatalError("Not Implemented")
+        
+        bankView.accoutNumber.isEnabled = true
+        bankView.accountName.text = ""
+        
+        //             accountNumber.error = "Verify Error"
+        //             verified.visibility = View.GONE
+        //             accountName.text = ""
+        //             pay.text = String.format("Pay ₦%s",transaction.amountToPay)
+        //             verify_layout.visibility = View.GONE
     }
     
     func onBankPay() {
-                fatalError("Not Implemented")
-
+        fatalError("Not Implemented")
+        //        cardIndicator.setBackgroundResource(R.color.white)
+        //              bankIndicator.setBackgroundResource(R.color.primaryColorDark)
+        //              bankLayout.visibility = View.VISIBLE
+        //              cardLayout.visibility = View.GONE
+        //              viewPresenter.loadBanks()
+        //              viewPresenter.getBankTransactionAdvice(transaction)
+        //              onDisablePay()
+        
     }
     
     func onCardPay() {
-                fatalError("Not Implemented")
-
+        fatalError("Not Implemented")
+        //        bankIndicator.setBackgroundResource(R.color.white)
+        //        cardIndicator.setBackgroundResource(R.color.primaryColorDark)
+        //        bankLayout.visibility = View.GONE
+        //        cardLayout.visibility = View.VISIBLE
+        //        viewPresenter.getCardTransactionAdvice(transaction)
+        //        onDisablePay()
+        
     }
     
     func onLoad() {
-                fatalError("Not Implemented")
-
+        fatalError("Not Implemented")
+        
+        //        bankName.hint = "Loading..."
+        //              bank_loading.visibility = View.VISIBLE
     }
     
     func onLoadComplete(banks: Array<BankResponse>) {
-                fatalError("Not Implemented")
-
+        fatalError("Not Implemented")
+        //        bankList = banks
+        //            bankName.hint = "Select Bank"
+        //            bank_loading.visibility = View.GONE
+        
     }
     
     func onAccountName(account: AccountResponse) {
-                fatalError("Not Implemented")
-
+        fatalError("Not Implemented")
+        
+        //        verified.visibility = View.VISIBLE
+        //              accountNumber.isEnabled = true
+        //
+        //              bankAccount.accountNumber = accountNumber.text.toString()
+        //              bankAccount.accountName = account.accountName
+        //
+        //              account.accountName.split(' ').map {
+        //                  accountName.text = "${accountName.text} ${it.toLowerCase().capitalize()}"
+        //              }
+        //
+        //              verify_layout.visibility = View.GONE
+        //              pay.text = String.format("Pay ₦%s",transaction.amountToPay)
+        //              onEnablePay()
     }
     
     func onUpdateAdvice(advice: Advice) {
-                fatalError("Not Implemented")
-
+        fatalError("Not Implemented")
+        //        pay.text = String.format("Pay ₦%s",advice.amountToPay)
+        //            transaction.amount = advice.amount!!
+        //            transaction.charge = advice.charge!!
+        //            onEnablePay()
+        
     }
     
     func onCancelTransaction(transaction: Transaction) {
-                fatalError("Not Implemented")
-
+        fatalError("Not Implemented")
+        //        progress.dismiss()
+        //              dismiss()
+        //              listener.onCancel(transaction)
     }
     
     func onCancelTransactionError(transaction: Transaction) {
-                fatalError("Not Implemented")
-
+        fatalError("Not Implemented")
+        //        progress.dismiss()
+        
+        
     }
     
     func onDisablePay() {
-                fatalError("Not Implemented")
-
+        fatalError("Not Implemented")
+        //        pay.isEnabled = false
+        //             pay.alpha = 0.3f
+        
     }
     
     func onEnablePay() {
-                fatalError("Not Implemented")
-
+        fatalError("Not Implemented")
+        //        pay.isEnabled = true
+        //              pay.alpha = 1f
+        
     }
     
     

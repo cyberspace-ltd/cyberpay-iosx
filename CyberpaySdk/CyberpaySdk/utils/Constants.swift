@@ -16,4 +16,6 @@ internal class Constants {
     
     public static let primaryColor = "#16283E"
     public static let primaryColorDark = "#2F8ED6"
+    public static let lightGreyColor = "#F9F9F9"
+
 }

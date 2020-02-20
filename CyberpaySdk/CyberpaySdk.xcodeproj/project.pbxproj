@@ -77,6 +77,7 @@
 		A653036D23FCE22200703B89 /* Cyberpay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A653036C23FCE22200703B89 /* Cyberpay.swift */; };
 		A6CF28B423FAE72E0078285D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CF28B323FAE72E0078285D /* Assets.xcassets */; };
 		A6CF87B423FDBDF400F2A623 /* DateOfBirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CF87B323FDBDF400F2A623 /* DateOfBirthView.swift */; };
+		A6CF87B623FDF0C200F2A623 /* CyberpayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CF87B523FDF0C200F2A623 /* CyberpayPickerView.swift */; };
 		C6F696B7AE03F500CE27391B /* Pods_CyberpaySdk_CyberpaySdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DC5D0DB2B6B1FE50725B62 /* Pods_CyberpaySdk_CyberpaySdkTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -167,6 +168,7 @@
 		A653036C23FCE22200703B89 /* Cyberpay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cyberpay.swift; sourceTree = "<group>"; };
 		A6CF28B323FAE72E0078285D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6CF87B323FDBDF400F2A623 /* DateOfBirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthView.swift; sourceTree = "<group>"; };
+		A6CF87B523FDF0C200F2A623 /* CyberpayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberpayPickerView.swift; sourceTree = "<group>"; };
 		DCF1C04CD6FF004F26BAE629 /* Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk-CyberpaySdkTests/Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC3E5A191F4E25A01D2F8242 /* Pods-CyberpaySdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk.release.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk/Pods-CyberpaySdk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,6 +223,7 @@
 				4768AE80239FB79200A30D8A /* PinPad.swift */,
 				47CA971D23C774F500E34BD5 /* PaymentMethod.swift */,
 				A653034123FC589900703B89 /* LoadingIndicatorView.swift */,
+				A6CF87B523FDF0C200F2A623 /* CyberpayPickerView.swift */,
 			);
 			path = widget;
 			sourceTree = "<group>";
@@ -751,6 +754,7 @@
 				A653034923FC6C3300703B89 /* BankResponse.swift in Sources */,
 				47B13E91238FB858002EC4CC /* ChargeCard.swift in Sources */,
 				A653034423FC65AD00703B89 /* ChannelCode.swift in Sources */,
+				A6CF87B623FDF0C200F2A623 /* CyberpayPickerView.swift in Sources */,
 				A653034D23FC724400703B89 /* CheckoutPresenter.swift in Sources */,
 				4768AE8523A0DEC700A30D8A /* UIColorExtension.swift in Sources */,
 				A653036D23FCE22200703B89 /* Cyberpay.swift in Sources */,

@@ -27,8 +27,8 @@ class  PaymentMethod: UIView {
         card.translatesAutoresizingMaskIntoConstraints = false
         addSubview(card)
         
-        card.text = "Pay with card"
-        card.textColor = .gray
+        card.text = "Card"
+        card.textColor = UIColor.init(hexString: Constants.primaryColor)
         card.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
        
         card.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
@@ -38,7 +38,7 @@ class  PaymentMethod: UIView {
         bank.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
         bank.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
 
-        bank.text = "Pay with bank"
+        bank.text = "Bank"
         bank.textColor = .gray
         bank.leftAnchor.constraint(equalTo: card.rightAnchor, constant: 10).isActive = true
         
@@ -64,10 +64,10 @@ class  PaymentMethod: UIView {
         
         stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        stackView.heightAnchor.constraint(equalToConstant: 5).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: 2).isActive = true
         
         //add card line
-        cardLine.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        cardLine.heightAnchor.constraint(equalToConstant: 2).isActive = true
         cardLine.backgroundColor = UIColor.init(hexString: Constants.primaryColor)
         
         stackView.addArrangedSubview(cardLine)
@@ -76,8 +76,9 @@ class  PaymentMethod: UIView {
         stackView.addArrangedSubview(bankLine)
         bankLine.translatesAutoresizingMaskIntoConstraints = false
     
-        bankLine.backgroundColor = UIColor.init(hexString: "#E0E0E0")
-    
+        bankLine.backgroundColor = UIColor.init(hexString: Constants.lightGreyColor)
+        bankLine.heightAnchor.constraint(equalToConstant: 2).isActive = true
+
         let cardGesture = UITapGestureRecognizer(target: self, action:  #selector(self.cardView))
         
         let bankGesture = UITapGestureRecognizer(target: self, action:  #selector(self.bankView))
@@ -93,18 +94,21 @@ class  PaymentMethod: UIView {
     
     @objc func bankView(sender: UIGestureRecognizer) -> Void {
             
-        cardLine.backgroundColor = UIColor.init(hexString: "#E0E0E0")
+        cardLine.backgroundColor = UIColor.init(hexString: Constants.lightGreyColor)
         bankLine.backgroundColor = UIColor.init(hexString: Constants.primaryColor)
           onSelect!(1)
-    
+        bank.textColor =  UIColor.init(hexString: Constants.primaryColor)
+        card.textColor =  .gray
+
     }
     
     @objc func cardView(sender: UIGestureRecognizer) -> Void {
         
-        bankLine.backgroundColor = UIColor.init(hexString: "#E0E0E0")
+        bankLine.backgroundColor = UIColor.init(hexString: Constants.lightGreyColor)
         cardLine.backgroundColor = UIColor.init(hexString: Constants.primaryColor)
         onSelect!(0)
-    
+        bank.textColor =  .gray
+        card.textColor =  UIColor.init(hexString: Constants.primaryColor)
     }
     
     

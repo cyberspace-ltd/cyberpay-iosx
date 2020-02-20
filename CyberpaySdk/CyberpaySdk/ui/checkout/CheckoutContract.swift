@@ -11,6 +11,7 @@ import Foundation
 internal protocol CheckoutViewPresenter {
     
     init(view: CheckoutView)
+    func loadBanks()
     func viewDidLoad()
     func bankPay()
     func cardPay()

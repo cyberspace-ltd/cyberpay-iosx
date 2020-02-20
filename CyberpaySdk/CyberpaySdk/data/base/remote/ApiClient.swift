@@ -16,9 +16,13 @@ class ApiClient {
     private let urlLive = URL(string: "https://payment-api.cyberpay.ng/api/v1/")!
 
     func send<T: Codable>(apiRequest: ApiRequest) -> Observable<T> {
+        var url = urlDebug
+        if CyberpaySdk.INSTANCE.envMode == Mode.Live {
+            url = urlLive
+        }
         
         return Observable<T>.create { observer in
-            let request = apiRequest.request(with: self.urlDebug)
+            let request = apiRequest.request(with: url)
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 do {
               

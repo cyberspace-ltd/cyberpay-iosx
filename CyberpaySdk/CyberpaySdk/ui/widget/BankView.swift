@@ -13,10 +13,15 @@ internal class BankView : UIView {
     
     var bankName = UITextField()
     var accoutNumber = UITextField()
+    var accountName = UILabel()
+    
+    let verificationStack = UIStackView()
+    
+    let verificationImage = UIImageView()
     
     @objc func dismissKeyboard() {
-           endEditing(true)
-       }
+        endEditing(true)
+    }
     
     func setDoneOnKeyboard() {
         let keyboardToolbar = UIToolbar()
@@ -26,7 +31,7 @@ internal class BankView : UIView {
         keyboardToolbar.items = [flexBarButton, doneBarButton]
         self.accoutNumber.inputAccessoryView = keyboardToolbar
     }
-
+    
     
     func setupComponents(){
         
@@ -35,23 +40,30 @@ internal class BankView : UIView {
         // card number
         bankName.translatesAutoresizingMaskIntoConstraints = false
         addSubview(bankName)
-    
+        
         bankName.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        bankName.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        bankName.heightAnchor.constraint(equalToConstant: 40).isActive = true
         bankName.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
         bankName.setLeftPadding(10)
         bankName.setRightPadding(10)
         
         bankName.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
         bankName.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0).isActive = true
-       
+        
         bankName.placeholder = "Bank Name"
         
-        bankName.layer.cornerRadius = 5
-        bankName.backgroundColor = UIColor.init(named: "#F7F7F7")
-        bankName.layer.borderColor = UIColor.init(named: "#F7F7F7")?.cgColor
         bankName.keyboardType = UIKeyboardType.phonePad
-        bankName.layer.borderWidth = 0.5
+        bankName.setCorner(radius: 4)
+        if #available(iOS 13.0, *) {
+            bankName.setBorder(width: 2, color: UIColor.systemGray6)
+            bankName.backgroundColor = UIColor.systemGray6
+            
+        } else {
+            // Fallback on earlier versions
+            bankName.setBorder(width: 2, color: UIColor.init(named: Constants.lightGreyColor) ?? UIColor.lightGray)
+            bankName.backgroundColor =  UIColor.init(named: Constants.lightGreyColor)
+            
+        }
         
         // card expiry
         accoutNumber.translatesAutoresizingMaskIntoConstraints = false
@@ -63,31 +75,76 @@ internal class BankView : UIView {
         
         accoutNumber.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
         
-        accoutNumber.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        accoutNumber.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         
         accoutNumber.placeholder = "Account Number"
-        accoutNumber.layer.borderColor = UIColor.init(named: "#F7F7F7")?.cgColor
-        accoutNumber.layer.borderWidth = 0.5
-        accoutNumber.layer.cornerRadius = 5
         accoutNumber.setRightPadding(10)
         accoutNumber.setLeftPadding(10)
+        accoutNumber.setCorner(radius: 4)
+        if #available(iOS 13.0, *) {
+            accoutNumber.setBorder(width: 2, color: UIColor.systemGray6)
+            accoutNumber.backgroundColor = UIColor.systemGray6
+            
+        } else {
+            // Fallback on earlier versions
+            accoutNumber.setBorder(width: 2, color: UIColor.init(named: Constants.lightGreyColor) ?? UIColor.lightGray)
+            accoutNumber.backgroundColor =  UIColor.init(named: Constants.lightGreyColor)
+            
+        }
         
-    
+        
         bankName.setLeftPadding(10)
         bankName.setRightPadding(10)
         
+        accountName.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        accountName.textAlignment = .right
+        accountName.text  = "David Ehigiator"
+        accountName.backgroundColor  = UIColor.clear
+        accountName.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1)
+              
         
-        setDoneOnKeyboard()
-     
-    }
+        verificationStack.axis  = NSLayoutConstraint.Axis.horizontal
+        verificationStack.distribution  = UIStackView.Distribution.fill
+        verificationStack.alignment = UIStackView.Alignment.center
+        verificationStack.spacing   = 4.0
+        
+        if #available(iOS 13.0, *) {
+            let smallConfigurationVerification = UIImage.SymbolConfiguration(scale: .small)
+            
+            let smallVerificationIcon = UIImage(systemName: "checkmark.seal.fill", withConfiguration: smallConfigurationVerification)
+            
+            verificationImage.image = smallVerificationIcon
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+      
+        
+        verificationStack.addArrangedSubview(accountName)
+        verificationStack.addArrangedSubview(verificationImage)
+        verificationStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(verificationStack)
+        
+        verificationStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        
+        verificationStack.topAnchor.constraint(equalTo: accoutNumber.bottomAnchor, constant: 4).isActive = true
+        
+        verificationStack.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
+        setDoneOnKeyboard()
+        
+    }
+    
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
         
         setupComponents();
-       // let _ = initViewComponents();
+        // let _ = initViewComponents();
         
     }
     
@@ -100,7 +157,7 @@ internal class BankView : UIView {
     override public init(frame: CGRect){
         super.init(frame: frame)
         setupComponents();
-       // let _ = initViewComponents();
+        // let _ = initViewComponents();
     }
     
     
