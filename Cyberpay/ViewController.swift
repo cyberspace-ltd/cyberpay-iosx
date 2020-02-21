@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         transaction.customerEmail = "test@email.com"
         transaction.merchantReference =  UUID().uuidString
 
-        CyberpaySdk.shared.initialise(integrationKey: "7b03633edd5b40a880bbef855159d31d", mode: Mode.Debug)
+        CyberpaySdk.shared.initialise(integrationKey: "INTEGRATION_KEY", mode: Mode.Debug)
 
         CyberpaySdk.shared.checkoutTransaction(rootController: self, transaction: transaction,
                                                  onSuccess: {result in

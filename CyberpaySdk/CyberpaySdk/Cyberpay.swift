@@ -121,7 +121,7 @@ public class CyberpaySdk {
         
         DispatchQueue.main.async {
             
-          let otpView = PinPad(contentViewController: self.bottomSheetController, message: transaction.message, inputType: InputType.Otp) { (otp) in
+            let otpView = PinPad(contentViewController: self.bottomSheetController, message: transaction.message, inputType: InputType.Otp) { (otp) in
                 transaction.otp = otp
                 self.verifyCardOtp(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
                 
@@ -276,7 +276,12 @@ public class CyberpaySdk {
             .subscribe(onNext: {
                 result in
                 
-                transaction.message = result.data?.reason ?? ""
+                if result.data?.reason != nil && !result.data!.reason!.isEmpty {
+                    transaction.message = result.data?.reason ?? ""
+                }
+                else if result.data?.message != nil && !result.data!.message!.isEmpty {
+                    transaction.message = result.data?.message ?? ""
+                }
                 switch(result.data?.status){
                     
                     
@@ -287,14 +292,14 @@ public class CyberpaySdk {
                     
                 case "ProvidePin" :
                     DispatchQueue.main.async {
-                                   
+                        
                         let pinView = PinPad(contentViewController: self.bottomSheetController, message: transaction.message, inputType: InputType.Pin) { (pin) in
-                        
-                        transaction.card?.pin = pin
-                        self.chargeCardWithPin(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
-                        
-                    }
-                    rootController.presentOnRoot(with: pinView)
+                            
+                            transaction.card?.pin = pin
+                            self.chargeCardWithPin(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
+                            
+                        }
+                        rootController.presentOnRoot(with: pinView)
                     }
                 case "EnrollOtp" :
                     self.processEnrollCardOtp(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
