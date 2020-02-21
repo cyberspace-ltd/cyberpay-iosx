@@ -17,7 +17,7 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
     
     
     var btContinue = UIButton()
-    var pinInput = UITextField()
+    var pinInput = JMMaskTextField()
     var pageTitle = UILabel()
     var pageDesc = UILabel()
     var secureImage = UIImageView()
@@ -31,7 +31,7 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
            return v
        }()
     
-    var MAX_TEXT_LENGTH = 4
+    var MAX_TEXT_LENGTH = 10
     
     func setInutLength (length : Int){
         MAX_TEXT_LENGTH = length
@@ -71,13 +71,14 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
         scrollView.addSubview(pageTitle)
         pageTitle.translatesAutoresizingMaskIntoConstraints = false
         
-        pageTitle.textColor = UIColor.black
-        pageTitle.font = UIFont.boldSystemFont(ofSize: 28.0)
+        pageTitle.textColor = UIColor.init(hexString:Constants.primaryColor)
+        pageTitle.font = UIFont.boldSystemFont(ofSize: 18.0)
         
         // constraints
         pageTitle.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
         pageTitle.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0).isActive = true
-        
+        pageTitle.font = UIFont.boldSystemFont(ofSize: 18.0)
+
         
         scrollView.addSubview(pageDesc)
         pageDesc.translatesAutoresizingMaskIntoConstraints = false
@@ -88,8 +89,10 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
         pageDesc.widthAnchor.constraint(equalToConstant: 300).isActive = true
         pageDesc.numberOfLines = 0
         pageDesc.textAlignment = NSTextAlignment.center
-     
-        
+     pageDesc.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1)
+
+        pageDesc.textColor = UIColor.init(hexString:Constants.primaryColor)
+
         //
         scrollView.addSubview(pinInput)
         pinInput.translatesAutoresizingMaskIntoConstraints = false
@@ -122,10 +125,8 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
             scrollView.addSubview(secureText)
             secureText.translatesAutoresizingMaskIntoConstraints = false
             secureText.textColor = UIColor.black
-            secureText.text = "Secured by"
-            
             secureText.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            secureText.topAnchor.constraint(equalTo: pinInput.bottomAnchor, constant: 50).isActive = true
+            secureText.topAnchor.constraint(equalTo: pinInput.bottomAnchor, constant: 0).isActive = true
         
         //setup button
           scrollView.addSubview(btContinue)
@@ -141,26 +142,25 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
           btContinue.widthAnchor.constraint(equalToConstant: 300).isActive = true
           btContinue.layer.cornerRadius = 5
           
-          btContinue.topAnchor.constraint(equalTo: secureText.bottomAnchor, constant: 50).isActive = true
+          btContinue.topAnchor.constraint(equalTo: secureText.bottomAnchor, constant: 40).isActive = true
          btContinue.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20).isActive = true
         
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.actionView))
         btContinue.addGestureRecognizer(gesture);
         
          
-        //secureImage.image = UIImage(named: "secured")
-        secureImage.frame = CGRect(x: 0, y: 0,width: 24, height: 24)
         view.addSubview(secureImage)
         secureImage.translatesAutoresizingMaskIntoConstraints = false
         
-        //secureImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        secureImage.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        secureImage.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        secureImage.rightAnchor.constraint(equalTo: secureText.leftAnchor, constant: -20).isActive = true
-        
-        secureImage.bottomAnchor.constraint(equalTo: btContinue.topAnchor, constant: -20).isActive = true
- 
+        secureImage.image = UIImage(named: "secured-logo")
+
+        secureImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            
+        secureImage.topAnchor.constraint(equalTo: btContinue.bottomAnchor, constant: 20).isActive = true
+        secureImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+            
+        secureImage.contentMode = .scaleAspectFit
+
        
     }
 
@@ -171,13 +171,14 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
     
      /* close view */
       @objc func actionView(sender: UIGestureRecognizer) -> Void {
-       
-        self.onSubmitted!(pinInput.text!)
+        
+        var pin = pinInput.text!
+        self.onSubmitted!(pin)
         self.dismiss(animated: true, completion: nil)
        }
     
 
-   init(contentViewController: UIViewController, inputType: InputType, onSubmit: @escaping (String)->()) {
+   init(contentViewController: UIViewController,message: String = "", inputType: InputType, onSubmit: @escaping (String)->()) {
     super.init(contentViewController: contentViewController)
 
         onSubmitted = onSubmit
@@ -192,7 +193,7 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
             
         case .Otp:
             pageTitle.text = "Enter Otp"
-            pageDesc.text = "Kindly enter the one time password sent to your phone number or email address to complete transaction"
+            pageDesc.text = !message.isEmpty ? message :  "Kindly enter the one time password sent to your phone number or email address to complete transaction"
             pinInput.placeholder = "Otp"
             pinInput.isSecureTextEntry = true
 

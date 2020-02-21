@@ -19,7 +19,7 @@ public class Card{
     public var cvv : String?
     public var expiryMonth : String?
     public var expiryYear : String?
-    internal var pin : String?
+    internal var pin : String = ""
     public var cardType : SwiftLuhn.CardType?
     
     public var expiry : String? {
@@ -29,20 +29,26 @@ public class Card{
     public init() {}
     
     public var toJson : Any {
-    
         var parameters: [String : Any]! = [String : Any]()
-        
-        do{
-            parameters = [
+        do {
+             parameters = [
               "Name" : "",
               "ExpiryMonth": expiryMonth!,
               "ExpiryYear" : expiryYear!,
               "CardNumber" : number!,
               "CVV" : cvv!,
-              "CardPin" : pin!
+              "CardPin" :  "\(pin)"
             ]
-                
-            return try JSONSerialization.data(withJSONObject: parameters!, options: [])
+            let jsonData = try JSONSerialization.data(withJSONObject: parameters as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
+            
+            //Convert back to string. Usually only do this for debugging
+              if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+                 print(JSONString)
+              }
+            
+            return try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any] as Any
+
+           
             
         }catch _ {
             return parameters!

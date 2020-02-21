@@ -26,7 +26,6 @@ class Checkout : MDCBottomSheetController {
     var cardView = CardView()
     var bankView = BankView()
     
-    var transactionType = TransactionType.Card
     
     var payMethod : PaymentMethod!
     var transaction : Transaction!
@@ -61,16 +60,57 @@ class Checkout : MDCBottomSheetController {
         scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         
+        
+        let testModelLabel = UILabel()
+        testModelLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        testModelLabel.text  = "This is a test page. Do not use with production cards"
+        testModelLabel.textAlignment = .center
+        testModelLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1)
+        testModelLabel.textColor = UIColor.white
+        testModelLabel.backgroundColor = UIColor.init(hexString: "E7403D")
+        testModelLabel.widthAnchor.constraint(equalToConstant: scrollView.frame.width).isActive = true
         let logoImage = UIImageView()
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
         logoImage.image = UIImage(named: "cyberpay-logo")
         logoImage.contentMode = .scaleAspectFit
         
-        scrollView.addSubview(logoImage)
         
+        let testStack   = UIStackView()
+        testStack.translatesAutoresizingMaskIntoConstraints = false
+        testStack.axis  = NSLayoutConstraint.Axis.vertical
+        testStack.distribution  = UIStackView.Distribution.fill
+        testStack.alignment = UIStackView.Alignment.center
+        testStack.spacing   = 16.0
+        testStack.addArrangedSubview(testModelLabel)
+        
+        
+        if CyberpaySdk.shared.envMode == .Debug {
+            
+            scrollView.addSubview(testStack)
+            
+            scrollView.addSubview(logoImage)
+            
+            
+            testModelLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
+            testModelLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
+            //Constraints
+            testStack.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+            testStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
+            testStack.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            testStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
+            testStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
+            logoImage.topAnchor.constraint(equalTo: testStack.bottomAnchor, constant: 40).isActive = true
+            
+        }
+        else {
+            scrollView.addSubview(logoImage)
+            
+            logoImage.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 40).isActive = true
+            
+        }
         logoImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0).isActive = true
-        logoImage.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 40).isActive = true
         logoImage.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         //payment method
@@ -79,15 +119,16 @@ class Checkout : MDCBottomSheetController {
             if(v == 0){
                 self.cardView.isHidden = false
                 self.bankView.isHidden = true
-                self.transactionType = TransactionType.Card
-                self.presenter.cardPay()
+                self.presenter.paymentOption = TransactionType.Card
+                
+                self.onCardPay()
                 self.view.endEditing(true)
             }
             else {
                 self.cardView.isHidden = true
                 self.bankView.isHidden = false
-                self.transactionType = TransactionType.Bank
-                self.presenter.bankPay()
+                self.presenter.paymentOption = TransactionType.Bank
+                self.onBankPay()
                 self.view.endEditing(true)
                 
             }
@@ -188,9 +229,10 @@ class Checkout : MDCBottomSheetController {
         cardView.cardExpiry.setOnTextChanged(onTextChanged: cardExpiryChanged(text:))
         
         bankView.accoutNumber.setOnTextChanged(onTextChanged: accountNumberChanged(text:))
+        bankView.bankName.setOnTextChanged(onTextChanged: bankNameChanged(text:))
+        
         
         bankView.accoutNumber.isEnabled = false
-        bankView.bankName.setOnTextChanged(onTextChanged: bankName_onSelect(selectedText: ))
         
         self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: (self.contentViewController.view.frame.size.height))
         
@@ -207,28 +249,27 @@ class Checkout : MDCBottomSheetController {
         LoadingIndicatorView.hide()
     }
     
-    
+    func bankNameChanged(text: String) {
+        self.toggleVerificationView(shouldHide: true)
+        self.bankView.accoutNumber.text = ""
+        onDisablePay()
+    }
     
     
     func accountNumberChanged(text: String) {
+        self.toggleVerificationView(shouldHide: true)
+        onDisablePay()
         if (text.count == 10){
             view.endEditing(true)
             canContinue = true
-            bankView.verificationStack.alpha = 1
             onDisablePay()
-            btContinue.setTitle("Verifying...)", for: UIControl.State.normal)
+            btContinue.setTitle("Verifying...", for: UIControl.State.normal)
             presenter.getAccountName(bankCode: bankAccount.bank!.bankCode!, account: text)
         }
     }
     
     
     
-    func bankName_onSelect(selectedText: String) {
-        // check bank processing type,
-        if let selectedBank = bankList.first(where: { $0.bankName == selectedText }) {
-            print("The Bank Chosen is \(selectedBank).")
-        }
-    }
     
     func cardCvvChanged(text: String) {
         if(text.isValidCvv()){
@@ -269,7 +310,7 @@ class Checkout : MDCBottomSheetController {
         
         if(text.isValidCardNumber()){
             
-            self.card.cardType = text.cardType()
+            self.card.cardType = text.suggestedCardType()
             self.card.number = text
             
             if(self.card.expiry?.isValidExpiry() ?? false &&  self.card.cvv?.isValidCvv() ?? false)
@@ -285,6 +326,45 @@ class Checkout : MDCBottomSheetController {
         
     }
     
+    @objc func bankNameDidBeginEditing(sender:UITextField)
+    {
+        // handle begin editing event
+        
+        DispatchQueue.main.async {
+            
+            let bankselectView = BankSelectView(rootController: self,banksResponse: self.bankList, onFinished: { (bank) in
+                
+                self.toggleVerificationView(shouldHide: true)
+                self.bankView.accoutNumber.text = ""
+                self.onDisablePay()
+                self.bankAccount.bank = bank
+                self.bankView.bankName.text = bank.bankName
+                
+                if bank.processingType == "External" {
+                    self.confirmRedirect(with: bank)
+                }
+                self.bankView.accoutNumber.isEnabled = true
+                
+                
+                
+            }) {
+                
+                
+            }
+            
+            self.present(bankselectView, animated: false, completion: nil)
+            
+            
+            
+        }
+        
+        
+    }
+    
+    func confirmRedirect(with bank: BankResponse){
+        onBankRedirect!(bank)
+    }
+    
     
     @objc func actionView(sender: UIGestureRecognizer) -> Void {
         
@@ -298,10 +378,12 @@ class Checkout : MDCBottomSheetController {
             self.card.expiryMonth = exp[0]
             self.card.expiryYear = exp[1]
             
-         
-
-                onCard!(self.card)
-
+            if self.card.cardType == nil {
+                self.card.cardType = .verve // set default
+            }
+            
+            onCard!(self.card)
+            
             
         }
         else if(presenter.paymentOption == TransactionType.Bank){
@@ -309,11 +391,11 @@ class Checkout : MDCBottomSheetController {
             switch bankAccount.bank?.processingType {
             case "External":
                 self.onBankRedirect!(self.bankAccount.bank!)
-
+                
                 break
             case "Internal":
                 self.onBank!(self.bankAccount)
-
+                
                 break
             default:
                 break
@@ -334,9 +416,10 @@ class Checkout : MDCBottomSheetController {
         onBank = onBankSubmit
         onBankRedirect = onRedirect
         
-        
         super.init(contentViewController: rootController)
         
+        onCardPay()
+
         
     }
     
@@ -361,7 +444,7 @@ extension Checkout: CheckoutView {
             self.bankView.accoutNumber.isEnabled = true
             self.bankView.accountName.text = ""
             self.btContinue.setTitle("Pay \(self.transaction.amountToPay)", for: UIControl.State.normal)
-            self.bankView.verificationStack.alpha = 0
+            self.toggleVerificationView(shouldHide: true)
             
         }
     }
@@ -394,10 +477,43 @@ extension Checkout: CheckoutView {
             
             self.bankList = banks
             self.bankView.bankName.placeholder = "Select Bank"
-            self.bankView.accoutNumber.isEnabled = true
             self.bankView.bankName.isLoading = false
+            self.bankView.bankName.isEnabled = true
             
-            self.bankView.bankName.loadDropdownData(data:  self.bankList.map {$0.bankName!}, onSelect: self.bankName_onSelect)
+            self.bankView.bankName.addTarget(self, action: #selector(self.bankNameDidBeginEditing(sender:)), for: .allTouchEvents)
+            
+            
+            //            self.bankView.bankName.loadDropdownData(data:  self.bankList.map {$0.bankName!}, onSelect: self.bankName_onSelect)
+        }
+        
+    }
+    
+    func toggleVerificationView(shouldHide: Bool)  {
+        
+        if shouldHide {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.bankView.verificationImage.alpha = 0
+                self.bankView.accountName.alpha = 0
+                self.bankView.verificationStack.alpha = 0
+            }) { (finished) in
+                self.bankView.verificationImage.isHidden = shouldHide
+                self.bankView.accountName.isHidden = shouldHide
+                self.bankView.verificationStack.isHidden = shouldHide
+            }
+            
+        }
+        else {
+            
+            self.bankView.verificationImage.isHidden = shouldHide
+            self.bankView.accountName.isHidden = shouldHide
+            self.bankView.verificationStack.isHidden = shouldHide
+            UIView.animate(withDuration: 0.3) {
+                self.bankView.verificationImage.alpha = 1
+                self.bankView.accountName.alpha = 1
+                self.bankView.verificationStack.alpha = 1
+            }
+            
+            
         }
         
     }
@@ -406,11 +522,11 @@ extension Checkout: CheckoutView {
         DispatchQueue.main.async {
             self.bankView.accoutNumber.isEnabled = true
             self.bankAccount.accountNumber =   self.bankView.accoutNumber.text
-            
+            self.bankView.accountName.text = ""
             account.accountName.split(separator: " ").map({ name in
                 self.bankView.accountName.text = "\(  self.bankView.accountName.text ?? "") \(name.localizedCapitalized)"
             })
-            self.bankView.verificationStack.alpha = 1
+            self.toggleVerificationView(shouldHide: false)
             self.btContinue.setTitle("Pay \(  self.transaction.amountToPay)", for: UIControl.State.normal)
         }
         self.onEnablePay()

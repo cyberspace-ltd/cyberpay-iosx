@@ -34,9 +34,16 @@ class TransactionService: TransactionServiceProtocol {
     
     func getTransactionAdvice(transaction : Transaction, channelCode: String) -> Observable<ApiResponse<Advice>> {
            let request = ApiRequest()
-        request.path = "payments/\(transaction.reference)/advice/?channelcode=\(channelCode)"
-            request.method = RequestType.GET
-            return apiClient.send(apiRequest: request)
+        
+        var urlComponents = URLComponents()
+        urlComponents.path = "/payments/\(transaction.reference)/advice"
+        urlComponents.queryItems = [
+             URLQueryItem(name: "channelcode", value: channelCode)
+        ]
+        request.queryItems = urlComponents.queryItems
+        request.path = urlComponents.path
+        request.method = RequestType.GET
+        return apiClient.send(apiRequest: request)
     }
     
     /*

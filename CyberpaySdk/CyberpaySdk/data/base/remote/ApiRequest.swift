@@ -13,12 +13,14 @@ class ApiRequest {
     var path: String!
     var parameters: [String : Any]! = [String : Any]()
     var headers : [String : Any]! = [String : Any]()
-    
+    var queryItems : [URLQueryItem]! = []
     func request(with baseURL: URL) -> URLRequest {
-        guard let components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: false) else {
+        guard var components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: false) else {
             fatalError("Unable to create URL components")
         }
-        
+        if !queryItems.isEmpty {
+            components.queryItems = queryItems
+        }
         guard let url = components.url else {
                  fatalError("Could not get url")
              }

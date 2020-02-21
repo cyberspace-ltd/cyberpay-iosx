@@ -103,7 +103,10 @@ extension Secure3DViewController {
     }
     
     @objc func cancel() {
-        onErrorReturned!("User Cancelled the authentication process - 3DSecure Environment")
+        self.dismiss(animated: true) {
+            self.onErrorReturned!("User Cancelled the authentication process - 3DSecure Environment")
+
+        }
     }
 }
 

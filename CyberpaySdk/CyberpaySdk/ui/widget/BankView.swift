@@ -110,7 +110,10 @@ internal class BankView : UIView {
         verificationStack.distribution  = UIStackView.Distribution.fill
         verificationStack.alignment = UIStackView.Alignment.center
         verificationStack.spacing   = 4.0
-        verificationStack.alpha = 0
+        
+        accountName.isHidden = true
+        verificationImage.isHidden = true
+        verificationStack.isHidden =  true
         
         if #available(iOS 13.0, *) {
             let smallConfigurationVerification = UIImage.SymbolConfiguration(scale: .small)

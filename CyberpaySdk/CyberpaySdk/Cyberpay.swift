@@ -121,8 +121,7 @@ public class CyberpaySdk {
         
         DispatchQueue.main.async {
             
-            let otpView = PinPad(contentViewController: self.bottomSheetController, inputType: InputType.Otp) { (otp) in
-                
+          let otpView = PinPad(contentViewController: self.bottomSheetController, message: transaction.message, inputType: InputType.Otp) { (otp) in
                 transaction.otp = otp
                 self.verifyCardOtp(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
                 
@@ -277,7 +276,10 @@ public class CyberpaySdk {
             .subscribe(onNext: {
                 result in
                 
+                transaction.message = result.data?.reason ?? ""
                 switch(result.data?.status){
+                    
+                    
                 case "Success", "Successful":
                     onSuccess(transaction)
                 case "Otp" :
@@ -286,7 +288,7 @@ public class CyberpaySdk {
                 case "ProvidePin" :
                     DispatchQueue.main.async {
                                    
-                    let pinView = PinPad(contentViewController: self.bottomSheetController, inputType: InputType.Pin) { (pin) in
+                        let pinView = PinPad(contentViewController: self.bottomSheetController, message: transaction.message, inputType: InputType.Pin) { (pin) in
                         
                         transaction.card?.pin = pin
                         self.chargeCardWithPin(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
@@ -820,8 +822,8 @@ public class CyberpaySdk {
             DispatchQueue.main.async {
                 
                 let pinView = PinPad(contentViewController: self.bottomSheetController, inputType: InputType.Pin) { (pin) in
-                    
-                    transaction.card?.pin = pin
+                    let pinString = String(pin)
+                    transaction.card?.pin = pinString
                     self.chargeCardWithoutPin(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
                     
                 }

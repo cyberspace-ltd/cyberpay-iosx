@@ -176,6 +176,7 @@ internal class TransactionRepositoryImpl : TransactionRepository {
         let request = ApiRequest()
         request.parameters["otp"] = transaction.otp
         request.parameters["reference"] = transaction.reference
+        request.parameters["card"] = transaction.card.toJson
         
         return  service.verifyCardOtp(request: request)
             .flatMap{
@@ -227,12 +228,12 @@ internal class TransactionRepositoryImpl : TransactionRepository {
     
     func chargeBank(transaction : Transaction) -> Observable<ApiResponse<ChargeBank>> {
         let request = ApiRequest()
-        request.parameters["BankCode"] = transaction.bankCode
-        request.parameters["AccountNumber"] = transaction.accountNumber
-        request.parameters["Reference"] = transaction.reference
-        request.parameters["AccountName"] = transaction.accountName
-        request.parameters["dateOfBirth"] = transaction.dateOfBirth
-        request.parameters["bvn"] = transaction.bvn
+        request.parameters["BankCode"] = transaction.bankAccount?.bank?.bankCode
+         request.parameters["AccountNumber"] = transaction.bankAccount?.accountNumber
+         request.parameters["bvn"] = transaction.bankAccount?.bvn
+         request.parameters["AccountName"] = transaction.bankAccount?.accountName
+         request.parameters["Reference"] = transaction.reference
+         request.parameters["dateOfBirth"] = transaction.bankAccount?.dateOfBirth
         
         return service.chargeBank(request: request)
             .flatMap{
