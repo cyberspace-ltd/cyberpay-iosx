@@ -949,6 +949,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2448C09339573C2C6D2EA792 /* Pods-CyberpaySdk.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -976,6 +977,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC3E5A191F4E25A01D2F8242 /* Pods-CyberpaySdk.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

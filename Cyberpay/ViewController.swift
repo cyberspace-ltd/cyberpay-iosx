@@ -9,34 +9,28 @@
 import UIKit
 import CyberpaySdk
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
-
-        let transaction = Transaction()
-        transaction.amount = 5000
-        transaction.customerEmail = "test@email.com"
-        transaction.merchantReference =  UUID().uuidString
-
-        CyberpaySdk.shared.initialise(integrationKey: "INTEGRATION_KEY", mode: Mode.Debug)
-
-        CyberpaySdk.shared.checkoutTransaction(rootController: self, transaction: transaction,
-                                                 onSuccess: {result in
-            print(result.reference)
-
-        }, onError: { (result, error) in
-            print(error)
-
-        }, onValidate: {result in
-
-        })
-
+        
+        
+        CyberpaySdk.shared.initialise(with: "CYBERPAY_INTEGRATION_KEY", mode: .Debug)
+            .setTransaction(forCustomerEmail: "CUSTOMER_EMAIL", amountInKobo: 5000)
+            .dropInCheckout(rootController: self, onSuccess: {result in
+                print(result.reference)
+                
+            }, onError: { (result, error) in
+                print(error)
+                
+            }, onValidate: {result in
+                
+            })
+        
     }
-
-
-
+    
+    
+    
 }
 
 

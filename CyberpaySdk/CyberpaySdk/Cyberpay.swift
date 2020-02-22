@@ -13,10 +13,18 @@ import UIKit
 import FittedSheets
 
 
+
+/**
+ The Cyberpay iOS SDK, used for integrating payments into your solution
+*/
 public class CyberpaySdk {
     
     
+    /**
+      The shared instance of the `CyberpaySdk`. This ensures that only *one instance of the SDK is running*
+     */
     public static let shared = CyberpaySdk()
+    
     internal  var key : String = "*"
     internal  var envMode = Mode.Debug
     private var maskView = ProgressMaskView()
@@ -27,10 +35,15 @@ public class CyberpaySdk {
     private var repository: TransactionRepository = TransactionRepositoryImpl()
     private var progressController = UIViewController()
     
+    private var initializedTransaction = Transaction()
+    
     private func clearTempAdvice(){
         TransactionRepositoryImpl.bankAdvice = nil
         TransactionRepositoryImpl.cardAdvice = nil
     }
+    
+    
+    
     
     private func showProgress(message: String = "")
     {
@@ -50,13 +63,101 @@ public class CyberpaySdk {
         
     }
     
-    public func initialise(integrationKey : String){
+    
+    /**
+     Use this  `initialise` function to  begin integration with the`CyberpaySdk` in Debug `mode`
+     
+     - parameter integrationKey: The integration key gotten from the Cyberpay merchant portal.
+     
+     - warning:  Only use this to initialize the `CyberpaySdk` during testing
+     
+     # Example #
+     ```
+     initialise(with: "xyz123")
+     ```
+     */
+    
+    public func initialise(with integrationKey : String) -> Self {
         key = integrationKey
+        
+        return self
     }
     
-    public func initialise(integrationKey : String, mode : Mode){
+    
+    /**
+     Use this `initialise` function to begin the `CyberpaySdk` integration
+     
+     - parameter integrationKey: The integration key gotten from the Cyberpay merchant portal.
+     - parameter mode: The current mode of the platform. By default it is `Mode.Debug`. It can also be `Mode.Live`
+     
+     
+     # Notes: #
+     1. Before moving to production, ensure that  `mode` is set to `Mode.Live`
+     
+     # Example #
+     ```
+     initialise(with: "xyz123", mode: .Live)
+     ```
+     
+     */
+    
+    public func initialise(with integrationKey : String, mode : Mode) -> Self{
         envMode = mode
         key = integrationKey
+        
+        return self
+    }
+    
+    /**
+     Use this `setTransaction` function to create a new transaction object
+     
+     
+     - parameter customerEmail: This is the email of the customer you are creating the transaction for. This is optional
+     - parameter merchantRef: This is your merchant reference, you can add this  to check the transaction status  later for verification. This is optional
+     - parameter amountInKobo: The amount of the transaction in Kobo
+     
+     # Notes: #
+     1. Ensure this is called after the `CyberpaySdk.initialise` function
+     
+     # Example #
+     ```
+     setTransaction(amountInKobo: 5000)
+     ```
+     
+     */
+    
+    public func setTransaction(forCustomerEmail customerEmail: String = "", withMerchantReference merchantRef: String = "", amountInKobo: Double ) -> Self {
+        initializedTransaction.customerEmail = customerEmail
+        initializedTransaction.amount = amountInKobo
+        
+        if merchantRef.isEmpty {
+            initializedTransaction.merchantReference = UUID().uuidString
+        }
+        else {
+            initializedTransaction.merchantReference = merchantRef
+        }
+        return self
+    }
+    
+    /**
+     Use this `continueTransactionFromServer` function to continue a transaction you have already set from the server.
+     
+     - parameter reference: This reference of the transaction set in the server
+     
+     # Notes: #
+     1. Ensure this is called after the `CyberpaySdk.initialise` function
+     2. After calling this function, you can proceed to call the `CyberpaySdk.serverDropInCheckout`
+     
+     # Example #
+     ```
+     continueTransactionFromServer(withReference: "xyz123")
+     ```
+     
+     */
+    
+    public func continueTransactionFromServer(withReference reference: String ) -> Self {
+        initializedTransaction.ref = reference
+        return self
     }
     
     private func validate() throws {
@@ -605,17 +706,46 @@ public class CyberpaySdk {
         try! self.processPayment(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
     }
     
+    /**
+     Use this `dropInCheckout` function to initialize our Drop-In UI, with a new transaction
+     
+     - parameter rootController: This your controller that will call our interface.
+     - parameter onSuccess: This returns if a transaction was successful. It returns a `Transaction` object.
+     - parameter onError: This returns if a transaction failed . It returns a `Transaction` object, and an `Error` object.
+     - parameter onValidate: Not neededt.
+     
+     - warning:
+     Warning if a transaction reference has not been set, or you have not called the `CyberpaySdk.setTransaction` it throws an `Exception`
+     
+     
+     # Notes: #
+     1. This function should only be called after you have called the `CyberpaySdk.setTransaction` function
+     
+     # Example #
+     ```
+     dropInCheckout(rootController: self, onSuccess: {result in
+     
+     print(result.reference)
+     
+     }, onError: { (result, error) in
+     print(error)
+     
+     }, onValidate: {result in
+     
+     })
+     ```
+     
+     */
     
-    
-    public func checkoutTransaction(rootController: UIViewController, transaction: Transaction, onSuccess: @escaping (Transaction)->(),
-                                    onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
+    public func dropInCheckout(rootController: UIViewController, onSuccess: @escaping (Transaction)->(),
+                               onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()){
         try! validate()
-        transaction.key = self.key
+        initializedTransaction.key = self.key
         self.bottomSheetController = rootController
         
         showProgress(message: "Processing Transaction")
         
-        createTransaction(rootController: self.bottomSheetController, transaction: transaction, onSuccess: { (transaction) in
+        createTransaction(rootController: self.bottomSheetController, transaction: initializedTransaction, onSuccess: { (transaction) in
             
             DispatchQueue.main.async {
                 self.dismissProgress()
@@ -639,6 +769,7 @@ public class CyberpaySdk {
         }
         
     }
+    
     
     public func completeTransaction(rootController: UIViewController, transaction: Transaction, onSuccess: @escaping (Transaction)->(),
                                     onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()) throws {
@@ -780,34 +911,64 @@ public class CyberpaySdk {
         
     }
     
-    public func completeCheckoutTransaction(rootController: UIViewController, transaction: Transaction, onSuccess: @escaping (Transaction)->(),
-                                            onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()) throws {
+    /**
+     Use the `serverDropInCheckout` function to initializes our Drop-In UI, if you've already set the transaction from the server
+     
+     - parameter rootController: This your controller that will call our interface.
+     - parameter onSuccess: This returns if a transaction was successful. It returns a `Transaction` object.
+     - parameter onError: This returns if a transaction failed . It returns a `Transaction` object, and an `Error` object.
+     -  parameter onValidate: Not needed.
+     
+     - warning:
+     Warning if a transaction reference has not been set, or you have not called the `CyberpaySdk.continueTransactionFromServer` it throws an `Exception`
+     
+     
+     # Notes: #
+     1. This function should only be called after you have called the `CyberpaySdk.continueTransactionFromServer` function
+     
+     # Example #
+     ```
+     serverDropInCheckout(rootController: self, onSuccess: {result in
+     
+     print(result.reference)
+     
+     }, onError: { (result, error) in
+     print(error)
+     
+     }, onValidate: {result in
+     
+     })
+     ```
+     
+     */
+    public func serverDropInCheckout(rootController: UIViewController,onSuccess: @escaping (Transaction)->(),
+                                     onError: @escaping (Transaction, Error)->(), onValidate: @escaping (Transaction)->()) throws {
         try! validate()
         
-        if transaction.reference.isEmpty {
+        if initializedTransaction.reference.isEmpty {
             throw Exception.TransactionNotFoundException(message: "Transaction reference not found. Kindly set transaction before calling this method")
         }
         
         isServerTransaction =  true
         showProgress(message: "Processing Transaction")
         
-        repository.getTransactionAdvice(transaction: transaction, channelCode: .Card)
+        repository.getTransactionAdvice(transaction: initializedTransaction, channelCode: .Card)
             .subscribe(onNext: { (advice) in
                 
                 DispatchQueue.main.async {
                     self.dismissProgress()
                 }
                 
-                transaction.amount =  advice.amount!
-                transaction.charge = advice.charge!
+                self.initializedTransaction.amount =  advice.amount!
+                self.initializedTransaction.charge = advice.charge!
                 
-                try! self.completeTransaction(rootController: rootController, transaction: transaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
+                try! self.completeTransaction(rootController: rootController, transaction: self.initializedTransaction, onSuccess: onSuccess, onError: onError, onValidate: onValidate)
                 
             }, onError: { (error) in
                 DispatchQueue.main.async {
                     self.dismissProgress()
                 }
-                onError(transaction, error)
+                onError(self.initializedTransaction, error)
             })
         
         

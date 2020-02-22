@@ -12,7 +12,7 @@ import UIKit
 /// Layer with automatic rotation feature.
 open class RotateLayer : CALayer {
     /// Rotation degree offset
-    dynamic public var offsetAngle: Float = 0 {
+    public var offsetAngle: Float = 0 {
         didSet {
             transform = Tool.matrixRotateZ(offsetAngle)
         }
