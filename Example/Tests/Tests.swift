@@ -1,5 +1,5 @@
 import XCTest
-import cyberpaysdk
+
 
 class Tests: XCTestCase {
     

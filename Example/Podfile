@@ -1,8 +1,13 @@
+plugin 'cocoapods-binary'
+
 use_frameworks!
 
 target 'cyberpaysdk_Example' do
   pod 'cyberpaysdk', :path => '../'
-
+  pod "FittedSheets", "~> 1.4.5", :binary => true
+    pod "RxSwift", "~> 5", :binary => true
+    pod "RxCocoa", "~> 5", :binary => true
+    pod "MaterialComponents/BottomSheet", "~> 94.4.0", :binary => true
   target 'cyberpaysdk_Tests' do
     inherit! :search_paths
 
