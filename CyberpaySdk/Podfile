@@ -7,7 +7,6 @@ target 'CyberpaySdk' do
 
   # Pods for CyberpaySdk
     pod 'FittedSheets'
-    pod 'MaterialComponents/BottomSheet'
     pod 'RxSwift', '~> 5'
     pod 'RxCocoa', '~> 5'
     pod 'MaterialComponents/BottomSheet'

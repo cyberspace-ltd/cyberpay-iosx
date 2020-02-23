@@ -75,6 +75,8 @@
 		A653036723FCC96B00703B89 /* Secure3dView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A653036623FCC96B00703B89 /* Secure3dView.swift */; };
 		A653036923FCCC3700703B89 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A653036823FCCC3700703B89 /* UIView.swift */; };
 		A653036D23FCE22200703B89 /* Cyberpay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A653036C23FCE22200703B89 /* Cyberpay.swift */; };
+		A6CE8DFE2403103700BD1FD6 /* Pods_CyberpaySdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490EBD17B6D657F91C5FC74B /* Pods_CyberpaySdk.framework */; };
+		A6CE8DFF2403103700BD1FD6 /* Pods_CyberpaySdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 490EBD17B6D657F91C5FC74B /* Pods_CyberpaySdk.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A6CF28B423FAE72E0078285D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6CF28B323FAE72E0078285D /* Assets.xcassets */; };
 		A6CF87B423FDBDF400F2A623 /* DateOfBirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CF87B323FDBDF400F2A623 /* DateOfBirthView.swift */; };
 		A6CF87B623FDF0C200F2A623 /* CyberpayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CF87B523FDF0C200F2A623 /* CyberpayPickerView.swift */; };
@@ -91,7 +93,70 @@
 			remoteGlobalIDString = 4783617B238A8A1F00A463B6;
 			remoteInfo = CyberpaySdk;
 		};
+		A6CF8A872402DE0600F2A623 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6CF88CC2402DE0600F2A623 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21AAE79511133937606E376EE52BED4F;
+			remoteInfo = FittedSheets;
+		};
+		A6CF8A892402DE0600F2A623 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6CF88CC2402DE0600F2A623 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A34157B3708EDB7D17422B3D92F591D2;
+			remoteInfo = MaterialComponents;
+		};
+		A6CF8A8B2402DE0600F2A623 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6CF88CC2402DE0600F2A623 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F1C606CA4F850002BBE6B8F2A14A4111;
+			remoteInfo = "Pods-CyberpaySdk";
+		};
+		A6CF8A8D2402DE0600F2A623 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6CF88CC2402DE0600F2A623 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C5D11428A84387BB530AE435C4D50C1E;
+			remoteInfo = "Pods-CyberpaySdk-CyberpaySdkTests";
+		};
+		A6CF8A8F2402DE0600F2A623 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6CF88CC2402DE0600F2A623 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC432FD48A5932251F1CAFBC4BF74894;
+			remoteInfo = RxCocoa;
+		};
+		A6CF8A912402DE0600F2A623 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6CF88CC2402DE0600F2A623 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FF8B264DFE802855D5D67E7CDDABFC3C;
+			remoteInfo = RxRelay;
+		};
+		A6CF8A932402DE0600F2A623 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6CF88CC2402DE0600F2A623 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 809C5FAB588354C9BA37DC3EAB8CB45C;
+			remoteInfo = RxSwift;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A6CE8E002403103700BD1FD6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A6CE8DFF2403103700BD1FD6 /* Pods_CyberpaySdk.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		04DC5D0DB2B6B1FE50725B62 /* Pods_CyberpaySdk_CyberpaySdkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CyberpaySdk_CyberpaySdkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +211,7 @@
 		47D6C64723CDCC8400B2407A /* ArcShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcShape.swift; sourceTree = "<group>"; };
 		47D6C64923CF69D100B2407A /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
 		47FFAE1F23A792D40095DB6C /* InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputType.swift; sourceTree = "<group>"; };
+		490EBD17B6D657F91C5FC74B /* Pods_CyberpaySdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CyberpaySdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5974C7D81BACAE66C2C75048 /* Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk-CyberpaySdkTests/Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A653034123FC589900703B89 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		A653034323FC65AD00703B89 /* ChannelCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCode.swift; sourceTree = "<group>"; };
@@ -173,6 +239,509 @@
 		A6CF87B523FDF0C200F2A623 /* CyberpayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberpayPickerView.swift; sourceTree = "<group>"; };
 		A6CF87C923FEEC4500F2A623 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A6CF87CD240014BE00F2A623 /* BankSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSelectView.swift; sourceTree = "<group>"; };
+		A6CF87DD2402478100F2A623 /* FittedSheets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FittedSheets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6CF87DE2402478100F2A623 /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6CF87DF2402478100F2A623 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6CF87E02402478100F2A623 /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6CF87E12402478100F2A623 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6CF882F2402DE0500F2A623 /* CyberpaySdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CyberpaySdk.xcodeproj; sourceTree = "<group>"; };
+		A6CF88322402DE0500F2A623 /* CyberpaySdk.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = CyberpaySdk.xcworkspace; sourceTree = "<group>"; };
+		A6CF88352402DE0500F2A623 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A6CF88362402DE0500F2A623 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A6CF88382402DE0500F2A623 /* SheetSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetSize.swift; sourceTree = "<group>"; };
+		A6CF88392402DE0500F2A623 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		A6CF883A2402DE0500F2A623 /* InitialTouchPanGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialTouchPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		A6CF883B2402DE0500F2A623 /* Yalta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yalta.swift; sourceTree = "<group>"; };
+		A6CF883C2402DE0500F2A623 /* SheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetViewController.swift; sourceTree = "<group>"; };
+		A6CF88402402DE0500F2A623 /* NSView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88412402DE0500F2A623 /* NSButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88422402DE0500F2A623 /* NSTextView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88432402DE0500F2A623 /* NSTextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88442402DE0500F2A623 /* NSControl+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSControl+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88452402DE0500F2A623 /* NSSlider+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSlider+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88462402DE0500F2A623 /* NSImageView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImageView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88482402DE0500F2A623 /* ControlEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlEvent.swift; sourceTree = "<group>"; };
+		A6CF88492402DE0500F2A623 /* ControlProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlProperty.swift; sourceTree = "<group>"; };
+		A6CF884B2402DE0500F2A623 /* Driver+Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Driver+Subscription.swift"; sourceTree = "<group>"; };
+		A6CF884C2402DE0500F2A623 /* BehaviorRelay+Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BehaviorRelay+Driver.swift"; sourceTree = "<group>"; };
+		A6CF884D2402DE0500F2A623 /* ObservableConvertibleType+Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableConvertibleType+Driver.swift"; sourceTree = "<group>"; };
+		A6CF884E2402DE0500F2A623 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
+		A6CF884F2402DE0500F2A623 /* ControlEvent+Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControlEvent+Driver.swift"; sourceTree = "<group>"; };
+		A6CF88502402DE0500F2A623 /* ControlProperty+Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControlProperty+Driver.swift"; sourceTree = "<group>"; };
+		A6CF88522402DE0500F2A623 /* SharedSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSequence.swift; sourceTree = "<group>"; };
+		A6CF88532402DE0500F2A623 /* SharedSequence+Operators+arity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SharedSequence+Operators+arity.swift"; sourceTree = "<group>"; };
+		A6CF88542402DE0500F2A623 /* SchedulerType+SharedSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchedulerType+SharedSequence.swift"; sourceTree = "<group>"; };
+		A6CF88552402DE0500F2A623 /* SharedSequence+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SharedSequence+Operators.swift"; sourceTree = "<group>"; };
+		A6CF88562402DE0500F2A623 /* ObservableConvertibleType+SharedSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableConvertibleType+SharedSequence.swift"; sourceTree = "<group>"; };
+		A6CF88582402DE0500F2A623 /* ObservableConvertibleType+Signal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableConvertibleType+Signal.swift"; sourceTree = "<group>"; };
+		A6CF88592402DE0500F2A623 /* PublishRelay+Signal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PublishRelay+Signal.swift"; sourceTree = "<group>"; };
+		A6CF885A2402DE0500F2A623 /* Signal+Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signal+Subscription.swift"; sourceTree = "<group>"; };
+		A6CF885B2402DE0500F2A623 /* ControlEvent+Signal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControlEvent+Signal.swift"; sourceTree = "<group>"; };
+		A6CF885C2402DE0500F2A623 /* Signal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signal.swift; sourceTree = "<group>"; };
+		A6CF885E2402DE0500F2A623 /* _RXDelegateProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _RXDelegateProxy.m; sourceTree = "<group>"; };
+		A6CF885F2402DE0500F2A623 /* _RXObjCRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _RXObjCRuntime.m; sourceTree = "<group>"; };
+		A6CF88602402DE0500F2A623 /* _RX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _RX.m; sourceTree = "<group>"; };
+		A6CF88622402DE0500F2A623 /* _RXKVOObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _RXKVOObserver.h; sourceTree = "<group>"; };
+		A6CF88632402DE0500F2A623 /* _RXObjCRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _RXObjCRuntime.h; sourceTree = "<group>"; };
+		A6CF88642402DE0500F2A623 /* _RXDelegateProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _RXDelegateProxy.h; sourceTree = "<group>"; };
+		A6CF88652402DE0500F2A623 /* _RX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _RX.h; sourceTree = "<group>"; };
+		A6CF88662402DE0500F2A623 /* RxCocoaRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxCocoaRuntime.h; sourceTree = "<group>"; };
+		A6CF88672402DE0500F2A623 /* _RXKVOObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _RXKVOObserver.m; sourceTree = "<group>"; };
+		A6CF88692402DE0500F2A623 /* NSObject+Rx+KVORepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Rx+KVORepresentable.swift"; sourceTree = "<group>"; };
+		A6CF886A2402DE0500F2A623 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		A6CF886B2402DE0500F2A623 /* KVORepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVORepresentable.swift; sourceTree = "<group>"; };
+		A6CF886C2402DE0500F2A623 /* NSObject+Rx+RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Rx+RawRepresentable.swift"; sourceTree = "<group>"; };
+		A6CF886D2402DE0500F2A623 /* NotificationCenter+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Rx.swift"; sourceTree = "<group>"; };
+		A6CF886E2402DE0500F2A623 /* KVORepresentable+CoreGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KVORepresentable+CoreGraphics.swift"; sourceTree = "<group>"; };
+		A6CF886F2402DE0500F2A623 /* KVORepresentable+Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KVORepresentable+Swift.swift"; sourceTree = "<group>"; };
+		A6CF88702402DE0500F2A623 /* NSObject+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88712402DE0500F2A623 /* URLSession+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88722402DE0500F2A623 /* RxCocoa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxCocoa.h; sourceTree = "<group>"; };
+		A6CF88752402DE0500F2A623 /* RxPickerViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewAdapter.swift; sourceTree = "<group>"; };
+		A6CF88762402DE0500F2A623 /* RxCollectionViewReactiveArrayDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCollectionViewReactiveArrayDataSource.swift; sourceTree = "<group>"; };
+		A6CF88772402DE0600F2A623 /* RxTableViewReactiveArrayDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTableViewReactiveArrayDataSource.swift; sourceTree = "<group>"; };
+		A6CF88782402DE0600F2A623 /* UIDatePicker+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDatePicker+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88792402DE0600F2A623 /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF887A2402DE0600F2A623 /* UIApplication+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Rx.swift"; sourceTree = "<group>"; };
+		A6CF887B2402DE0600F2A623 /* UISegmentedControl+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Rx.swift"; sourceTree = "<group>"; };
+		A6CF887C2402DE0600F2A623 /* UITextView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF887D2402DE0600F2A623 /* UIRefreshControl+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Rx.swift"; sourceTree = "<group>"; };
+		A6CF887E2402DE0600F2A623 /* UIImageView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF887F2402DE0600F2A623 /* UILabel+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88802402DE0600F2A623 /* UITabBarItem+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88812402DE0600F2A623 /* NSTextStorage+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextStorage+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88822402DE0600F2A623 /* UIProgressView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIProgressView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88832402DE0600F2A623 /* UITabBarController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88842402DE0600F2A623 /* UIWebView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWebView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88852402DE0600F2A623 /* UITextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88862402DE0600F2A623 /* UISearchBar+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88872402DE0600F2A623 /* UIAlertAction+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88882402DE0600F2A623 /* UISlider+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88892402DE0600F2A623 /* UIPickerView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPickerView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF888A2402DE0600F2A623 /* UIView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF888B2402DE0600F2A623 /* UIButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Rx.swift"; sourceTree = "<group>"; };
+		A6CF888C2402DE0600F2A623 /* UISearchController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchController+Rx.swift"; sourceTree = "<group>"; };
+		A6CF888D2402DE0600F2A623 /* UITabBar+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Rx.swift"; sourceTree = "<group>"; };
+		A6CF888E2402DE0600F2A623 /* UISwitch+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISwitch+Rx.swift"; sourceTree = "<group>"; };
+		A6CF888F2402DE0600F2A623 /* UIPageControl+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageControl+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88902402DE0600F2A623 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88912402DE0600F2A623 /* UICollectionView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88922402DE0600F2A623 /* UIActivityIndicatorView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88932402DE0600F2A623 /* UITableView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88952402DE0600F2A623 /* RxTableViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTableViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
+		A6CF88962402DE0600F2A623 /* RxPickerViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF88972402DE0600F2A623 /* RxTableViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTableViewDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF88982402DE0600F2A623 /* RxNavigationControllerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNavigationControllerDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF88992402DE0600F2A623 /* RxSearchControllerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSearchControllerDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF889A2402DE0600F2A623 /* RxTabBarControllerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTabBarControllerDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF889B2402DE0600F2A623 /* RxCollectionViewDataSourcePrefetchingProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCollectionViewDataSourcePrefetchingProxy.swift; sourceTree = "<group>"; };
+		A6CF889C2402DE0600F2A623 /* RxCollectionViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCollectionViewDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF889D2402DE0600F2A623 /* RxScrollViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxScrollViewDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF889E2402DE0600F2A623 /* RxPickerViewDataSourceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewDataSourceProxy.swift; sourceTree = "<group>"; };
+		A6CF889F2402DE0600F2A623 /* RxTableViewDataSourceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTableViewDataSourceProxy.swift; sourceTree = "<group>"; };
+		A6CF88A02402DE0600F2A623 /* RxSearchBarDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSearchBarDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF88A12402DE0600F2A623 /* RxCollectionViewDataSourceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCollectionViewDataSourceProxy.swift; sourceTree = "<group>"; };
+		A6CF88A22402DE0600F2A623 /* RxWebViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxWebViewDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF88A32402DE0600F2A623 /* RxTextViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTextViewDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF88A42402DE0600F2A623 /* RxTextStorageDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTextStorageDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF88A52402DE0600F2A623 /* RxTabBarDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTabBarDelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF88A72402DE0600F2A623 /* ItemEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEvents.swift; sourceTree = "<group>"; };
+		A6CF88A82402DE0600F2A623 /* UIGestureRecognizer+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88A92402DE0600F2A623 /* UIStepper+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStepper+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88AB2402DE0600F2A623 /* RxPickerViewDataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewDataSourceType.swift; sourceTree = "<group>"; };
+		A6CF88AC2402DE0600F2A623 /* RxCollectionViewDataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCollectionViewDataSourceType.swift; sourceTree = "<group>"; };
+		A6CF88AD2402DE0600F2A623 /* RxTableViewDataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTableViewDataSourceType.swift; sourceTree = "<group>"; };
+		A6CF88AE2402DE0600F2A623 /* UINavigationController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88AF2402DE0600F2A623 /* UIControl+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88B02402DE0600F2A623 /* UIBarButtonItem+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88B12402DE0600F2A623 /* UINavigationItem+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88B32402DE0600F2A623 /* KeyPathBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPathBinder.swift; sourceTree = "<group>"; };
+		A6CF88B42402DE0600F2A623 /* NSLayoutConstraint+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Rx.swift"; sourceTree = "<group>"; };
+		A6CF88B52402DE0600F2A623 /* DelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProxy.swift; sourceTree = "<group>"; };
+		A6CF88B62402DE0600F2A623 /* RxCocoaObjCRuntimeError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxCocoaObjCRuntimeError+Extensions.swift"; sourceTree = "<group>"; };
+		A6CF88B72402DE0600F2A623 /* Binder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binder.swift; sourceTree = "<group>"; };
+		A6CF88B82402DE0600F2A623 /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+		A6CF88B92402DE0600F2A623 /* SectionedViewDataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedViewDataSourceType.swift; sourceTree = "<group>"; };
+		A6CF88BA2402DE0600F2A623 /* ControlTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlTarget.swift; sourceTree = "<group>"; };
+		A6CF88BB2402DE0600F2A623 /* Observable+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Bind.swift"; sourceTree = "<group>"; };
+		A6CF88BC2402DE0600F2A623 /* RxTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTarget.swift; sourceTree = "<group>"; };
+		A6CF88BD2402DE0600F2A623 /* DelegateProxyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProxyType.swift; sourceTree = "<group>"; };
+		A6CF88BE2402DE0600F2A623 /* Deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
+		A6CF88BF2402DE0600F2A623 /* RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCocoa.swift; sourceTree = "<group>"; };
+		A6CF88C02402DE0600F2A623 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		A6CF88C22402DE0600F2A623 /* Platform.Darwin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.Darwin.swift; sourceTree = "<group>"; };
+		A6CF88C32402DE0600F2A623 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
+		A6CF88C52402DE0600F2A623 /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		A6CF88C62402DE0600F2A623 /* PriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
+		A6CF88C72402DE0600F2A623 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		A6CF88C82402DE0600F2A623 /* InfiniteSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteSequence.swift; sourceTree = "<group>"; };
+		A6CF88C92402DE0600F2A623 /* Platform.Linux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.Linux.swift; sourceTree = "<group>"; };
+		A6CF88CA2402DE0600F2A623 /* RecursiveLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecursiveLock.swift; sourceTree = "<group>"; };
+		A6CF88CB2402DE0600F2A623 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A6CF88CC2402DE0600F2A623 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
+		A6CF88D02402DE0600F2A623 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		A6CF88D22402DE0600F2A623 /* Cancelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancelable.swift; sourceTree = "<group>"; };
+		A6CF88D32402DE0600F2A623 /* GroupedObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedObservable.swift; sourceTree = "<group>"; };
+		A6CF88D42402DE0600F2A623 /* RxMutableBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMutableBox.swift; sourceTree = "<group>"; };
+		A6CF88D52402DE0600F2A623 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		A6CF88D72402DE0600F2A623 /* Completable+AndThen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Completable+AndThen.swift"; sourceTree = "<group>"; };
+		A6CF88D82402DE0600F2A623 /* Completable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completable.swift; sourceTree = "<group>"; };
+		A6CF88D92402DE0600F2A623 /* Single.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Single.swift; sourceTree = "<group>"; };
+		A6CF88DA2402DE0600F2A623 /* PrimitiveSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveSequence.swift; sourceTree = "<group>"; };
+		A6CF88DB2402DE0600F2A623 /* Maybe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maybe.swift; sourceTree = "<group>"; };
+		A6CF88DC2402DE0600F2A623 /* ObservableType+PrimitiveSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+PrimitiveSequence.swift"; sourceTree = "<group>"; };
+		A6CF88DD2402DE0600F2A623 /* PrimitiveSequence+Zip+arity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimitiveSequence+Zip+arity.swift"; sourceTree = "<group>"; };
+		A6CF88DE2402DE0600F2A623 /* AnyObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyObserver.swift; sourceTree = "<group>"; };
+		A6CF88E02402DE0600F2A623 /* DisposeBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBase.swift; sourceTree = "<group>"; };
+		A6CF88E12402DE0600F2A623 /* DisposeBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
+		A6CF88E22402DE0600F2A623 /* ScheduledDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledDisposable.swift; sourceTree = "<group>"; };
+		A6CF88E32402DE0600F2A623 /* NopDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NopDisposable.swift; sourceTree = "<group>"; };
+		A6CF88E42402DE0600F2A623 /* SubscriptionDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionDisposable.swift; sourceTree = "<group>"; };
+		A6CF88E52402DE0600F2A623 /* RefCountDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefCountDisposable.swift; sourceTree = "<group>"; };
+		A6CF88E62402DE0600F2A623 /* CompositeDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeDisposable.swift; sourceTree = "<group>"; };
+		A6CF88E72402DE0600F2A623 /* SingleAssignmentDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAssignmentDisposable.swift; sourceTree = "<group>"; };
+		A6CF88E82402DE0600F2A623 /* SerialDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialDisposable.swift; sourceTree = "<group>"; };
+		A6CF88E92402DE0600F2A623 /* BinaryDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryDisposable.swift; sourceTree = "<group>"; };
+		A6CF88EA2402DE0600F2A623 /* AnonymousDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousDisposable.swift; sourceTree = "<group>"; };
+		A6CF88EB2402DE0600F2A623 /* BooleanDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanDisposable.swift; sourceTree = "<group>"; };
+		A6CF88EC2402DE0600F2A623 /* Disposables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposables.swift; sourceTree = "<group>"; };
+		A6CF88EE2402DE0600F2A623 /* AsMaybe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsMaybe.swift; sourceTree = "<group>"; };
+		A6CF88EF2402DE0600F2A623 /* Timeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeout.swift; sourceTree = "<group>"; };
+		A6CF88F02402DE0600F2A623 /* Never.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Never.swift; sourceTree = "<group>"; };
+		A6CF88F12402DE0600F2A623 /* RetryWhen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryWhen.swift; sourceTree = "<group>"; };
+		A6CF88F22402DE0600F2A623 /* Do.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Do.swift; sourceTree = "<group>"; };
+		A6CF88F32402DE0600F2A623 /* Deferred.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deferred.swift; sourceTree = "<group>"; };
+		A6CF88F42402DE0600F2A623 /* Buffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buffer.swift; sourceTree = "<group>"; };
+		A6CF88F52402DE0600F2A623 /* SubscribeOn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeOn.swift; sourceTree = "<group>"; };
+		A6CF88F62402DE0600F2A623 /* DefaultIfEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIfEmpty.swift; sourceTree = "<group>"; };
+		A6CF88F72402DE0600F2A623 /* Using.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Using.swift; sourceTree = "<group>"; };
+		A6CF88F82402DE0600F2A623 /* Delay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
+		A6CF88F92402DE0600F2A623 /* Producer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producer.swift; sourceTree = "<group>"; };
+		A6CF88FA2402DE0600F2A623 /* GroupBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBy.swift; sourceTree = "<group>"; };
+		A6CF88FB2402DE0600F2A623 /* Concat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concat.swift; sourceTree = "<group>"; };
+		A6CF88FC2402DE0600F2A623 /* Take.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Take.swift; sourceTree = "<group>"; };
+		A6CF88FD2402DE0600F2A623 /* TakeWhile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeWhile.swift; sourceTree = "<group>"; };
+		A6CF88FE2402DE0600F2A623 /* TakeLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeLast.swift; sourceTree = "<group>"; };
+		A6CF88FF2402DE0600F2A623 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		A6CF89002402DE0600F2A623 /* CombineLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineLatest.swift; sourceTree = "<group>"; };
+		A6CF89012402DE0600F2A623 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		A6CF89022402DE0600F2A623 /* AsSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsSingle.swift; sourceTree = "<group>"; };
+		A6CF89032402DE0600F2A623 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
+		A6CF89042402DE0600F2A623 /* Enumerated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerated.swift; sourceTree = "<group>"; };
+		A6CF89052402DE0600F2A623 /* DistinctUntilChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistinctUntilChanged.swift; sourceTree = "<group>"; };
+		A6CF89062402DE0600F2A623 /* First.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = First.swift; sourceTree = "<group>"; };
+		A6CF89072402DE0600F2A623 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		A6CF89082402DE0600F2A623 /* AddRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRef.swift; sourceTree = "<group>"; };
+		A6CF89092402DE0600F2A623 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		A6CF890A2402DE0600F2A623 /* Sink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sink.swift; sourceTree = "<group>"; };
+		A6CF890B2402DE0600F2A623 /* Throttle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttle.swift; sourceTree = "<group>"; };
+		A6CF890C2402DE0600F2A623 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
+		A6CF890D2402DE0600F2A623 /* CompactMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactMap.swift; sourceTree = "<group>"; };
+		A6CF890E2402DE0600F2A623 /* WithLatestFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithLatestFrom.swift; sourceTree = "<group>"; };
+		A6CF890F2402DE0600F2A623 /* ObserveOn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserveOn.swift; sourceTree = "<group>"; };
+		A6CF89102402DE0600F2A623 /* CombineLatest+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CombineLatest+Collection.swift"; sourceTree = "<group>"; };
+		A6CF89112402DE0600F2A623 /* Multicast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multicast.swift; sourceTree = "<group>"; };
+		A6CF89122402DE0600F2A623 /* SkipWhile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipWhile.swift; sourceTree = "<group>"; };
+		A6CF89132402DE0600F2A623 /* DelaySubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelaySubscription.swift; sourceTree = "<group>"; };
+		A6CF89142402DE0600F2A623 /* Repeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repeat.swift; sourceTree = "<group>"; };
+		A6CF89152402DE0600F2A623 /* ToArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToArray.swift; sourceTree = "<group>"; };
+		A6CF89162402DE0600F2A623 /* TakeUntil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeUntil.swift; sourceTree = "<group>"; };
+		A6CF89172402DE0600F2A623 /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
+		A6CF89182402DE0600F2A623 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		A6CF89192402DE0600F2A623 /* Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debounce.swift; sourceTree = "<group>"; };
+		A6CF891A2402DE0600F2A623 /* Dematerialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dematerialize.swift; sourceTree = "<group>"; };
+		A6CF891B2402DE0600F2A623 /* Zip+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Zip+Collection.swift"; sourceTree = "<group>"; };
+		A6CF891C2402DE0600F2A623 /* Catch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catch.swift; sourceTree = "<group>"; };
+		A6CF891D2402DE0600F2A623 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		A6CF891E2402DE0600F2A623 /* Amb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amb.swift; sourceTree = "<group>"; };
+		A6CF891F2402DE0600F2A623 /* Reduce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reduce.swift; sourceTree = "<group>"; };
+		A6CF89202402DE0600F2A623 /* CombineLatest+arity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CombineLatest+arity.swift"; sourceTree = "<group>"; };
+		A6CF89212402DE0600F2A623 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
+		A6CF89222402DE0600F2A623 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		A6CF89232402DE0600F2A623 /* Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merge.swift; sourceTree = "<group>"; };
+		A6CF89242402DE0600F2A623 /* Skip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skip.swift; sourceTree = "<group>"; };
+		A6CF89252402DE0600F2A623 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		A6CF89262402DE0600F2A623 /* SkipUntil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipUntil.swift; sourceTree = "<group>"; };
+		A6CF89272402DE0600F2A623 /* StartWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWith.swift; sourceTree = "<group>"; };
+		A6CF89282402DE0600F2A623 /* Just.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Just.swift; sourceTree = "<group>"; };
+		A6CF89292402DE0600F2A623 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		A6CF892A2402DE0600F2A623 /* Generate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generate.swift; sourceTree = "<group>"; };
+		A6CF892B2402DE0600F2A623 /* ShareReplayScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareReplayScope.swift; sourceTree = "<group>"; };
+		A6CF892C2402DE0600F2A623 /* Scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scan.swift; sourceTree = "<group>"; };
+		A6CF892D2402DE0600F2A623 /* Zip+arity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Zip+arity.swift"; sourceTree = "<group>"; };
+		A6CF892E2402DE0600F2A623 /* SwitchIfEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchIfEmpty.swift; sourceTree = "<group>"; };
+		A6CF892F2402DE0600F2A623 /* ElementAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAt.swift; sourceTree = "<group>"; };
+		A6CF89302402DE0600F2A623 /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
+		A6CF89312402DE0600F2A623 /* Materialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Materialize.swift; sourceTree = "<group>"; };
+		A6CF89322402DE0600F2A623 /* SingleAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAsync.swift; sourceTree = "<group>"; };
+		A6CF89332402DE0600F2A623 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
+		A6CF89352402DE0600F2A623 /* SwiftSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSupport.swift; sourceTree = "<group>"; };
+		A6CF89362402DE0600F2A623 /* ObservableType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extensions.swift"; sourceTree = "<group>"; };
+		A6CF89382402DE0600F2A623 /* Bag+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bag+Rx.swift"; sourceTree = "<group>"; };
+		A6CF89392402DE0600F2A623 /* String+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Rx.swift"; sourceTree = "<group>"; };
+		A6CF893A2402DE0600F2A623 /* ObserverType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverType.swift; sourceTree = "<group>"; };
+		A6CF893C2402DE0600F2A623 /* LockOwnerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockOwnerType.swift; sourceTree = "<group>"; };
+		A6CF893D2402DE0600F2A623 /* SynchronizedDisposeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedDisposeType.swift; sourceTree = "<group>"; };
+		A6CF893E2402DE0600F2A623 /* SynchronizedOnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedOnType.swift; sourceTree = "<group>"; };
+		A6CF893F2402DE0600F2A623 /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
+		A6CF89402402DE0600F2A623 /* AsyncLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncLock.swift; sourceTree = "<group>"; };
+		A6CF89412402DE0600F2A623 /* SynchronizedUnsubscribeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedUnsubscribeType.swift; sourceTree = "<group>"; };
+		A6CF89422402DE0600F2A623 /* Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactive.swift; sourceTree = "<group>"; };
+		A6CF89432402DE0600F2A623 /* Date+Dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Dispatch.swift"; sourceTree = "<group>"; };
+		A6CF89442402DE0600F2A623 /* Deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
+		A6CF89462402DE0600F2A623 /* SubjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectType.swift; sourceTree = "<group>"; };
+		A6CF89472402DE0600F2A623 /* BehaviorSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorSubject.swift; sourceTree = "<group>"; };
+		A6CF89482402DE0600F2A623 /* AsyncSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncSubject.swift; sourceTree = "<group>"; };
+		A6CF89492402DE0600F2A623 /* ReplaySubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaySubject.swift; sourceTree = "<group>"; };
+		A6CF894A2402DE0600F2A623 /* PublishSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishSubject.swift; sourceTree = "<group>"; };
+		A6CF894B2402DE0600F2A623 /* ObservableConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableConvertibleType.swift; sourceTree = "<group>"; };
+		A6CF894C2402DE0600F2A623 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		A6CF894D2402DE0600F2A623 /* SchedulerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerType.swift; sourceTree = "<group>"; };
+		A6CF894E2402DE0600F2A623 /* ConnectableObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectableObservableType.swift; sourceTree = "<group>"; };
+		A6CF894F2402DE0600F2A623 /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
+		A6CF89502402DE0600F2A623 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		A6CF89512402DE0600F2A623 /* Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rx.swift; sourceTree = "<group>"; };
+		A6CF89532402DE0600F2A623 /* ObserverBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverBase.swift; sourceTree = "<group>"; };
+		A6CF89542402DE0600F2A623 /* TailRecursiveSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TailRecursiveSink.swift; sourceTree = "<group>"; };
+		A6CF89552402DE0600F2A623 /* AnonymousObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousObserver.swift; sourceTree = "<group>"; };
+		A6CF89572402DE0600F2A623 /* RecursiveScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecursiveScheduler.swift; sourceTree = "<group>"; };
+		A6CF89582402DE0600F2A623 /* OperationQueueScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationQueueScheduler.swift; sourceTree = "<group>"; };
+		A6CF89592402DE0600F2A623 /* VirtualTimeScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTimeScheduler.swift; sourceTree = "<group>"; };
+		A6CF895A2402DE0600F2A623 /* SchedulerServices+Emulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchedulerServices+Emulation.swift"; sourceTree = "<group>"; };
+		A6CF895B2402DE0600F2A623 /* CurrentThreadScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentThreadScheduler.swift; sourceTree = "<group>"; };
+		A6CF895C2402DE0600F2A623 /* MainScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScheduler.swift; sourceTree = "<group>"; };
+		A6CF895D2402DE0600F2A623 /* ConcurrentDispatchQueueScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentDispatchQueueScheduler.swift; sourceTree = "<group>"; };
+		A6CF895F2402DE0600F2A623 /* ScheduledItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledItem.swift; sourceTree = "<group>"; };
+		A6CF89602402DE0600F2A623 /* InvocableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvocableType.swift; sourceTree = "<group>"; };
+		A6CF89612402DE0600F2A623 /* InvocableScheduledItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvocableScheduledItem.swift; sourceTree = "<group>"; };
+		A6CF89622402DE0600F2A623 /* DispatchQueueConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueConfiguration.swift; sourceTree = "<group>"; };
+		A6CF89632402DE0600F2A623 /* ScheduledItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledItemType.swift; sourceTree = "<group>"; };
+		A6CF89642402DE0600F2A623 /* ConcurrentMainScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentMainScheduler.swift; sourceTree = "<group>"; };
+		A6CF89652402DE0600F2A623 /* SerialDispatchQueueScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialDispatchQueueScheduler.swift; sourceTree = "<group>"; };
+		A6CF89662402DE0600F2A623 /* HistoricalScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalScheduler.swift; sourceTree = "<group>"; };
+		A6CF89672402DE0600F2A623 /* VirtualTimeConverterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTimeConverterType.swift; sourceTree = "<group>"; };
+		A6CF89682402DE0600F2A623 /* HistoricalSchedulerTimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalSchedulerTimeConverter.swift; sourceTree = "<group>"; };
+		A6CF89692402DE0600F2A623 /* ImmediateSchedulerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmediateSchedulerType.swift; sourceTree = "<group>"; };
+		A6CF896B2402DE0600F2A623 /* Platform.Darwin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.Darwin.swift; sourceTree = "<group>"; };
+		A6CF896C2402DE0600F2A623 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
+		A6CF896D2402DE0600F2A623 /* AtomicInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicInt.swift; sourceTree = "<group>"; };
+		A6CF896F2402DE0600F2A623 /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		A6CF89702402DE0600F2A623 /* PriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
+		A6CF89712402DE0600F2A623 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		A6CF89722402DE0600F2A623 /* InfiniteSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteSequence.swift; sourceTree = "<group>"; };
+		A6CF89732402DE0600F2A623 /* Platform.Linux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.Linux.swift; sourceTree = "<group>"; };
+		A6CF89742402DE0600F2A623 /* RecursiveLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecursiveLock.swift; sourceTree = "<group>"; };
+		A6CF89752402DE0600F2A623 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A6CF89782402DE0600F2A623 /* FittedSheets-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FittedSheets-umbrella.h"; sourceTree = "<group>"; };
+		A6CF89792402DE0600F2A623 /* FittedSheets-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FittedSheets-prefix.pch"; sourceTree = "<group>"; };
+		A6CF897A2402DE0600F2A623 /* FittedSheets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = FittedSheets.xcconfig; sourceTree = "<group>"; };
+		A6CF897B2402DE0600F2A623 /* FittedSheets.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = FittedSheets.modulemap; sourceTree = "<group>"; };
+		A6CF897C2402DE0600F2A623 /* FittedSheets-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FittedSheets-dummy.m"; sourceTree = "<group>"; };
+		A6CF897D2402DE0600F2A623 /* FittedSheets-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FittedSheets-Info.plist"; sourceTree = "<group>"; };
+		A6CF897F2402DE0600F2A623 /* RxCocoa-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxCocoa-umbrella.h"; sourceTree = "<group>"; };
+		A6CF89802402DE0600F2A623 /* RxCocoa.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RxCocoa.xcconfig; sourceTree = "<group>"; };
+		A6CF89812402DE0600F2A623 /* RxCocoa-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxCocoa-prefix.pch"; sourceTree = "<group>"; };
+		A6CF89822402DE0600F2A623 /* RxCocoa-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RxCocoa-dummy.m"; sourceTree = "<group>"; };
+		A6CF89832402DE0600F2A623 /* RxCocoa-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RxCocoa-Info.plist"; sourceTree = "<group>"; };
+		A6CF89842402DE0600F2A623 /* RxCocoa.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = RxCocoa.modulemap; sourceTree = "<group>"; };
+		A6CF89862402DE0600F2A623 /* RxSwift-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxSwift-prefix.pch"; sourceTree = "<group>"; };
+		A6CF89872402DE0600F2A623 /* RxSwift-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RxSwift-dummy.m"; sourceTree = "<group>"; };
+		A6CF89882402DE0600F2A623 /* RxSwift-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxSwift-umbrella.h"; sourceTree = "<group>"; };
+		A6CF89892402DE0600F2A623 /* RxSwift-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RxSwift-Info.plist"; sourceTree = "<group>"; };
+		A6CF898A2402DE0600F2A623 /* RxSwift.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RxSwift.xcconfig; sourceTree = "<group>"; };
+		A6CF898B2402DE0600F2A623 /* RxSwift.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = RxSwift.modulemap; sourceTree = "<group>"; };
+		A6CF898D2402DE0600F2A623 /* RxRelay-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxRelay-prefix.pch"; sourceTree = "<group>"; };
+		A6CF898E2402DE0600F2A623 /* RxRelay.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RxRelay.xcconfig; sourceTree = "<group>"; };
+		A6CF898F2402DE0600F2A623 /* RxRelay.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = RxRelay.modulemap; sourceTree = "<group>"; };
+		A6CF89902402DE0600F2A623 /* RxRelay-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxRelay-umbrella.h"; sourceTree = "<group>"; };
+		A6CF89912402DE0600F2A623 /* RxRelay-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RxRelay-dummy.m"; sourceTree = "<group>"; };
+		A6CF89922402DE0600F2A623 /* RxRelay-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RxRelay-Info.plist"; sourceTree = "<group>"; };
+		A6CF89942402DE0600F2A623 /* Pods-CyberpaySdk-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Pods-CyberpaySdk-dummy.m"; sourceTree = "<group>"; };
+		A6CF89952402DE0600F2A623 /* Pods-CyberpaySdk-acknowledgements.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Pods-CyberpaySdk-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A6CF89962402DE0600F2A623 /* Pods-CyberpaySdk-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-CyberpaySdk-Info.plist"; sourceTree = "<group>"; };
+		A6CF89972402DE0600F2A623 /* Pods-CyberpaySdk-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-CyberpaySdk-acknowledgements.plist"; sourceTree = "<group>"; };
+		A6CF89982402DE0600F2A623 /* Pods-CyberpaySdk.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CyberpaySdk.modulemap"; sourceTree = "<group>"; };
+		A6CF89992402DE0600F2A623 /* Pods-CyberpaySdk.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-CyberpaySdk.release.xcconfig"; sourceTree = "<group>"; };
+		A6CF899A2402DE0600F2A623 /* Pods-CyberpaySdk.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-CyberpaySdk.debug.xcconfig"; sourceTree = "<group>"; };
+		A6CF899B2402DE0600F2A623 /* Pods-CyberpaySdk-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-CyberpaySdk-umbrella.h"; sourceTree = "<group>"; };
+		A6CF899D2402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Debug-output-files.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = "Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Debug-output-files.xcfilelist"; sourceTree = "<group>"; };
+		A6CF899E2402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-frameworks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "Pods-CyberpaySdk-CyberpaySdkTests-frameworks.sh"; sourceTree = "<group>"; };
+		A6CF899F2402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Pods-CyberpaySdk-CyberpaySdkTests-dummy.m"; sourceTree = "<group>"; };
+		A6CF89A02402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-CyberpaySdk-CyberpaySdkTests-umbrella.h"; sourceTree = "<group>"; };
+		A6CF89A12402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Release-output-files.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = "Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Release-output-files.xcfilelist"; sourceTree = "<group>"; };
+		A6CF89A22402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-CyberpaySdk-CyberpaySdkTests-Info.plist"; sourceTree = "<group>"; };
+		A6CF89A32402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CyberpaySdk-CyberpaySdkTests.modulemap"; sourceTree = "<group>"; };
+		A6CF89A42402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-acknowledgements.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Pods-CyberpaySdk-CyberpaySdkTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A6CF89A52402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Release-input-files.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = "Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Release-input-files.xcfilelist"; sourceTree = "<group>"; };
+		A6CF89A62402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A6CF89A72402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig"; sourceTree = "<group>"; };
+		A6CF89A82402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Debug-input-files.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = "Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Debug-input-files.xcfilelist"; sourceTree = "<group>"; };
+		A6CF89A92402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-CyberpaySdk-CyberpaySdkTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A6CF89AB2402DE0600F2A623 /* MaterialComponents-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MaterialComponents-umbrella.h"; sourceTree = "<group>"; };
+		A6CF89AC2402DE0600F2A623 /* MaterialComponents-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MaterialComponents-prefix.pch"; sourceTree = "<group>"; };
+		A6CF89AD2402DE0600F2A623 /* MaterialComponents.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MaterialComponents.xcconfig; sourceTree = "<group>"; };
+		A6CF89AE2402DE0600F2A623 /* MaterialComponents.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = MaterialComponents.modulemap; sourceTree = "<group>"; };
+		A6CF89AF2402DE0600F2A623 /* MaterialComponents-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MaterialComponents-Info.plist"; sourceTree = "<group>"; };
+		A6CF89B02402DE0600F2A623 /* MaterialComponents-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MaterialComponents-dummy.m"; sourceTree = "<group>"; };
+		A6CF89B12402DE0600F2A623 /* Manifest.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Manifest.lock; sourceTree = "<group>"; };
+		A6CF89B32402DE0600F2A623 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		A6CF89B52402DE0600F2A623 /* PublishRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishRelay.swift; sourceTree = "<group>"; };
+		A6CF89B62402DE0600F2A623 /* Observable+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Bind.swift"; sourceTree = "<group>"; };
+		A6CF89B72402DE0600F2A623 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A6CF89B82402DE0600F2A623 /* BehaviorRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorRelay.swift; sourceTree = "<group>"; };
+		A6CF89B92402DE0600F2A623 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A6CF89BB2402DE0600F2A623 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A6CF89BC2402DE0600F2A623 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A6CF89C02402DE0600F2A623 /* MDCPathGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCPathGenerator.h; sourceTree = "<group>"; };
+		A6CF89C12402DE0600F2A623 /* MaterialShapes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialShapes.h; sourceTree = "<group>"; };
+		A6CF89C22402DE0600F2A623 /* MDCEdgeTreatment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCEdgeTreatment.m; sourceTree = "<group>"; };
+		A6CF89C32402DE0600F2A623 /* MDCShapedShadowLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCShapedShadowLayer.h; sourceTree = "<group>"; };
+		A6CF89C42402DE0600F2A623 /* MDCRectangleShapeGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCRectangleShapeGenerator.m; sourceTree = "<group>"; };
+		A6CF89C52402DE0600F2A623 /* MDCCornerTreatment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCCornerTreatment.h; sourceTree = "<group>"; };
+		A6CF89C62402DE0600F2A623 /* MDCShapedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCShapedView.h; sourceTree = "<group>"; };
+		A6CF89C72402DE0600F2A623 /* MDCShapeGenerating.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCShapeGenerating.h; sourceTree = "<group>"; };
+		A6CF89C82402DE0600F2A623 /* MDCPathGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCPathGenerator.m; sourceTree = "<group>"; };
+		A6CF89C92402DE0600F2A623 /* MDCCornerTreatment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCCornerTreatment.m; sourceTree = "<group>"; };
+		A6CF89CA2402DE0600F2A623 /* MDCRectangleShapeGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCRectangleShapeGenerator.h; sourceTree = "<group>"; };
+		A6CF89CB2402DE0600F2A623 /* MDCShapedShadowLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCShapedShadowLayer.m; sourceTree = "<group>"; };
+		A6CF89CC2402DE0600F2A623 /* MDCEdgeTreatment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCEdgeTreatment.h; sourceTree = "<group>"; };
+		A6CF89CD2402DE0600F2A623 /* MDCShapedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCShapedView.m; sourceTree = "<group>"; };
+		A6CF89D12402DE0600F2A623 /* UIColor+MaterialDynamic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MaterialDynamic.m"; sourceTree = "<group>"; };
+		A6CF89D22402DE0600F2A623 /* UIColor+MaterialBlending.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+MaterialBlending.h"; sourceTree = "<group>"; };
+		A6CF89D32402DE0600F2A623 /* UIColor+MaterialDynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+MaterialDynamic.h"; sourceTree = "<group>"; };
+		A6CF89D42402DE0600F2A623 /* MaterialColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialColor.h; sourceTree = "<group>"; };
+		A6CF89D52402DE0600F2A623 /* UIColor+MaterialBlending.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MaterialBlending.m"; sourceTree = "<group>"; };
+		A6CF89D82402DE0600F2A623 /* MDCMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCMath.h; sourceTree = "<group>"; };
+		A6CF89D92402DE0600F2A623 /* MaterialMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialMath.h; sourceTree = "<group>"; };
+		A6CF89DA2402DE0600F2A623 /* MaterialMathDummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialMathDummy.m; sourceTree = "<group>"; };
+		A6CF89DD2402DE0600F2A623 /* UIApplication+AppExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AppExtensions.m"; sourceTree = "<group>"; };
+		A6CF89DE2402DE0600F2A623 /* MaterialApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialApplication.h; sourceTree = "<group>"; };
+		A6CF89DF2402DE0600F2A623 /* UIApplication+AppExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AppExtensions.h"; sourceTree = "<group>"; };
+		A6CF89E22402DE0600F2A623 /* MaterialKeyboardWatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialKeyboardWatcher.h; sourceTree = "<group>"; };
+		A6CF89E32402DE0600F2A623 /* MDCKeyboardWatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCKeyboardWatcher.h; sourceTree = "<group>"; };
+		A6CF89E42402DE0600F2A623 /* MDCKeyboardWatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCKeyboardWatcher.m; sourceTree = "<group>"; };
+		A6CF89E72402DE0600F2A623 /* MDCShadowLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCShadowLayer.m; sourceTree = "<group>"; };
+		A6CF89E82402DE0600F2A623 /* MaterialShadowLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialShadowLayer.h; sourceTree = "<group>"; };
+		A6CF89E92402DE0600F2A623 /* MDCShadowLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCShadowLayer.h; sourceTree = "<group>"; };
+		A6CF89EC2402DE0600F2A623 /* MDCBottomSheetTransitionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCBottomSheetTransitionController.h; sourceTree = "<group>"; };
+		A6CF89ED2402DE0600F2A623 /* UIViewController+MaterialBottomSheet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MaterialBottomSheet.m"; sourceTree = "<group>"; };
+		A6CF89EE2402DE0600F2A623 /* MDCBottomSheetPresentationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCBottomSheetPresentationController.m; sourceTree = "<group>"; };
+		A6CF89EF2402DE0600F2A623 /* MaterialBottomSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialBottomSheet.h; sourceTree = "<group>"; };
+		A6CF89F02402DE0600F2A623 /* MDCBottomSheetController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCBottomSheetController.h; sourceTree = "<group>"; };
+		A6CF89F12402DE0600F2A623 /* MDCSheetState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCSheetState.h; sourceTree = "<group>"; };
+		A6CF89F22402DE0600F2A623 /* MDCBottomSheetPresentationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCBottomSheetPresentationController.h; sourceTree = "<group>"; };
+		A6CF89F32402DE0600F2A623 /* UIViewController+MaterialBottomSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MaterialBottomSheet.h"; sourceTree = "<group>"; };
+		A6CF89F52402DE0600F2A623 /* MDCSheetBehavior.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCSheetBehavior.h; sourceTree = "<group>"; };
+		A6CF89F62402DE0600F2A623 /* MDCSheetContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCSheetContainerView.m; sourceTree = "<group>"; };
+		A6CF89F72402DE0600F2A623 /* MDCDraggableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCDraggableView.h; sourceTree = "<group>"; };
+		A6CF89F82402DE0600F2A623 /* MDCSheetBehavior.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCSheetBehavior.m; sourceTree = "<group>"; };
+		A6CF89F92402DE0600F2A623 /* MDCDraggableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCDraggableView.m; sourceTree = "<group>"; };
+		A6CF89FA2402DE0600F2A623 /* MDCSheetContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCSheetContainerView.h; sourceTree = "<group>"; };
+		A6CF89FB2402DE0600F2A623 /* MDCBottomSheetTransitionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCBottomSheetTransitionController.m; sourceTree = "<group>"; };
+		A6CF89FC2402DE0600F2A623 /* MDCBottomSheetController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCBottomSheetController.m; sourceTree = "<group>"; };
+		A6CF89FF2402DE0600F2A623 /* MaterialElevation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialElevation.h; sourceTree = "<group>"; };
+		A6CF8A002402DE0600F2A623 /* UIColor+MaterialElevation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MaterialElevation.m"; sourceTree = "<group>"; };
+		A6CF8A012402DE0600F2A623 /* UIView+MaterialElevationResponding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+MaterialElevationResponding.h"; sourceTree = "<group>"; };
+		A6CF8A022402DE0600F2A623 /* MDCElevationOverriding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCElevationOverriding.h; sourceTree = "<group>"; };
+		A6CF8A032402DE0600F2A623 /* UIColor+MaterialElevation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+MaterialElevation.h"; sourceTree = "<group>"; };
+		A6CF8A042402DE0600F2A623 /* UIView+MaterialElevationResponding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+MaterialElevationResponding.m"; sourceTree = "<group>"; };
+		A6CF8A052402DE0600F2A623 /* MDCElevatable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCElevatable.h; sourceTree = "<group>"; };
+		A6CF8A082402DE0600F2A623 /* MaterialShadowElevationsDummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialShadowElevationsDummy.m; sourceTree = "<group>"; };
+		A6CF8A092402DE0600F2A623 /* MaterialShadowElevations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialShadowElevations.h; sourceTree = "<group>"; };
+		A6CF8A0A2402DE0600F2A623 /* MDCShadowElevations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCShadowElevations.h; sourceTree = "<group>"; };
+		A6CF8A0D2402DE0600F2A623 /* MDCCurvedRectShapeGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCCurvedRectShapeGenerator.h; sourceTree = "<group>"; };
+		A6CF8A0E2402DE0600F2A623 /* MDCCurvedCornerTreatment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCCurvedCornerTreatment.m; sourceTree = "<group>"; };
+		A6CF8A0F2402DE0600F2A623 /* MDCRoundedCornerTreatment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCRoundedCornerTreatment.m; sourceTree = "<group>"; };
+		A6CF8A102402DE0600F2A623 /* MDCTriangleEdgeTreatment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCTriangleEdgeTreatment.m; sourceTree = "<group>"; };
+		A6CF8A112402DE0600F2A623 /* MDCCutCornerTreatment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCCutCornerTreatment.h; sourceTree = "<group>"; };
+		A6CF8A122402DE0600F2A623 /* MDCSlantedRectShapeGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCSlantedRectShapeGenerator.h; sourceTree = "<group>"; };
+		A6CF8A132402DE0600F2A623 /* MDCCornerTreatment+CornerTypeInitalizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MDCCornerTreatment+CornerTypeInitalizer.h"; sourceTree = "<group>"; };
+		A6CF8A142402DE0600F2A623 /* MDCPillShapeGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCPillShapeGenerator.h; sourceTree = "<group>"; };
+		A6CF8A152402DE0600F2A623 /* MDCRoundedCornerTreatment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCRoundedCornerTreatment.h; sourceTree = "<group>"; };
+		A6CF8A162402DE0600F2A623 /* MDCCurvedCornerTreatment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCCurvedCornerTreatment.h; sourceTree = "<group>"; };
+		A6CF8A172402DE0600F2A623 /* MDCCurvedRectShapeGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCCurvedRectShapeGenerator.m; sourceTree = "<group>"; };
+		A6CF8A182402DE0600F2A623 /* MDCTriangleEdgeTreatment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCTriangleEdgeTreatment.h; sourceTree = "<group>"; };
+		A6CF8A192402DE0600F2A623 /* MDCPillShapeGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCPillShapeGenerator.m; sourceTree = "<group>"; };
+		A6CF8A1A2402DE0600F2A623 /* MDCCornerTreatment+CornerTypeInitalizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MDCCornerTreatment+CornerTypeInitalizer.m"; sourceTree = "<group>"; };
+		A6CF8A1B2402DE0600F2A623 /* MDCSlantedRectShapeGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCSlantedRectShapeGenerator.m; sourceTree = "<group>"; };
+		A6CF8A1C2402DE0600F2A623 /* MDCCutCornerTreatment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCCutCornerTreatment.m; sourceTree = "<group>"; };
+		A6CF8A1D2402DE0600F2A623 /* MaterialShapeLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaterialShapeLibrary.h; sourceTree = "<group>"; };
+		A6CF8A212402DE0600F2A623 /* CyberpayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberpayPickerView.swift; sourceTree = "<group>"; };
+		A6CF8A222402DE0600F2A623 /* PinPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPad.swift; sourceTree = "<group>"; };
+		A6CF8A232402DE0600F2A623 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A6CF8A252402DE0600F2A623 /* LineArcRotateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineArcRotateView.swift; sourceTree = "<group>"; };
+		A6CF8A262402DE0600F2A623 /* ArcShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcShape.swift; sourceTree = "<group>"; };
+		A6CF8A272402DE0600F2A623 /* SimpleRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRView.swift; sourceTree = "<group>"; };
+		A6CF8A282402DE0600F2A623 /* LineArcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineArcView.swift; sourceTree = "<group>"; };
+		A6CF8A292402DE0600F2A623 /* RotateLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateLayer.swift; sourceTree = "<group>"; };
+		A6CF8A2A2402DE0600F2A623 /* ProgressMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressMaskView.swift; sourceTree = "<group>"; };
+		A6CF8A2B2402DE0600F2A623 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		A6CF8A2D2402DE0600F2A623 /* JMMaskedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMMaskedTextField.swift; sourceTree = "<group>"; };
+		A6CF8A2E2402DE0600F2A623 /* JMStringMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMStringMask.swift; sourceTree = "<group>"; };
+		A6CF8A2F2402DE0600F2A623 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		A6CF8A302402DE0600F2A623 /* BankSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSelectView.swift; sourceTree = "<group>"; };
+		A6CF8A312402DE0600F2A623 /* BankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankView.swift; sourceTree = "<group>"; };
+		A6CF8A322402DE0600F2A623 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
+		A6CF8A342402DE0600F2A623 /* CheckoutContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutContract.swift; sourceTree = "<group>"; };
+		A6CF8A352402DE0600F2A623 /* CheckoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPresenter.swift; sourceTree = "<group>"; };
+		A6CF8A362402DE0600F2A623 /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
+		A6CF8A382402DE0600F2A623 /* DateOfBirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthView.swift; sourceTree = "<group>"; };
+		A6CF8A3A2402DE0600F2A623 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		A6CF8A3B2402DE0600F2A623 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		A6CF8A3C2402DE0600F2A623 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
+		A6CF8A3D2402DE0600F2A623 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		A6CF8A3E2402DE0600F2A623 /* String+SwiftLuhn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SwiftLuhn.swift"; sourceTree = "<group>"; };
+		A6CF8A3F2402DE0600F2A623 /* BankRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankRepositoryImpl.swift; sourceTree = "<group>"; };
+		A6CF8A412402DE0600F2A623 /* ChannelCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCode.swift; sourceTree = "<group>"; };
+		A6CF8A422402DE0600F2A623 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		A6CF8A432402DE0600F2A623 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
+		A6CF8A442402DE0600F2A623 /* InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputType.swift; sourceTree = "<group>"; };
+		A6CF8A452402DE0600F2A623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A6CF8A472402DE0600F2A623 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A6CF8A482402DE0600F2A623 /* SequenceGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceGenerator.swift; sourceTree = "<group>"; };
+		A6CF8A492402DE0600F2A623 /* AnyDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDecodable.swift; sourceTree = "<group>"; };
+		A6CF8A4A2402DE0600F2A623 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		A6CF8A4B2402DE0600F2A623 /* SwiftLuhn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLuhn.swift; sourceTree = "<group>"; };
+		A6CF8A4C2402DE0600F2A623 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		A6CF8A4D2402DE0600F2A623 /* AnyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
+		A6CF8A4E2402DE0600F2A623 /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
+		A6CF8A502402DE0600F2A623 /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
+		A6CF8A522402DE0600F2A623 /* Split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Split.swift; sourceTree = "<group>"; };
+		A6CF8A532402DE0600F2A623 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		A6CF8A542402DE0600F2A623 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
+		A6CF8A552402DE0600F2A623 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		A6CF8A562402DE0600F2A623 /* Cyberpay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cyberpay.swift; sourceTree = "<group>"; };
+		A6CF8A5A2402DE0600F2A623 /* BankRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankRepository.swift; sourceTree = "<group>"; };
+		A6CF8A5B2402DE0600F2A623 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
+		A6CF8A5C2402DE0600F2A623 /* Secure3dView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secure3dView.swift; sourceTree = "<group>"; };
+		A6CF8A5D2402DE0600F2A623 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		A6CF8A5E2402DE0600F2A623 /* TransactionRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryImpl.swift; sourceTree = "<group>"; };
+		A6CF8A612402DE0600F2A623 /* ChargeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeCard.swift; sourceTree = "<group>"; };
+		A6CF8A622402DE0600F2A623 /* VerifyMerchantTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyMerchantTransaction.swift; sourceTree = "<group>"; };
+		A6CF8A632402DE0600F2A623 /* VerifyTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyTransaction.swift; sourceTree = "<group>"; };
+		A6CF8A642402DE0600F2A623 /* SetTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTransaction.swift; sourceTree = "<group>"; };
+		A6CF8A652402DE0600F2A623 /* Advice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advice.swift; sourceTree = "<group>"; };
+		A6CF8A662402DE0600F2A623 /* VerifyOtp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOtp.swift; sourceTree = "<group>"; };
+		A6CF8A672402DE0600F2A623 /* EnrollOtp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollOtp.swift; sourceTree = "<group>"; };
+		A6CF8A682402DE0600F2A623 /* ChargeBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeBank.swift; sourceTree = "<group>"; };
+		A6CF8A692402DE0600F2A623 /* EnrollBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollBank.swift; sourceTree = "<group>"; };
+		A6CF8A6A2402DE0600F2A623 /* TransactionServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionServiceProtocol.swift; sourceTree = "<group>"; };
+		A6CF8A6B2402DE0600F2A623 /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
+		A6CF8A6E2402DE0600F2A623 /* RequestMehtod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMehtod.swift; sourceTree = "<group>"; };
+		A6CF8A6F2402DE0600F2A623 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		A6CF8A702402DE0600F2A623 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		A6CF8A712402DE0600F2A623 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		A6CF8A722402DE0600F2A623 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		A6CF8A732402DE0600F2A623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6CF8A742402DE0600F2A623 /* CyberpaySdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CyberpaySdk.h; sourceTree = "<group>"; };
+		A6CF8A752402DE0600F2A623 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		A6CF8A772402DE0600F2A623 /* CyberpaySdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberpaySdkTests.swift; sourceTree = "<group>"; };
+		A6CF8A782402DE0600F2A623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6CF8A792402DE0600F2A623 /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		A6CF8A7C2402DE0600F2A623 /* BankResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankResponse.swift; sourceTree = "<group>"; };
+		A6CF8A7D2402DE0600F2A623 /* AccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountResponse.swift; sourceTree = "<group>"; };
+		A6CF8A7E2402DE0600F2A623 /* BankService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankService.swift; sourceTree = "<group>"; };
+		A6CF8A7F2402DE0600F2A623 /* BankServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankServiceProtocol.swift; sourceTree = "<group>"; };
 		DCF1C04CD6FF004F26BAE629 /* Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk-CyberpaySdkTests/Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC3E5A191F4E25A01D2F8242 /* Pods-CyberpaySdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyberpaySdk.release.xcconfig"; path = "Target Support Files/Pods-CyberpaySdk/Pods-CyberpaySdk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +751,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6CE8DFE2403103700BD1FD6 /* Pods_CyberpaySdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,10 +1118,1271 @@
 			path = dob;
 			sourceTree = "<group>";
 		};
+		A6CF882E2402DE0500F2A623 /* CyberpaySdk */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF882F2402DE0500F2A623 /* CyberpaySdk.xcodeproj */,
+				A6CF88322402DE0500F2A623 /* CyberpaySdk.xcworkspace */,
+				A6CF88332402DE0500F2A623 /* Pods */,
+				A6CF8A1E2402DE0600F2A623 /* CyberpaySdk */,
+				A6CF8A752402DE0600F2A623 /* Podfile */,
+				A6CF8A762402DE0600F2A623 /* CyberpaySdkTests */,
+				A6CF8A792402DE0600F2A623 /* Podfile.lock */,
+				A6CF8A7A2402DE0600F2A623 /* remote */,
+			);
+			name = CyberpaySdk;
+			sourceTree = "<group>";
+		};
+		A6CF88302402DE0500F2A623 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A6CF88332402DE0500F2A623 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88342402DE0500F2A623 /* FittedSheets */,
+				A6CF883D2402DE0500F2A623 /* RxCocoa */,
+				A6CF88CC2402DE0600F2A623 /* Pods.xcodeproj */,
+				A6CF88CF2402DE0600F2A623 /* RxSwift */,
+				A6CF89762402DE0600F2A623 /* Target Support Files */,
+				A6CF89B12402DE0600F2A623 /* Manifest.lock */,
+				A6CF89B22402DE0600F2A623 /* RxRelay */,
+				A6CF89BA2402DE0600F2A623 /* MaterialComponents */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A6CF88342402DE0500F2A623 /* FittedSheets */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88352402DE0500F2A623 /* LICENSE */,
+				A6CF88362402DE0500F2A623 /* README.md */,
+				A6CF88372402DE0500F2A623 /* FittedSheetsPod */,
+			);
+			path = FittedSheets;
+			sourceTree = "<group>";
+		};
+		A6CF88372402DE0500F2A623 /* FittedSheetsPod */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88382402DE0500F2A623 /* SheetSize.swift */,
+				A6CF88392402DE0500F2A623 /* UIViewControllerExtension.swift */,
+				A6CF883A2402DE0500F2A623 /* InitialTouchPanGestureRecognizer.swift */,
+				A6CF883B2402DE0500F2A623 /* Yalta.swift */,
+				A6CF883C2402DE0500F2A623 /* SheetViewController.swift */,
+			);
+			path = FittedSheetsPod;
+			sourceTree = "<group>";
+		};
+		A6CF883D2402DE0500F2A623 /* RxCocoa */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF883E2402DE0500F2A623 /* RxCocoa */,
+				A6CF88C02402DE0600F2A623 /* LICENSE.md */,
+				A6CF88C12402DE0600F2A623 /* Platform */,
+				A6CF88CB2402DE0600F2A623 /* README.md */,
+			);
+			path = RxCocoa;
+			sourceTree = "<group>";
+		};
+		A6CF883E2402DE0500F2A623 /* RxCocoa */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF883F2402DE0500F2A623 /* macOS */,
+				A6CF88472402DE0500F2A623 /* Traits */,
+				A6CF885D2402DE0500F2A623 /* Runtime */,
+				A6CF88682402DE0500F2A623 /* Foundation */,
+				A6CF88722402DE0500F2A623 /* RxCocoa.h */,
+				A6CF88732402DE0500F2A623 /* iOS */,
+				A6CF88B22402DE0600F2A623 /* Common */,
+				A6CF88BE2402DE0600F2A623 /* Deprecated.swift */,
+				A6CF88BF2402DE0600F2A623 /* RxCocoa.swift */,
+			);
+			path = RxCocoa;
+			sourceTree = "<group>";
+		};
+		A6CF883F2402DE0500F2A623 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88402402DE0500F2A623 /* NSView+Rx.swift */,
+				A6CF88412402DE0500F2A623 /* NSButton+Rx.swift */,
+				A6CF88422402DE0500F2A623 /* NSTextView+Rx.swift */,
+				A6CF88432402DE0500F2A623 /* NSTextField+Rx.swift */,
+				A6CF88442402DE0500F2A623 /* NSControl+Rx.swift */,
+				A6CF88452402DE0500F2A623 /* NSSlider+Rx.swift */,
+				A6CF88462402DE0500F2A623 /* NSImageView+Rx.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		A6CF88472402DE0500F2A623 /* Traits */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88482402DE0500F2A623 /* ControlEvent.swift */,
+				A6CF88492402DE0500F2A623 /* ControlProperty.swift */,
+				A6CF884A2402DE0500F2A623 /* Driver */,
+				A6CF88512402DE0500F2A623 /* SharedSequence */,
+				A6CF88572402DE0500F2A623 /* Signal */,
+			);
+			path = Traits;
+			sourceTree = "<group>";
+		};
+		A6CF884A2402DE0500F2A623 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF884B2402DE0500F2A623 /* Driver+Subscription.swift */,
+				A6CF884C2402DE0500F2A623 /* BehaviorRelay+Driver.swift */,
+				A6CF884D2402DE0500F2A623 /* ObservableConvertibleType+Driver.swift */,
+				A6CF884E2402DE0500F2A623 /* Driver.swift */,
+				A6CF884F2402DE0500F2A623 /* ControlEvent+Driver.swift */,
+				A6CF88502402DE0500F2A623 /* ControlProperty+Driver.swift */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
+		A6CF88512402DE0500F2A623 /* SharedSequence */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88522402DE0500F2A623 /* SharedSequence.swift */,
+				A6CF88532402DE0500F2A623 /* SharedSequence+Operators+arity.swift */,
+				A6CF88542402DE0500F2A623 /* SchedulerType+SharedSequence.swift */,
+				A6CF88552402DE0500F2A623 /* SharedSequence+Operators.swift */,
+				A6CF88562402DE0500F2A623 /* ObservableConvertibleType+SharedSequence.swift */,
+			);
+			path = SharedSequence;
+			sourceTree = "<group>";
+		};
+		A6CF88572402DE0500F2A623 /* Signal */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88582402DE0500F2A623 /* ObservableConvertibleType+Signal.swift */,
+				A6CF88592402DE0500F2A623 /* PublishRelay+Signal.swift */,
+				A6CF885A2402DE0500F2A623 /* Signal+Subscription.swift */,
+				A6CF885B2402DE0500F2A623 /* ControlEvent+Signal.swift */,
+				A6CF885C2402DE0500F2A623 /* Signal.swift */,
+			);
+			path = Signal;
+			sourceTree = "<group>";
+		};
+		A6CF885D2402DE0500F2A623 /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF885E2402DE0500F2A623 /* _RXDelegateProxy.m */,
+				A6CF885F2402DE0500F2A623 /* _RXObjCRuntime.m */,
+				A6CF88602402DE0500F2A623 /* _RX.m */,
+				A6CF88612402DE0500F2A623 /* include */,
+				A6CF88672402DE0500F2A623 /* _RXKVOObserver.m */,
+			);
+			path = Runtime;
+			sourceTree = "<group>";
+		};
+		A6CF88612402DE0500F2A623 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88622402DE0500F2A623 /* _RXKVOObserver.h */,
+				A6CF88632402DE0500F2A623 /* _RXObjCRuntime.h */,
+				A6CF88642402DE0500F2A623 /* _RXDelegateProxy.h */,
+				A6CF88652402DE0500F2A623 /* _RX.h */,
+				A6CF88662402DE0500F2A623 /* RxCocoaRuntime.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		A6CF88682402DE0500F2A623 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88692402DE0500F2A623 /* NSObject+Rx+KVORepresentable.swift */,
+				A6CF886A2402DE0500F2A623 /* Logging.swift */,
+				A6CF886B2402DE0500F2A623 /* KVORepresentable.swift */,
+				A6CF886C2402DE0500F2A623 /* NSObject+Rx+RawRepresentable.swift */,
+				A6CF886D2402DE0500F2A623 /* NotificationCenter+Rx.swift */,
+				A6CF886E2402DE0500F2A623 /* KVORepresentable+CoreGraphics.swift */,
+				A6CF886F2402DE0500F2A623 /* KVORepresentable+Swift.swift */,
+				A6CF88702402DE0500F2A623 /* NSObject+Rx.swift */,
+				A6CF88712402DE0500F2A623 /* URLSession+Rx.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		A6CF88732402DE0500F2A623 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88742402DE0500F2A623 /* DataSources */,
+				A6CF88782402DE0600F2A623 /* UIDatePicker+Rx.swift */,
+				A6CF88792402DE0600F2A623 /* UIScrollView+Rx.swift */,
+				A6CF887A2402DE0600F2A623 /* UIApplication+Rx.swift */,
+				A6CF887B2402DE0600F2A623 /* UISegmentedControl+Rx.swift */,
+				A6CF887C2402DE0600F2A623 /* UITextView+Rx.swift */,
+				A6CF887D2402DE0600F2A623 /* UIRefreshControl+Rx.swift */,
+				A6CF887E2402DE0600F2A623 /* UIImageView+Rx.swift */,
+				A6CF887F2402DE0600F2A623 /* UILabel+Rx.swift */,
+				A6CF88802402DE0600F2A623 /* UITabBarItem+Rx.swift */,
+				A6CF88812402DE0600F2A623 /* NSTextStorage+Rx.swift */,
+				A6CF88822402DE0600F2A623 /* UIProgressView+Rx.swift */,
+				A6CF88832402DE0600F2A623 /* UITabBarController+Rx.swift */,
+				A6CF88842402DE0600F2A623 /* UIWebView+Rx.swift */,
+				A6CF88852402DE0600F2A623 /* UITextField+Rx.swift */,
+				A6CF88862402DE0600F2A623 /* UISearchBar+Rx.swift */,
+				A6CF88872402DE0600F2A623 /* UIAlertAction+Rx.swift */,
+				A6CF88882402DE0600F2A623 /* UISlider+Rx.swift */,
+				A6CF88892402DE0600F2A623 /* UIPickerView+Rx.swift */,
+				A6CF888A2402DE0600F2A623 /* UIView+Rx.swift */,
+				A6CF888B2402DE0600F2A623 /* UIButton+Rx.swift */,
+				A6CF888C2402DE0600F2A623 /* UISearchController+Rx.swift */,
+				A6CF888D2402DE0600F2A623 /* UITabBar+Rx.swift */,
+				A6CF888E2402DE0600F2A623 /* UISwitch+Rx.swift */,
+				A6CF888F2402DE0600F2A623 /* UIPageControl+Rx.swift */,
+				A6CF88902402DE0600F2A623 /* UIViewController+Rx.swift */,
+				A6CF88912402DE0600F2A623 /* UICollectionView+Rx.swift */,
+				A6CF88922402DE0600F2A623 /* UIActivityIndicatorView+Rx.swift */,
+				A6CF88932402DE0600F2A623 /* UITableView+Rx.swift */,
+				A6CF88942402DE0600F2A623 /* Proxies */,
+				A6CF88A62402DE0600F2A623 /* Events */,
+				A6CF88A82402DE0600F2A623 /* UIGestureRecognizer+Rx.swift */,
+				A6CF88A92402DE0600F2A623 /* UIStepper+Rx.swift */,
+				A6CF88AA2402DE0600F2A623 /* Protocols */,
+				A6CF88AE2402DE0600F2A623 /* UINavigationController+Rx.swift */,
+				A6CF88AF2402DE0600F2A623 /* UIControl+Rx.swift */,
+				A6CF88B02402DE0600F2A623 /* UIBarButtonItem+Rx.swift */,
+				A6CF88B12402DE0600F2A623 /* UINavigationItem+Rx.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		A6CF88742402DE0500F2A623 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88752402DE0500F2A623 /* RxPickerViewAdapter.swift */,
+				A6CF88762402DE0500F2A623 /* RxCollectionViewReactiveArrayDataSource.swift */,
+				A6CF88772402DE0600F2A623 /* RxTableViewReactiveArrayDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		A6CF88942402DE0600F2A623 /* Proxies */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88952402DE0600F2A623 /* RxTableViewDataSourcePrefetchingProxy.swift */,
+				A6CF88962402DE0600F2A623 /* RxPickerViewDelegateProxy.swift */,
+				A6CF88972402DE0600F2A623 /* RxTableViewDelegateProxy.swift */,
+				A6CF88982402DE0600F2A623 /* RxNavigationControllerDelegateProxy.swift */,
+				A6CF88992402DE0600F2A623 /* RxSearchControllerDelegateProxy.swift */,
+				A6CF889A2402DE0600F2A623 /* RxTabBarControllerDelegateProxy.swift */,
+				A6CF889B2402DE0600F2A623 /* RxCollectionViewDataSourcePrefetchingProxy.swift */,
+				A6CF889C2402DE0600F2A623 /* RxCollectionViewDelegateProxy.swift */,
+				A6CF889D2402DE0600F2A623 /* RxScrollViewDelegateProxy.swift */,
+				A6CF889E2402DE0600F2A623 /* RxPickerViewDataSourceProxy.swift */,
+				A6CF889F2402DE0600F2A623 /* RxTableViewDataSourceProxy.swift */,
+				A6CF88A02402DE0600F2A623 /* RxSearchBarDelegateProxy.swift */,
+				A6CF88A12402DE0600F2A623 /* RxCollectionViewDataSourceProxy.swift */,
+				A6CF88A22402DE0600F2A623 /* RxWebViewDelegateProxy.swift */,
+				A6CF88A32402DE0600F2A623 /* RxTextViewDelegateProxy.swift */,
+				A6CF88A42402DE0600F2A623 /* RxTextStorageDelegateProxy.swift */,
+				A6CF88A52402DE0600F2A623 /* RxTabBarDelegateProxy.swift */,
+			);
+			path = Proxies;
+			sourceTree = "<group>";
+		};
+		A6CF88A62402DE0600F2A623 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88A72402DE0600F2A623 /* ItemEvents.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		A6CF88AA2402DE0600F2A623 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88AB2402DE0600F2A623 /* RxPickerViewDataSourceType.swift */,
+				A6CF88AC2402DE0600F2A623 /* RxCollectionViewDataSourceType.swift */,
+				A6CF88AD2402DE0600F2A623 /* RxTableViewDataSourceType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A6CF88B22402DE0600F2A623 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88B32402DE0600F2A623 /* KeyPathBinder.swift */,
+				A6CF88B42402DE0600F2A623 /* NSLayoutConstraint+Rx.swift */,
+				A6CF88B52402DE0600F2A623 /* DelegateProxy.swift */,
+				A6CF88B62402DE0600F2A623 /* RxCocoaObjCRuntimeError+Extensions.swift */,
+				A6CF88B72402DE0600F2A623 /* Binder.swift */,
+				A6CF88B82402DE0600F2A623 /* TextInput.swift */,
+				A6CF88B92402DE0600F2A623 /* SectionedViewDataSourceType.swift */,
+				A6CF88BA2402DE0600F2A623 /* ControlTarget.swift */,
+				A6CF88BB2402DE0600F2A623 /* Observable+Bind.swift */,
+				A6CF88BC2402DE0600F2A623 /* RxTarget.swift */,
+				A6CF88BD2402DE0600F2A623 /* DelegateProxyType.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A6CF88C12402DE0600F2A623 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88C22402DE0600F2A623 /* Platform.Darwin.swift */,
+				A6CF88C32402DE0600F2A623 /* DispatchQueue+Extensions.swift */,
+				A6CF88C42402DE0600F2A623 /* DataStructures */,
+				A6CF88C92402DE0600F2A623 /* Platform.Linux.swift */,
+				A6CF88CA2402DE0600F2A623 /* RecursiveLock.swift */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		A6CF88C42402DE0600F2A623 /* DataStructures */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88C52402DE0600F2A623 /* Bag.swift */,
+				A6CF88C62402DE0600F2A623 /* PriorityQueue.swift */,
+				A6CF88C72402DE0600F2A623 /* Queue.swift */,
+				A6CF88C82402DE0600F2A623 /* InfiniteSequence.swift */,
+			);
+			path = DataStructures;
+			sourceTree = "<group>";
+		};
+		A6CF88CD2402DE0600F2A623 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A882402DE0600F2A623 /* FittedSheets.framework */,
+				A6CF8A8A2402DE0600F2A623 /* MaterialComponents.framework */,
+				A6CF8A8C2402DE0600F2A623 /* Pods_CyberpaySdk.framework */,
+				A6CF8A8E2402DE0600F2A623 /* Pods_CyberpaySdk_CyberpaySdkTests.framework */,
+				A6CF8A902402DE0600F2A623 /* RxCocoa.framework */,
+				A6CF8A922402DE0600F2A623 /* RxRelay.framework */,
+				A6CF8A942402DE0600F2A623 /* RxSwift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A6CF88CF2402DE0600F2A623 /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88D02402DE0600F2A623 /* LICENSE.md */,
+				A6CF88D12402DE0600F2A623 /* RxSwift */,
+				A6CF896A2402DE0600F2A623 /* Platform */,
+				A6CF89752402DE0600F2A623 /* README.md */,
+			);
+			path = RxSwift;
+			sourceTree = "<group>";
+		};
+		A6CF88D12402DE0600F2A623 /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88D22402DE0600F2A623 /* Cancelable.swift */,
+				A6CF88D32402DE0600F2A623 /* GroupedObservable.swift */,
+				A6CF88D42402DE0600F2A623 /* RxMutableBox.swift */,
+				A6CF88D52402DE0600F2A623 /* Event.swift */,
+				A6CF88D62402DE0600F2A623 /* Traits */,
+				A6CF88DE2402DE0600F2A623 /* AnyObserver.swift */,
+				A6CF88DF2402DE0600F2A623 /* Disposables */,
+				A6CF88ED2402DE0600F2A623 /* Observables */,
+				A6CF89332402DE0600F2A623 /* Disposable.swift */,
+				A6CF89342402DE0600F2A623 /* SwiftSupport */,
+				A6CF89362402DE0600F2A623 /* ObservableType+Extensions.swift */,
+				A6CF89372402DE0600F2A623 /* Extensions */,
+				A6CF893A2402DE0600F2A623 /* ObserverType.swift */,
+				A6CF893B2402DE0600F2A623 /* Concurrency */,
+				A6CF89422402DE0600F2A623 /* Reactive.swift */,
+				A6CF89432402DE0600F2A623 /* Date+Dispatch.swift */,
+				A6CF89442402DE0600F2A623 /* Deprecated.swift */,
+				A6CF89452402DE0600F2A623 /* Subjects */,
+				A6CF894B2402DE0600F2A623 /* ObservableConvertibleType.swift */,
+				A6CF894C2402DE0600F2A623 /* Observable.swift */,
+				A6CF894D2402DE0600F2A623 /* SchedulerType.swift */,
+				A6CF894E2402DE0600F2A623 /* ConnectableObservableType.swift */,
+				A6CF894F2402DE0600F2A623 /* ObservableType.swift */,
+				A6CF89502402DE0600F2A623 /* Errors.swift */,
+				A6CF89512402DE0600F2A623 /* Rx.swift */,
+				A6CF89522402DE0600F2A623 /* Observers */,
+				A6CF89562402DE0600F2A623 /* Schedulers */,
+				A6CF89692402DE0600F2A623 /* ImmediateSchedulerType.swift */,
+			);
+			path = RxSwift;
+			sourceTree = "<group>";
+		};
+		A6CF88D62402DE0600F2A623 /* Traits */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88D72402DE0600F2A623 /* Completable+AndThen.swift */,
+				A6CF88D82402DE0600F2A623 /* Completable.swift */,
+				A6CF88D92402DE0600F2A623 /* Single.swift */,
+				A6CF88DA2402DE0600F2A623 /* PrimitiveSequence.swift */,
+				A6CF88DB2402DE0600F2A623 /* Maybe.swift */,
+				A6CF88DC2402DE0600F2A623 /* ObservableType+PrimitiveSequence.swift */,
+				A6CF88DD2402DE0600F2A623 /* PrimitiveSequence+Zip+arity.swift */,
+			);
+			path = Traits;
+			sourceTree = "<group>";
+		};
+		A6CF88DF2402DE0600F2A623 /* Disposables */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88E02402DE0600F2A623 /* DisposeBase.swift */,
+				A6CF88E12402DE0600F2A623 /* DisposeBag.swift */,
+				A6CF88E22402DE0600F2A623 /* ScheduledDisposable.swift */,
+				A6CF88E32402DE0600F2A623 /* NopDisposable.swift */,
+				A6CF88E42402DE0600F2A623 /* SubscriptionDisposable.swift */,
+				A6CF88E52402DE0600F2A623 /* RefCountDisposable.swift */,
+				A6CF88E62402DE0600F2A623 /* CompositeDisposable.swift */,
+				A6CF88E72402DE0600F2A623 /* SingleAssignmentDisposable.swift */,
+				A6CF88E82402DE0600F2A623 /* SerialDisposable.swift */,
+				A6CF88E92402DE0600F2A623 /* BinaryDisposable.swift */,
+				A6CF88EA2402DE0600F2A623 /* AnonymousDisposable.swift */,
+				A6CF88EB2402DE0600F2A623 /* BooleanDisposable.swift */,
+				A6CF88EC2402DE0600F2A623 /* Disposables.swift */,
+			);
+			path = Disposables;
+			sourceTree = "<group>";
+		};
+		A6CF88ED2402DE0600F2A623 /* Observables */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF88EE2402DE0600F2A623 /* AsMaybe.swift */,
+				A6CF88EF2402DE0600F2A623 /* Timeout.swift */,
+				A6CF88F02402DE0600F2A623 /* Never.swift */,
+				A6CF88F12402DE0600F2A623 /* RetryWhen.swift */,
+				A6CF88F22402DE0600F2A623 /* Do.swift */,
+				A6CF88F32402DE0600F2A623 /* Deferred.swift */,
+				A6CF88F42402DE0600F2A623 /* Buffer.swift */,
+				A6CF88F52402DE0600F2A623 /* SubscribeOn.swift */,
+				A6CF88F62402DE0600F2A623 /* DefaultIfEmpty.swift */,
+				A6CF88F72402DE0600F2A623 /* Using.swift */,
+				A6CF88F82402DE0600F2A623 /* Delay.swift */,
+				A6CF88F92402DE0600F2A623 /* Producer.swift */,
+				A6CF88FA2402DE0600F2A623 /* GroupBy.swift */,
+				A6CF88FB2402DE0600F2A623 /* Concat.swift */,
+				A6CF88FC2402DE0600F2A623 /* Take.swift */,
+				A6CF88FD2402DE0600F2A623 /* TakeWhile.swift */,
+				A6CF88FE2402DE0600F2A623 /* TakeLast.swift */,
+				A6CF88FF2402DE0600F2A623 /* Error.swift */,
+				A6CF89002402DE0600F2A623 /* CombineLatest.swift */,
+				A6CF89012402DE0600F2A623 /* Sample.swift */,
+				A6CF89022402DE0600F2A623 /* AsSingle.swift */,
+				A6CF89032402DE0600F2A623 /* Empty.swift */,
+				A6CF89042402DE0600F2A623 /* Enumerated.swift */,
+				A6CF89052402DE0600F2A623 /* DistinctUntilChanged.swift */,
+				A6CF89062402DE0600F2A623 /* First.swift */,
+				A6CF89072402DE0600F2A623 /* Timer.swift */,
+				A6CF89082402DE0600F2A623 /* AddRef.swift */,
+				A6CF89092402DE0600F2A623 /* Sequence.swift */,
+				A6CF890A2402DE0600F2A623 /* Sink.swift */,
+				A6CF890B2402DE0600F2A623 /* Throttle.swift */,
+				A6CF890C2402DE0600F2A623 /* Range.swift */,
+				A6CF890D2402DE0600F2A623 /* CompactMap.swift */,
+				A6CF890E2402DE0600F2A623 /* WithLatestFrom.swift */,
+				A6CF890F2402DE0600F2A623 /* ObserveOn.swift */,
+				A6CF89102402DE0600F2A623 /* CombineLatest+Collection.swift */,
+				A6CF89112402DE0600F2A623 /* Multicast.swift */,
+				A6CF89122402DE0600F2A623 /* SkipWhile.swift */,
+				A6CF89132402DE0600F2A623 /* DelaySubscription.swift */,
+				A6CF89142402DE0600F2A623 /* Repeat.swift */,
+				A6CF89152402DE0600F2A623 /* ToArray.swift */,
+				A6CF89162402DE0600F2A623 /* TakeUntil.swift */,
+				A6CF89172402DE0600F2A623 /* Switch.swift */,
+				A6CF89182402DE0600F2A623 /* Window.swift */,
+				A6CF89192402DE0600F2A623 /* Debounce.swift */,
+				A6CF891A2402DE0600F2A623 /* Dematerialize.swift */,
+				A6CF891B2402DE0600F2A623 /* Zip+Collection.swift */,
+				A6CF891C2402DE0600F2A623 /* Catch.swift */,
+				A6CF891D2402DE0600F2A623 /* Filter.swift */,
+				A6CF891E2402DE0600F2A623 /* Amb.swift */,
+				A6CF891F2402DE0600F2A623 /* Reduce.swift */,
+				A6CF89202402DE0600F2A623 /* CombineLatest+arity.swift */,
+				A6CF89212402DE0600F2A623 /* Zip.swift */,
+				A6CF89222402DE0600F2A623 /* Debug.swift */,
+				A6CF89232402DE0600F2A623 /* Merge.swift */,
+				A6CF89242402DE0600F2A623 /* Skip.swift */,
+				A6CF89252402DE0600F2A623 /* Map.swift */,
+				A6CF89262402DE0600F2A623 /* SkipUntil.swift */,
+				A6CF89272402DE0600F2A623 /* StartWith.swift */,
+				A6CF89282402DE0600F2A623 /* Just.swift */,
+				A6CF89292402DE0600F2A623 /* Optional.swift */,
+				A6CF892A2402DE0600F2A623 /* Generate.swift */,
+				A6CF892B2402DE0600F2A623 /* ShareReplayScope.swift */,
+				A6CF892C2402DE0600F2A623 /* Scan.swift */,
+				A6CF892D2402DE0600F2A623 /* Zip+arity.swift */,
+				A6CF892E2402DE0600F2A623 /* SwitchIfEmpty.swift */,
+				A6CF892F2402DE0600F2A623 /* ElementAt.swift */,
+				A6CF89302402DE0600F2A623 /* Create.swift */,
+				A6CF89312402DE0600F2A623 /* Materialize.swift */,
+				A6CF89322402DE0600F2A623 /* SingleAsync.swift */,
+			);
+			path = Observables;
+			sourceTree = "<group>";
+		};
+		A6CF89342402DE0600F2A623 /* SwiftSupport */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89352402DE0600F2A623 /* SwiftSupport.swift */,
+			);
+			path = SwiftSupport;
+			sourceTree = "<group>";
+		};
+		A6CF89372402DE0600F2A623 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89382402DE0600F2A623 /* Bag+Rx.swift */,
+				A6CF89392402DE0600F2A623 /* String+Rx.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A6CF893B2402DE0600F2A623 /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF893C2402DE0600F2A623 /* LockOwnerType.swift */,
+				A6CF893D2402DE0600F2A623 /* SynchronizedDisposeType.swift */,
+				A6CF893E2402DE0600F2A623 /* SynchronizedOnType.swift */,
+				A6CF893F2402DE0600F2A623 /* Lock.swift */,
+				A6CF89402402DE0600F2A623 /* AsyncLock.swift */,
+				A6CF89412402DE0600F2A623 /* SynchronizedUnsubscribeType.swift */,
+			);
+			path = Concurrency;
+			sourceTree = "<group>";
+		};
+		A6CF89452402DE0600F2A623 /* Subjects */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89462402DE0600F2A623 /* SubjectType.swift */,
+				A6CF89472402DE0600F2A623 /* BehaviorSubject.swift */,
+				A6CF89482402DE0600F2A623 /* AsyncSubject.swift */,
+				A6CF89492402DE0600F2A623 /* ReplaySubject.swift */,
+				A6CF894A2402DE0600F2A623 /* PublishSubject.swift */,
+			);
+			path = Subjects;
+			sourceTree = "<group>";
+		};
+		A6CF89522402DE0600F2A623 /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89532402DE0600F2A623 /* ObserverBase.swift */,
+				A6CF89542402DE0600F2A623 /* TailRecursiveSink.swift */,
+				A6CF89552402DE0600F2A623 /* AnonymousObserver.swift */,
+			);
+			path = Observers;
+			sourceTree = "<group>";
+		};
+		A6CF89562402DE0600F2A623 /* Schedulers */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89572402DE0600F2A623 /* RecursiveScheduler.swift */,
+				A6CF89582402DE0600F2A623 /* OperationQueueScheduler.swift */,
+				A6CF89592402DE0600F2A623 /* VirtualTimeScheduler.swift */,
+				A6CF895A2402DE0600F2A623 /* SchedulerServices+Emulation.swift */,
+				A6CF895B2402DE0600F2A623 /* CurrentThreadScheduler.swift */,
+				A6CF895C2402DE0600F2A623 /* MainScheduler.swift */,
+				A6CF895D2402DE0600F2A623 /* ConcurrentDispatchQueueScheduler.swift */,
+				A6CF895E2402DE0600F2A623 /* Internal */,
+				A6CF89642402DE0600F2A623 /* ConcurrentMainScheduler.swift */,
+				A6CF89652402DE0600F2A623 /* SerialDispatchQueueScheduler.swift */,
+				A6CF89662402DE0600F2A623 /* HistoricalScheduler.swift */,
+				A6CF89672402DE0600F2A623 /* VirtualTimeConverterType.swift */,
+				A6CF89682402DE0600F2A623 /* HistoricalSchedulerTimeConverter.swift */,
+			);
+			path = Schedulers;
+			sourceTree = "<group>";
+		};
+		A6CF895E2402DE0600F2A623 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF895F2402DE0600F2A623 /* ScheduledItem.swift */,
+				A6CF89602402DE0600F2A623 /* InvocableType.swift */,
+				A6CF89612402DE0600F2A623 /* InvocableScheduledItem.swift */,
+				A6CF89622402DE0600F2A623 /* DispatchQueueConfiguration.swift */,
+				A6CF89632402DE0600F2A623 /* ScheduledItemType.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		A6CF896A2402DE0600F2A623 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF896B2402DE0600F2A623 /* Platform.Darwin.swift */,
+				A6CF896C2402DE0600F2A623 /* DispatchQueue+Extensions.swift */,
+				A6CF896D2402DE0600F2A623 /* AtomicInt.swift */,
+				A6CF896E2402DE0600F2A623 /* DataStructures */,
+				A6CF89732402DE0600F2A623 /* Platform.Linux.swift */,
+				A6CF89742402DE0600F2A623 /* RecursiveLock.swift */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		A6CF896E2402DE0600F2A623 /* DataStructures */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF896F2402DE0600F2A623 /* Bag.swift */,
+				A6CF89702402DE0600F2A623 /* PriorityQueue.swift */,
+				A6CF89712402DE0600F2A623 /* Queue.swift */,
+				A6CF89722402DE0600F2A623 /* InfiniteSequence.swift */,
+			);
+			path = DataStructures;
+			sourceTree = "<group>";
+		};
+		A6CF89762402DE0600F2A623 /* Target Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89772402DE0600F2A623 /* FittedSheets */,
+				A6CF897E2402DE0600F2A623 /* RxCocoa */,
+				A6CF89852402DE0600F2A623 /* RxSwift */,
+				A6CF898C2402DE0600F2A623 /* RxRelay */,
+				A6CF89932402DE0600F2A623 /* Pods-CyberpaySdk */,
+				A6CF899C2402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests */,
+				A6CF89AA2402DE0600F2A623 /* MaterialComponents */,
+			);
+			path = "Target Support Files";
+			sourceTree = "<group>";
+		};
+		A6CF89772402DE0600F2A623 /* FittedSheets */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89782402DE0600F2A623 /* FittedSheets-umbrella.h */,
+				A6CF89792402DE0600F2A623 /* FittedSheets-prefix.pch */,
+				A6CF897A2402DE0600F2A623 /* FittedSheets.xcconfig */,
+				A6CF897B2402DE0600F2A623 /* FittedSheets.modulemap */,
+				A6CF897C2402DE0600F2A623 /* FittedSheets-dummy.m */,
+				A6CF897D2402DE0600F2A623 /* FittedSheets-Info.plist */,
+			);
+			path = FittedSheets;
+			sourceTree = "<group>";
+		};
+		A6CF897E2402DE0600F2A623 /* RxCocoa */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF897F2402DE0600F2A623 /* RxCocoa-umbrella.h */,
+				A6CF89802402DE0600F2A623 /* RxCocoa.xcconfig */,
+				A6CF89812402DE0600F2A623 /* RxCocoa-prefix.pch */,
+				A6CF89822402DE0600F2A623 /* RxCocoa-dummy.m */,
+				A6CF89832402DE0600F2A623 /* RxCocoa-Info.plist */,
+				A6CF89842402DE0600F2A623 /* RxCocoa.modulemap */,
+			);
+			path = RxCocoa;
+			sourceTree = "<group>";
+		};
+		A6CF89852402DE0600F2A623 /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89862402DE0600F2A623 /* RxSwift-prefix.pch */,
+				A6CF89872402DE0600F2A623 /* RxSwift-dummy.m */,
+				A6CF89882402DE0600F2A623 /* RxSwift-umbrella.h */,
+				A6CF89892402DE0600F2A623 /* RxSwift-Info.plist */,
+				A6CF898A2402DE0600F2A623 /* RxSwift.xcconfig */,
+				A6CF898B2402DE0600F2A623 /* RxSwift.modulemap */,
+			);
+			path = RxSwift;
+			sourceTree = "<group>";
+		};
+		A6CF898C2402DE0600F2A623 /* RxRelay */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF898D2402DE0600F2A623 /* RxRelay-prefix.pch */,
+				A6CF898E2402DE0600F2A623 /* RxRelay.xcconfig */,
+				A6CF898F2402DE0600F2A623 /* RxRelay.modulemap */,
+				A6CF89902402DE0600F2A623 /* RxRelay-umbrella.h */,
+				A6CF89912402DE0600F2A623 /* RxRelay-dummy.m */,
+				A6CF89922402DE0600F2A623 /* RxRelay-Info.plist */,
+			);
+			path = RxRelay;
+			sourceTree = "<group>";
+		};
+		A6CF89932402DE0600F2A623 /* Pods-CyberpaySdk */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89942402DE0600F2A623 /* Pods-CyberpaySdk-dummy.m */,
+				A6CF89952402DE0600F2A623 /* Pods-CyberpaySdk-acknowledgements.markdown */,
+				A6CF89962402DE0600F2A623 /* Pods-CyberpaySdk-Info.plist */,
+				A6CF89972402DE0600F2A623 /* Pods-CyberpaySdk-acknowledgements.plist */,
+				A6CF89982402DE0600F2A623 /* Pods-CyberpaySdk.modulemap */,
+				A6CF89992402DE0600F2A623 /* Pods-CyberpaySdk.release.xcconfig */,
+				A6CF899A2402DE0600F2A623 /* Pods-CyberpaySdk.debug.xcconfig */,
+				A6CF899B2402DE0600F2A623 /* Pods-CyberpaySdk-umbrella.h */,
+			);
+			path = "Pods-CyberpaySdk";
+			sourceTree = "<group>";
+		};
+		A6CF899C2402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF899D2402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Debug-output-files.xcfilelist */,
+				A6CF899E2402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-frameworks.sh */,
+				A6CF899F2402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-dummy.m */,
+				A6CF89A02402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-umbrella.h */,
+				A6CF89A12402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Release-output-files.xcfilelist */,
+				A6CF89A22402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-Info.plist */,
+				A6CF89A32402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests.modulemap */,
+				A6CF89A42402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-acknowledgements.markdown */,
+				A6CF89A52402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Release-input-files.xcfilelist */,
+				A6CF89A62402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests.debug.xcconfig */,
+				A6CF89A72402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests.release.xcconfig */,
+				A6CF89A82402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-frameworks-Debug-input-files.xcfilelist */,
+				A6CF89A92402DE0600F2A623 /* Pods-CyberpaySdk-CyberpaySdkTests-acknowledgements.plist */,
+			);
+			path = "Pods-CyberpaySdk-CyberpaySdkTests";
+			sourceTree = "<group>";
+		};
+		A6CF89AA2402DE0600F2A623 /* MaterialComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89AB2402DE0600F2A623 /* MaterialComponents-umbrella.h */,
+				A6CF89AC2402DE0600F2A623 /* MaterialComponents-prefix.pch */,
+				A6CF89AD2402DE0600F2A623 /* MaterialComponents.xcconfig */,
+				A6CF89AE2402DE0600F2A623 /* MaterialComponents.modulemap */,
+				A6CF89AF2402DE0600F2A623 /* MaterialComponents-Info.plist */,
+				A6CF89B02402DE0600F2A623 /* MaterialComponents-dummy.m */,
+			);
+			path = MaterialComponents;
+			sourceTree = "<group>";
+		};
+		A6CF89B22402DE0600F2A623 /* RxRelay */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89B32402DE0600F2A623 /* LICENSE.md */,
+				A6CF89B42402DE0600F2A623 /* RxRelay */,
+				A6CF89B92402DE0600F2A623 /* README.md */,
+			);
+			path = RxRelay;
+			sourceTree = "<group>";
+		};
+		A6CF89B42402DE0600F2A623 /* RxRelay */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89B52402DE0600F2A623 /* PublishRelay.swift */,
+				A6CF89B62402DE0600F2A623 /* Observable+Bind.swift */,
+				A6CF89B72402DE0600F2A623 /* Utils.swift */,
+				A6CF89B82402DE0600F2A623 /* BehaviorRelay.swift */,
+			);
+			path = RxRelay;
+			sourceTree = "<group>";
+		};
+		A6CF89BA2402DE0600F2A623 /* MaterialComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89BB2402DE0600F2A623 /* LICENSE */,
+				A6CF89BC2402DE0600F2A623 /* README.md */,
+				A6CF89BD2402DE0600F2A623 /* components */,
+			);
+			path = MaterialComponents;
+			sourceTree = "<group>";
+		};
+		A6CF89BD2402DE0600F2A623 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89BE2402DE0600F2A623 /* Shapes */,
+				A6CF89CE2402DE0600F2A623 /* private */,
+				A6CF89E52402DE0600F2A623 /* ShadowLayer */,
+				A6CF89EA2402DE0600F2A623 /* BottomSheet */,
+				A6CF89FD2402DE0600F2A623 /* Elevation */,
+				A6CF8A062402DE0600F2A623 /* ShadowElevations */,
+				A6CF8A0B2402DE0600F2A623 /* ShapeLibrary */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		A6CF89BE2402DE0600F2A623 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89BF2402DE0600F2A623 /* src */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		A6CF89BF2402DE0600F2A623 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89C02402DE0600F2A623 /* MDCPathGenerator.h */,
+				A6CF89C12402DE0600F2A623 /* MaterialShapes.h */,
+				A6CF89C22402DE0600F2A623 /* MDCEdgeTreatment.m */,
+				A6CF89C32402DE0600F2A623 /* MDCShapedShadowLayer.h */,
+				A6CF89C42402DE0600F2A623 /* MDCRectangleShapeGenerator.m */,
+				A6CF89C52402DE0600F2A623 /* MDCCornerTreatment.h */,
+				A6CF89C62402DE0600F2A623 /* MDCShapedView.h */,
+				A6CF89C72402DE0600F2A623 /* MDCShapeGenerating.h */,
+				A6CF89C82402DE0600F2A623 /* MDCPathGenerator.m */,
+				A6CF89C92402DE0600F2A623 /* MDCCornerTreatment.m */,
+				A6CF89CA2402DE0600F2A623 /* MDCRectangleShapeGenerator.h */,
+				A6CF89CB2402DE0600F2A623 /* MDCShapedShadowLayer.m */,
+				A6CF89CC2402DE0600F2A623 /* MDCEdgeTreatment.h */,
+				A6CF89CD2402DE0600F2A623 /* MDCShapedView.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A6CF89CE2402DE0600F2A623 /* private */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89CF2402DE0600F2A623 /* Color */,
+				A6CF89D62402DE0600F2A623 /* Math */,
+				A6CF89DB2402DE0600F2A623 /* Application */,
+				A6CF89E02402DE0600F2A623 /* KeyboardWatcher */,
+			);
+			path = private;
+			sourceTree = "<group>";
+		};
+		A6CF89CF2402DE0600F2A623 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89D02402DE0600F2A623 /* src */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		A6CF89D02402DE0600F2A623 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89D12402DE0600F2A623 /* UIColor+MaterialDynamic.m */,
+				A6CF89D22402DE0600F2A623 /* UIColor+MaterialBlending.h */,
+				A6CF89D32402DE0600F2A623 /* UIColor+MaterialDynamic.h */,
+				A6CF89D42402DE0600F2A623 /* MaterialColor.h */,
+				A6CF89D52402DE0600F2A623 /* UIColor+MaterialBlending.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A6CF89D62402DE0600F2A623 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89D72402DE0600F2A623 /* src */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
+		A6CF89D72402DE0600F2A623 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89D82402DE0600F2A623 /* MDCMath.h */,
+				A6CF89D92402DE0600F2A623 /* MaterialMath.h */,
+				A6CF89DA2402DE0600F2A623 /* MaterialMathDummy.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A6CF89DB2402DE0600F2A623 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89DC2402DE0600F2A623 /* src */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A6CF89DC2402DE0600F2A623 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89DD2402DE0600F2A623 /* UIApplication+AppExtensions.m */,
+				A6CF89DE2402DE0600F2A623 /* MaterialApplication.h */,
+				A6CF89DF2402DE0600F2A623 /* UIApplication+AppExtensions.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A6CF89E02402DE0600F2A623 /* KeyboardWatcher */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89E12402DE0600F2A623 /* src */,
+			);
+			path = KeyboardWatcher;
+			sourceTree = "<group>";
+		};
+		A6CF89E12402DE0600F2A623 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89E22402DE0600F2A623 /* MaterialKeyboardWatcher.h */,
+				A6CF89E32402DE0600F2A623 /* MDCKeyboardWatcher.h */,
+				A6CF89E42402DE0600F2A623 /* MDCKeyboardWatcher.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A6CF89E52402DE0600F2A623 /* ShadowLayer */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89E62402DE0600F2A623 /* src */,
+			);
+			path = ShadowLayer;
+			sourceTree = "<group>";
+		};
+		A6CF89E62402DE0600F2A623 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89E72402DE0600F2A623 /* MDCShadowLayer.m */,
+				A6CF89E82402DE0600F2A623 /* MaterialShadowLayer.h */,
+				A6CF89E92402DE0600F2A623 /* MDCShadowLayer.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A6CF89EA2402DE0600F2A623 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89EB2402DE0600F2A623 /* src */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		A6CF89EB2402DE0600F2A623 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89EC2402DE0600F2A623 /* MDCBottomSheetTransitionController.h */,
+				A6CF89ED2402DE0600F2A623 /* UIViewController+MaterialBottomSheet.m */,
+				A6CF89EE2402DE0600F2A623 /* MDCBottomSheetPresentationController.m */,
+				A6CF89EF2402DE0600F2A623 /* MaterialBottomSheet.h */,
+				A6CF89F02402DE0600F2A623 /* MDCBottomSheetController.h */,
+				A6CF89F12402DE0600F2A623 /* MDCSheetState.h */,
+				A6CF89F22402DE0600F2A623 /* MDCBottomSheetPresentationController.h */,
+				A6CF89F32402DE0600F2A623 /* UIViewController+MaterialBottomSheet.h */,
+				A6CF89F42402DE0600F2A623 /* private */,
+				A6CF89FB2402DE0600F2A623 /* MDCBottomSheetTransitionController.m */,
+				A6CF89FC2402DE0600F2A623 /* MDCBottomSheetController.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A6CF89F42402DE0600F2A623 /* private */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89F52402DE0600F2A623 /* MDCSheetBehavior.h */,
+				A6CF89F62402DE0600F2A623 /* MDCSheetContainerView.m */,
+				A6CF89F72402DE0600F2A623 /* MDCDraggableView.h */,
+				A6CF89F82402DE0600F2A623 /* MDCSheetBehavior.m */,
+				A6CF89F92402DE0600F2A623 /* MDCDraggableView.m */,
+				A6CF89FA2402DE0600F2A623 /* MDCSheetContainerView.h */,
+			);
+			path = private;
+			sourceTree = "<group>";
+		};
+		A6CF89FD2402DE0600F2A623 /* Elevation */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89FE2402DE0600F2A623 /* src */,
+			);
+			path = Elevation;
+			sourceTree = "<group>";
+		};
+		A6CF89FE2402DE0600F2A623 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF89FF2402DE0600F2A623 /* MaterialElevation.h */,
+				A6CF8A002402DE0600F2A623 /* UIColor+MaterialElevation.m */,
+				A6CF8A012402DE0600F2A623 /* UIView+MaterialElevationResponding.h */,
+				A6CF8A022402DE0600F2A623 /* MDCElevationOverriding.h */,
+				A6CF8A032402DE0600F2A623 /* UIColor+MaterialElevation.h */,
+				A6CF8A042402DE0600F2A623 /* UIView+MaterialElevationResponding.m */,
+				A6CF8A052402DE0600F2A623 /* MDCElevatable.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A6CF8A062402DE0600F2A623 /* ShadowElevations */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A072402DE0600F2A623 /* src */,
+			);
+			path = ShadowElevations;
+			sourceTree = "<group>";
+		};
+		A6CF8A072402DE0600F2A623 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A082402DE0600F2A623 /* MaterialShadowElevationsDummy.m */,
+				A6CF8A092402DE0600F2A623 /* MaterialShadowElevations.h */,
+				A6CF8A0A2402DE0600F2A623 /* MDCShadowElevations.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A6CF8A0B2402DE0600F2A623 /* ShapeLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A0C2402DE0600F2A623 /* src */,
+			);
+			path = ShapeLibrary;
+			sourceTree = "<group>";
+		};
+		A6CF8A0C2402DE0600F2A623 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A0D2402DE0600F2A623 /* MDCCurvedRectShapeGenerator.h */,
+				A6CF8A0E2402DE0600F2A623 /* MDCCurvedCornerTreatment.m */,
+				A6CF8A0F2402DE0600F2A623 /* MDCRoundedCornerTreatment.m */,
+				A6CF8A102402DE0600F2A623 /* MDCTriangleEdgeTreatment.m */,
+				A6CF8A112402DE0600F2A623 /* MDCCutCornerTreatment.h */,
+				A6CF8A122402DE0600F2A623 /* MDCSlantedRectShapeGenerator.h */,
+				A6CF8A132402DE0600F2A623 /* MDCCornerTreatment+CornerTypeInitalizer.h */,
+				A6CF8A142402DE0600F2A623 /* MDCPillShapeGenerator.h */,
+				A6CF8A152402DE0600F2A623 /* MDCRoundedCornerTreatment.h */,
+				A6CF8A162402DE0600F2A623 /* MDCCurvedCornerTreatment.h */,
+				A6CF8A172402DE0600F2A623 /* MDCCurvedRectShapeGenerator.m */,
+				A6CF8A182402DE0600F2A623 /* MDCTriangleEdgeTreatment.h */,
+				A6CF8A192402DE0600F2A623 /* MDCPillShapeGenerator.m */,
+				A6CF8A1A2402DE0600F2A623 /* MDCCornerTreatment+CornerTypeInitalizer.m */,
+				A6CF8A1B2402DE0600F2A623 /* MDCSlantedRectShapeGenerator.m */,
+				A6CF8A1C2402DE0600F2A623 /* MDCCutCornerTreatment.m */,
+				A6CF8A1D2402DE0600F2A623 /* MaterialShapeLibrary.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A6CF8A1E2402DE0600F2A623 /* CyberpaySdk */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A1F2402DE0600F2A623 /* ui */,
+				A6CF8A392402DE0600F2A623 /* extension */,
+				A6CF8A402402DE0600F2A623 /* enums */,
+				A6CF8A452402DE0600F2A623 /* Assets.xcassets */,
+				A6CF8A462402DE0600F2A623 /* utils */,
+				A6CF8A4F2402DE0600F2A623 /* exceptions */,
+				A6CF8A512402DE0600F2A623 /* model */,
+				A6CF8A562402DE0600F2A623 /* Cyberpay.swift */,
+				A6CF8A572402DE0600F2A623 /* data */,
+				A6CF8A732402DE0600F2A623 /* Info.plist */,
+				A6CF8A742402DE0600F2A623 /* CyberpaySdk.h */,
+			);
+			path = CyberpaySdk;
+			sourceTree = "<group>";
+		};
+		A6CF8A1F2402DE0600F2A623 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A202402DE0600F2A623 /* widget */,
+				A6CF8A332402DE0600F2A623 /* checkout */,
+				A6CF8A372402DE0600F2A623 /* dob */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		A6CF8A202402DE0600F2A623 /* widget */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A212402DE0600F2A623 /* CyberpayPickerView.swift */,
+				A6CF8A222402DE0600F2A623 /* PinPad.swift */,
+				A6CF8A232402DE0600F2A623 /* CardView.swift */,
+				A6CF8A242402DE0600F2A623 /* ProgressMaskView */,
+				A6CF8A2C2402DE0600F2A623 /* maskedTextField */,
+				A6CF8A2F2402DE0600F2A623 /* PaymentMethod.swift */,
+				A6CF8A302402DE0600F2A623 /* BankSelectView.swift */,
+				A6CF8A312402DE0600F2A623 /* BankView.swift */,
+				A6CF8A322402DE0600F2A623 /* LoadingIndicatorView.swift */,
+			);
+			path = widget;
+			sourceTree = "<group>";
+		};
+		A6CF8A242402DE0600F2A623 /* ProgressMaskView */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A252402DE0600F2A623 /* LineArcRotateView.swift */,
+				A6CF8A262402DE0600F2A623 /* ArcShape.swift */,
+				A6CF8A272402DE0600F2A623 /* SimpleRView.swift */,
+				A6CF8A282402DE0600F2A623 /* LineArcView.swift */,
+				A6CF8A292402DE0600F2A623 /* RotateLayer.swift */,
+				A6CF8A2A2402DE0600F2A623 /* ProgressMaskView.swift */,
+				A6CF8A2B2402DE0600F2A623 /* Tools.swift */,
+			);
+			path = ProgressMaskView;
+			sourceTree = "<group>";
+		};
+		A6CF8A2C2402DE0600F2A623 /* maskedTextField */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A2D2402DE0600F2A623 /* JMMaskedTextField.swift */,
+				A6CF8A2E2402DE0600F2A623 /* JMStringMask.swift */,
+			);
+			path = maskedTextField;
+			sourceTree = "<group>";
+		};
+		A6CF8A332402DE0600F2A623 /* checkout */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A342402DE0600F2A623 /* CheckoutContract.swift */,
+				A6CF8A352402DE0600F2A623 /* CheckoutPresenter.swift */,
+				A6CF8A362402DE0600F2A623 /* Checkout.swift */,
+			);
+			path = checkout;
+			sourceTree = "<group>";
+		};
+		A6CF8A372402DE0600F2A623 /* dob */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A382402DE0600F2A623 /* DateOfBirthView.swift */,
+			);
+			path = dob;
+			sourceTree = "<group>";
+		};
+		A6CF8A392402DE0600F2A623 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A3A2402DE0600F2A623 /* UIView.swift */,
+				A6CF8A3B2402DE0600F2A623 /* UIColorExtension.swift */,
+				A6CF8A3C2402DE0600F2A623 /* Locale.swift */,
+				A6CF8A3D2402DE0600F2A623 /* UITextFieldExtension.swift */,
+				A6CF8A3E2402DE0600F2A623 /* String+SwiftLuhn.swift */,
+				A6CF8A3F2402DE0600F2A623 /* BankRepositoryImpl.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		A6CF8A402402DE0600F2A623 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A412402DE0600F2A623 /* ChannelCode.swift */,
+				A6CF8A422402DE0600F2A623 /* Mode.swift */,
+				A6CF8A432402DE0600F2A623 /* TransactionType.swift */,
+				A6CF8A442402DE0600F2A623 /* InputType.swift */,
+			);
+			path = enums;
+			sourceTree = "<group>";
+		};
+		A6CF8A462402DE0600F2A623 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A472402DE0600F2A623 /* Constants.swift */,
+				A6CF8A482402DE0600F2A623 /* SequenceGenerator.swift */,
+				A6CF8A492402DE0600F2A623 /* AnyDecodable.swift */,
+				A6CF8A4A2402DE0600F2A623 /* Logger.swift */,
+				A6CF8A4B2402DE0600F2A623 /* SwiftLuhn.swift */,
+				A6CF8A4C2402DE0600F2A623 /* ErrorMessage.swift */,
+				A6CF8A4D2402DE0600F2A623 /* AnyCodable.swift */,
+				A6CF8A4E2402DE0600F2A623 /* AnyEncodable.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		A6CF8A4F2402DE0600F2A623 /* exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A502402DE0600F2A623 /* Exception.swift */,
+			);
+			path = exceptions;
+			sourceTree = "<group>";
+		};
+		A6CF8A512402DE0600F2A623 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A522402DE0600F2A623 /* Split.swift */,
+				A6CF8A532402DE0600F2A623 /* Card.swift */,
+				A6CF8A542402DE0600F2A623 /* BankAccount.swift */,
+				A6CF8A552402DE0600F2A623 /* Transaction.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		A6CF8A572402DE0600F2A623 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A582402DE0600F2A623 /* transaction */,
+				A6CF8A6C2402DE0600F2A623 /* base */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		A6CF8A582402DE0600F2A623 /* transaction */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A592402DE0600F2A623 /* repository */,
+				A6CF8A5F2402DE0600F2A623 /* remote */,
+			);
+			path = transaction;
+			sourceTree = "<group>";
+		};
+		A6CF8A592402DE0600F2A623 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A5A2402DE0600F2A623 /* BankRepository.swift */,
+				A6CF8A5B2402DE0600F2A623 /* TransactionRepository.swift */,
+				A6CF8A5C2402DE0600F2A623 /* Secure3dView.swift */,
+				A6CF8A5D2402DE0600F2A623 /* Bank.swift */,
+				A6CF8A5E2402DE0600F2A623 /* TransactionRepositoryImpl.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		A6CF8A5F2402DE0600F2A623 /* remote */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A602402DE0600F2A623 /* response */,
+				A6CF8A6A2402DE0600F2A623 /* TransactionServiceProtocol.swift */,
+				A6CF8A6B2402DE0600F2A623 /* TransactionService.swift */,
+			);
+			path = remote;
+			sourceTree = "<group>";
+		};
+		A6CF8A602402DE0600F2A623 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A612402DE0600F2A623 /* ChargeCard.swift */,
+				A6CF8A622402DE0600F2A623 /* VerifyMerchantTransaction.swift */,
+				A6CF8A632402DE0600F2A623 /* VerifyTransaction.swift */,
+				A6CF8A642402DE0600F2A623 /* SetTransaction.swift */,
+				A6CF8A652402DE0600F2A623 /* Advice.swift */,
+				A6CF8A662402DE0600F2A623 /* VerifyOtp.swift */,
+				A6CF8A672402DE0600F2A623 /* EnrollOtp.swift */,
+				A6CF8A682402DE0600F2A623 /* ChargeBank.swift */,
+				A6CF8A692402DE0600F2A623 /* EnrollBank.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
+		A6CF8A6C2402DE0600F2A623 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A6D2402DE0600F2A623 /* remote */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		A6CF8A6D2402DE0600F2A623 /* remote */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A6E2402DE0600F2A623 /* RequestMehtod.swift */,
+				A6CF8A6F2402DE0600F2A623 /* ApiClient.swift */,
+				A6CF8A702402DE0600F2A623 /* ApiResponse.swift */,
+				A6CF8A712402DE0600F2A623 /* ApiRequest.swift */,
+				A6CF8A722402DE0600F2A623 /* RequestType.swift */,
+			);
+			path = remote;
+			sourceTree = "<group>";
+		};
+		A6CF8A762402DE0600F2A623 /* CyberpaySdkTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A772402DE0600F2A623 /* CyberpaySdkTests.swift */,
+				A6CF8A782402DE0600F2A623 /* Info.plist */,
+			);
+			path = CyberpaySdkTests;
+			sourceTree = "<group>";
+		};
+		A6CF8A7A2402DE0600F2A623 /* remote */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A7B2402DE0600F2A623 /* response */,
+				A6CF8A7E2402DE0600F2A623 /* BankService.swift */,
+				A6CF8A7F2402DE0600F2A623 /* BankServiceProtocol.swift */,
+			);
+			path = remote;
+			sourceTree = "<group>";
+		};
+		A6CF8A7B2402DE0600F2A623 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				A6CF8A7C2402DE0600F2A623 /* BankResponse.swift */,
+				A6CF8A7D2402DE0600F2A623 /* AccountResponse.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
 		D9A1BCCD73FE0E647E909D91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A6CF882E2402DE0500F2A623 /* CyberpaySdk */,
+				A6CF87DD2402478100F2A623 /* FittedSheets.framework */,
+				A6CF87DE2402478100F2A623 /* MaterialComponents.framework */,
+				A6CF87DF2402478100F2A623 /* RxCocoa.framework */,
+				A6CF87E02402478100F2A623 /* RxRelay.framework */,
+				A6CF87E12402478100F2A623 /* RxSwift.framework */,
 				04DC5D0DB2B6B1FE50725B62 /* Pods_CyberpaySdk_CyberpaySdkTests.framework */,
+				490EBD17B6D657F91C5FC74B /* Pods_CyberpaySdk.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -579,6 +2410,7 @@
 				47836178238A8A1F00A463B6 /* Sources */,
 				47836179238A8A1F00A463B6 /* Frameworks */,
 				4783617A238A8A1F00A463B6 /* Resources */,
+				A6CE8E002403103700BD1FD6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -639,6 +2471,16 @@
 			mainGroup = 47836172238A8A1F00A463B6;
 			productRefGroup = 4783617D238A8A1F00A463B6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A6CF88302402DE0500F2A623 /* Products */;
+					ProjectRef = A6CF882F2402DE0500F2A623 /* CyberpaySdk.xcodeproj */;
+				},
+				{
+					ProductGroup = A6CF88CD2402DE0600F2A623 /* Products */;
+					ProjectRef = A6CF88CC2402DE0600F2A623 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4783617B238A8A1F00A463B6 /* CyberpaySdk */,
@@ -646,6 +2488,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A6CF8A882402DE0600F2A623 /* FittedSheets.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FittedSheets.framework;
+			remoteRef = A6CF8A872402DE0600F2A623 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A6CF8A8A2402DE0600F2A623 /* MaterialComponents.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MaterialComponents.framework;
+			remoteRef = A6CF8A892402DE0600F2A623 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A6CF8A8C2402DE0600F2A623 /* Pods_CyberpaySdk.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_CyberpaySdk.framework;
+			remoteRef = A6CF8A8B2402DE0600F2A623 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A6CF8A8E2402DE0600F2A623 /* Pods_CyberpaySdk_CyberpaySdkTests.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_CyberpaySdk_CyberpaySdkTests.framework;
+			remoteRef = A6CF8A8D2402DE0600F2A623 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A6CF8A902402DE0600F2A623 /* RxCocoa.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxCocoa.framework;
+			remoteRef = A6CF8A8F2402DE0600F2A623 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A6CF8A922402DE0600F2A623 /* RxRelay.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxRelay.framework;
+			remoteRef = A6CF8A912402DE0600F2A623 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A6CF8A942402DE0600F2A623 /* RxSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxSwift.framework;
+			remoteRef = A6CF8A932402DE0600F2A623 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4783617A238A8A1F00A463B6 /* Resources */ = {
@@ -879,10 +2773,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -936,10 +2831,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -949,14 +2846,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2448C09339573C2C6D2EA792 /* Pods-CyberpaySdk.debug.xcconfig */;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7ZD786582M;
+				DEVELOPMENT_TEAM = L3Q8W8B6DC;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = CyberpaySdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -964,12 +2863,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyberspace.CyberpaySdk;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -977,14 +2879,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC3E5A191F4E25A01D2F8242 /* Pods-CyberpaySdk.release.xcconfig */;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7ZD786582M;
+				DEVELOPMENT_TEAM = L3Q8W8B6DC;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = CyberpaySdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -992,11 +2896,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyberspace.CyberpaySdk;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Release;
 		};
