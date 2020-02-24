@@ -36,9 +36,9 @@ The Cyberpay iOS SDK is compatible with iOS Apps supporting iOS 10 and above.
 1. If you haven't already, install the latest version of CocoaPods
 
 2. Add this line to your podfile
-   ```ruby
+  ```ruby
    pod 'cyberpaysdk'
-   ```
+```
 
 3. Run the following command in your terminal after navigating to your project directory.
    `pod install`
@@ -49,9 +49,9 @@ The Cyberpay iOS SDK is compatible with iOS Apps supporting iOS 10 and above.
 
 **Step 1**: Import the cyberpay sdk
 
-    ```swift
-        import cyberpay
-    ```
+```swift
+    import cyberpaysdk
+   ``` 
 
 **Step 2**: Complete integration with Our Drop-In UI
 
@@ -89,10 +89,6 @@ pod 'cyberpaysdk'
 ```
 
 
-
-## Author
-
-davidehigiator, david.ehigiator@cyberspace.net.ng
 
 ## License
 
