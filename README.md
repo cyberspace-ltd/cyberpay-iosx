@@ -17,10 +17,6 @@ The will serve as a wrapper on the existing Cyberpay web services and create a m
 
 The SDK will provide custom views/layouts for checkout, pin, otp, sucured3d as well as handles all business logics taking the bulk of the job and exposing just three call backs representing the status of the transaction.
 
-The SDK introduces a nice error wrapper class on the primary network component, introducing a painless and detailed error messages.
-
-The SDK is designed and written in Kotlin, using the singleton pattern so only one instance is available throughout the life of the application.
-
 ## Releases
 
 We recommend that you install the Cyberpay SDK using the Cocoapods package manager.
