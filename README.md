@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # cyberpaysdk
 
 
@@ -7,7 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/cyberpaysdk.svg?style=flat)](https://cocoapods.org/pods/cyberpaysdk)
 [![Platform](https://img.shields.io/cocoapods/p/cyberpaysdk.svg?style=flat)](https://cocoapods.org/pods/cyberpaysdk)
 
->>>>>>> origin/redesign
 # Introduction
 
 Cyberpay provides you with the most convenient and fastest process of making and collecting payments from your customers all over the world
@@ -20,13 +17,6 @@ The will serve as a wrapper on the existing Cyberpay web services and create a m
 
 The SDK will provide custom views/layouts for checkout, pin, otp, sucured3d as well as handles all business logics taking the bulk of the job and exposing just three call backs representing the status of the transaction.
 
-<<<<<<< HEAD
-The SDK introduces a nice error wrapper class on the primary network component, introducing a painless and detailed error messages.
-
-The SDK is designed and written in Kotlin, using the singleton pattern so only one instance is available throughout the life of the application.
-
-=======
->>>>>>> origin/redesign
 ## Releases
 
 We recommend that you install the Cyberpay SDK using the Cocoapods package manager.
@@ -40,16 +30,11 @@ The Cyberpay iOS SDK is compatible with iOS Apps supporting iOS 10 and above.
 ### Install and Configure the SDK using Cocoapods
 
 1. If you haven't already, install the latest version of CocoaPods
-<<<<<<< HEAD
-2. Add this line to your podfile
-   `pod 'cyberpay'`
-=======
 
 2. Add this line to your podfile
   ```ruby
    pod 'cyberpaysdk'
 ```
->>>>>>> origin/redesign
 
 3. Run the following command in your terminal after navigating to your project directory.
    `pod install`
@@ -60,15 +45,9 @@ The Cyberpay iOS SDK is compatible with iOS Apps supporting iOS 10 and above.
 
 **Step 1**: Import the cyberpay sdk
 
-<<<<<<< HEAD
-    ```swift
-        import cyberpay
-    ```
-=======
 ```swift
     import cyberpaysdk
    ``` 
->>>>>>> origin/redesign
 
 **Step 2**: Complete integration with Our Drop-In UI
 
@@ -89,8 +68,6 @@ The Cyberpay iOS SDK is compatible with iOS Apps supporting iOS 10 and above.
 ```
 
 **Note** : Ensure when going live, you change from `.Debug` to `.Live`, and also change the _integration key_. This key can be gotten from the merchant dashboard on the cyberpay merchant portal
-<<<<<<< HEAD
-=======
 
 ## Example
 
@@ -112,4 +89,3 @@ pod 'cyberpaysdk'
 ## License
 
 cyberpaysdk is available under the MIT license. See the LICENSE file for more info.
->>>>>>> origin/redesign
