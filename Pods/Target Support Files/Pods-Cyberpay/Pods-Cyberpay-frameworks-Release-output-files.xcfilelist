@@ -1,0 +1,10 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FittedSheets.framework
+${DWARF_DSYM_FOLDER_PATH}/FittedSheets.framework.dSYM
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework
+${DWARF_DSYM_FOLDER_PATH}/MaterialComponents.framework.dSYM
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework
+${DWARF_DSYM_FOLDER_PATH}/RxCocoa.framework.dSYM
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework
+${DWARF_DSYM_FOLDER_PATH}/RxRelay.framework.dSYM
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework
+${DWARF_DSYM_FOLDER_PATH}/RxSwift.framework.dSYM

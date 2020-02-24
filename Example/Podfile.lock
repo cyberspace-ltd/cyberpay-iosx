@@ -1,0 +1,16 @@
+PODS:
+  - cyberpaysdk (0.1.0)
+
+DEPENDENCIES:
+  - cyberpaysdk (from `../`)
+
+EXTERNAL SOURCES:
+  cyberpaysdk:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  cyberpaysdk: d17863c7ac281f78d3ce91fc7e04559f8a1f1214
+
+PODFILE CHECKSUM: 3276ead1e4e7369e6b4ba49b0346422efd1e2a03
+
+COCOAPODS: 1.8.3
