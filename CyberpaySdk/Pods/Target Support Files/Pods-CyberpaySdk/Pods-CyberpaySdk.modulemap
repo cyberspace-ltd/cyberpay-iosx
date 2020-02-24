@@ -1,6 +1,0 @@
-framework module Pods_CyberpaySdk {
-  umbrella header "Pods-CyberpaySdk-umbrella.h"
-
-  export *
-  module * { export * }
-}
