@@ -38,7 +38,7 @@ open class SwiftLuhn {
         case .jcb:
             return "^(?:2131|1800|35[0-9]{3})[0-9]{3,}$"
         case .mastercard:
-            return "^5[1-5][0-9]{5,}|222[1-9][0-9]{3,}|22[3-9][0-9]{4,}|2[3-6][0-9]{5,}|27[01][0-9]{4,}|2720[0-9]{3,}$"
+            return "^5[1-5]\\d{0,14}$"
         case .verve:
             return "^((506(0|1))|(507(8|9))|(6500))[0-9]{12,15}$"
         case .visa:
@@ -63,10 +63,11 @@ open class SwiftLuhn {
         case .jcb:
             return "^(?:2131|1800|35[0-9]{3})[0-9]+$"
         case .mastercard:
-            return "^5[1-5][0-9]{5,}|222[1-9][0-9]{3,}|22[3-9][0-9]{4,}|2[3-6][0-9]{5,}|27[01][0-9]{4,}|2720[0-9]{3,}$"
+            return "^5[1-5]\\d{0,14}$"
         case .visa:
             return "^4[0-9]+$"
-        case .verve: return "^((506(0|1))|(507(8|9))|(6500))[0-9]{12,15}$"
+        case .verve:
+            return "^((506(0|1))|(507(8|9))|(6500))[0-9]{12,15}$"
         case .maestro:
             return "^(5018|5020|5038|6304|6759|6761|6763)[0-9]+$"
         case .rupay:
@@ -120,9 +121,13 @@ open class SwiftLuhn {
     class func cardType(for cardNumber: String, suggest: Bool = false) throws -> CardType {
         var foundCardType: CardType?
         
+
+        
+        
         for i in CardType.amex.rawValue...CardType.jcb.rawValue {
             let cardType = CardType(rawValue: i)!
             let regex = suggest ? suggestionRegularExpression(for: cardType) : regularExpression(for: cardType)
+            
             
             let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
             

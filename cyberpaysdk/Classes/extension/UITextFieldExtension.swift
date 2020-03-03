@@ -23,6 +23,18 @@ extension UITextField {
         self.rightViewMode = .always
     }
     
+    func setIcon(_ image: UIImage) {
+       let iconView = UIImageView(frame:
+                      CGRect(x: -10, y: 5, width: 25, height: 25))
+       iconView.image = image
+        iconView.contentMode = .scaleAspectFit
+       let iconContainerView: UIView = UIView(frame:
+                      CGRect(x: -20, y: 0, width: 35, height: 35))
+       iconContainerView.addSubview(iconView)
+       rightView = iconContainerView
+       rightViewMode = .always
+    }
+    
     private var activityIndicator: UIActivityIndicatorView? {
           return leftView?.subviews.compactMap{ $0 as? UIActivityIndicatorView }.first
     }

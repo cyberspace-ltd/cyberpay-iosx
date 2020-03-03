@@ -46,12 +46,14 @@ class Checkout : MDCBottomSheetController {
         return v
     }()
     
+    
+    
     func setupComponents() {
         
         //        self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height)
         
         self.view.addSubview(scrollView)
-        self.dismissOnDraggingDownSheet = false
+        self.dismissOnDraggingDownSheet = true
         self.dismissOnBackgroundTap = false
         
         // constrain the scroll view to 8-pts on each side
@@ -309,6 +311,31 @@ class Checkout : MDCBottomSheetController {
     }
     
     func cardNumberChanged(text: String) {
+        
+        if text.count >  1 {
+            let suggestedCardType = text.suggestedCardType()
+            switch  suggestedCardType{
+            case .mastercard:
+                let icon =  UIImage(named: "mastercard-icon", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+                self.cardView.cardNumber.setIcon(icon ?? UIImage())
+                break
+            case .visa:
+                let icon =  UIImage(named: "visa-icon", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+                self.cardView.cardNumber.setIcon(icon ?? UIImage())
+                break
+            case .verve:
+                let icon =  UIImage(named: "verve-icon", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+                self.cardView.cardNumber.setIcon(icon ?? UIImage())
+                break
+            default:
+                break
+            }
+        }
+        else {
+            self.cardView.cardNumber.setIcon(UIImage())
+            
+        }
+        
         
         if(text.isValidCardNumber()){
             
