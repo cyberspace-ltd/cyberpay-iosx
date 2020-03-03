@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-           CyberpaySdk.shared.initialise(with: "CYBERPAY_INTEGRATION_KEY", mode: .Debug)
+           CyberpaySdk.shared.initialise(with: "7b03633edd5b40a880bbef855159d31d", mode: .Debug)
         .setTransaction(forCustomerEmail: "CUSTOMER_EMAIL", amountInKobo: 5000)
                 .dropInCheckout(rootController: self, onSuccess: {result in
                     print(result.reference)

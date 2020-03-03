@@ -73,7 +73,9 @@ class Checkout : MDCBottomSheetController {
         let logoImage = UIImageView()
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.image = UIImage(named: "cyberpay-logo")
+        
+        logoImage.image = UIImage(named: "cyberpay-logo", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+        
         logoImage.contentMode = .scaleAspectFit
         
         
@@ -207,8 +209,7 @@ class Checkout : MDCBottomSheetController {
         
         secureImage.translatesAutoresizingMaskIntoConstraints = false
         
-        secureImage.image = UIImage(named: "payment-logo-gray")
-        //        secureImage.image = UIImage(named: "secured-logo")
+        secureImage.image = UIImage(named: "payment-logo-gray", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
         secureImage.contentMode = .scaleAspectFit
         
         scrollView.addSubview(secureImage)
@@ -254,6 +255,7 @@ class Checkout : MDCBottomSheetController {
         self.bankView.accoutNumber.text = ""
         onDisablePay()
     }
+    
     
     
     func accountNumberChanged(text: String) {
@@ -326,40 +328,6 @@ class Checkout : MDCBottomSheetController {
         
     }
     
-    @objc func bankNameDidBeginEditing(sender:UITextField)
-    {
-        // handle begin editing event
-        
-        DispatchQueue.main.async {
-            
-            let bankselectView = BankSelectView(rootController: self,banksResponse: self.bankList, onFinished: { (bank) in
-                
-                self.toggleVerificationView(shouldHide: true)
-                self.bankView.accoutNumber.text = ""
-                self.onDisablePay()
-                self.bankAccount.bank = bank
-                self.bankView.bankName.text = bank.bankName
-                
-                if bank.processingType == "External" {
-                    self.confirmRedirect(with: bank)
-                }
-                self.bankView.accoutNumber.isEnabled = true
-                
-                
-                
-            }) {
-                
-                
-            }
-            
-            self.present(bankselectView, animated: false, completion: nil)
-            
-            
-            
-        }
-        
-        
-    }
     
     func confirmRedirect(with bank: BankResponse){
         onBankRedirect!(bank)
@@ -419,7 +387,7 @@ class Checkout : MDCBottomSheetController {
         super.init(contentViewController: rootController)
         
         onCardPay()
-
+        
         
     }
     
@@ -450,15 +418,15 @@ extension Checkout: CheckoutView {
     }
     
     func onBankPay() {
+        onDisablePay()
         presenter.loadBanks()
         presenter.getBankTransactionAdvice(transaction: transaction)
-        onDisablePay()
         
     }
     
     func onCardPay() {
-        presenter.getCardTransactionAdvice(transaction: transaction)
         onDisablePay()
+        presenter.getCardTransactionAdvice(transaction: transaction)
         
     }
     
@@ -480,12 +448,46 @@ extension Checkout: CheckoutView {
             self.bankView.bankName.isLoading = false
             self.bankView.bankName.isEnabled = true
             
-            self.bankView.bankName.addTarget(self, action: #selector(self.bankNameDidBeginEditing(sender:)), for: .allTouchEvents)
+            let bankNameRecognizer = UITapGestureRecognizer()
+            
+            bankNameRecognizer.addTarget(self, action: #selector(self.tappedBankNameTextView(_:)))
+            
+            self.bankView.bankName.addGestureRecognizer(bankNameRecognizer)
             
             
             //            self.bankView.bankName.loadDropdownData(data:  self.bankList.map {$0.bankName!}, onSelect: self.bankName_onSelect)
         }
         
+    }
+    
+    @objc func tappedBankNameTextView(_ sender: UITapGestureRecognizer) {
+        DispatchQueue.main.async {
+            
+            let bankselectView = BankSelectView(rootController: self,banksResponse: self.bankList, onFinished: { (bank) in
+                
+                self.toggleVerificationView(shouldHide: true)
+                self.bankView.accoutNumber.text = ""
+                self.onDisablePay()
+                self.bankAccount.bank = bank
+                self.bankView.bankName.text = bank.bankName
+                
+                if bank.processingType == "External" {
+                    self.confirmRedirect(with: bank)
+                }
+                self.bankView.accoutNumber.isEnabled = true
+                
+                
+                
+            }) {
+                
+                
+            }
+            
+            self.present(bankselectView, animated: false, completion: nil)
+            
+            
+            
+        }
     }
     
     func toggleVerificationView(shouldHide: Bool)  {

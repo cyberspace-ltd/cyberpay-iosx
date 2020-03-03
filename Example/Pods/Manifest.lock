@@ -1,16 +1,70 @@
 PODS:
-  - cyberpaysdk (0.1.0)
+  - cyberpaysdk (0.1.0):
+    - FittedSheets (~> 1.4.5)
+    - MaterialComponents/BottomSheet (~> 94.4.0)
+    - RxCocoa (~> 5.0.1)
+    - RxSwift (~> 5.0.1)
+  - FittedSheets (1.4.5)
+  - MaterialComponents/BottomSheet (94.4.0):
+    - MaterialComponents/Elevation
+    - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+  - MaterialComponents/Elevation (94.4.0):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Application (94.4.0)
+  - MaterialComponents/private/Color (94.4.0)
+  - MaterialComponents/private/KeyboardWatcher (94.4.0):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Math (94.4.0)
+  - MaterialComponents/ShadowElevations (94.4.0)
+  - MaterialComponents/ShadowLayer (94.4.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (94.4.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (94.4.0):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - RxCocoa (5.0.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
 
 DEPENDENCIES:
   - cyberpaysdk (from `../`)
+  - FittedSheets (~> 1.4.5)
+  - MaterialComponents/BottomSheet (~> 94.4.0)
+  - RxCocoa (~> 5)
+  - RxSwift (~> 5)
+
+SPEC REPOS:
+  trunk:
+    - FittedSheets
+    - MaterialComponents
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 EXTERNAL SOURCES:
   cyberpaysdk:
     :path: "../"
 
 SPEC CHECKSUMS:
-  cyberpaysdk: d17863c7ac281f78d3ce91fc7e04559f8a1f1214
+  cyberpaysdk: aa974c438c241d5032bda619655b901fa41df70d
+  FittedSheets: 7f754c9f6fb4ea330cbc57c652b594255f2a6819
+  MaterialComponents: 3ee5327e02dc3f34df48c68205b5fd7dce171744
+  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: 3276ead1e4e7369e6b4ba49b0346422efd1e2a03
+PODFILE CHECKSUM: 28a473e62d76e2799844d99527c628fd6dc4c163
 
 COCOAPODS: 1.8.3

@@ -68,5 +68,11 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return image
     }
+    
+    
+    func getCyberpayImage() -> UIImage? {
+        let bundle = Bundle(for: type(of: self))
+        return UIImage(named: "cyberpay-logo", in: bundle, compatibleWith: nil)
+    }
 
 }
