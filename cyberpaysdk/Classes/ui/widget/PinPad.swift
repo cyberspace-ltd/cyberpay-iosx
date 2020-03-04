@@ -23,7 +23,8 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
     var secureImage = UIImageView()
     var cyberpayLogo = UIImageView()
     var secureText = UILabel()
-    
+    let bundle = Bundle(identifier: "org.cocoapods.cyberpaysdk")
+
     let scrollView: UIScrollView = {
            let v = UIScrollView()
            v.translatesAutoresizingMaskIntoConstraints = false
@@ -152,7 +153,7 @@ internal class PinPad : MDCBottomSheetController, UITextFieldDelegate {
         view.addSubview(secureImage)
         secureImage.translatesAutoresizingMaskIntoConstraints = false
         
-        secureImage.image = UIImage(named: "secured-logo")
+        secureImage.image = UIImage(named: "secured-logo", in: bundle, compatibleWith: nil)
 
         secureImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
             

@@ -36,6 +36,8 @@ class Checkout : MDCBottomSheetController {
     
     var card = Card()
     
+    let bundle = Bundle(identifier: "org.cocoapods.cyberpaysdk")
+
     private var bankAccount = BankAccount()
     
     
@@ -76,7 +78,8 @@ class Checkout : MDCBottomSheetController {
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
         
-        logoImage.image = UIImage(named: "cyberpay-logo", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+
+        logoImage.image = UIImage(named: "cyberpay-logo", in: bundle, compatibleWith: nil)
         
         logoImage.contentMode = .scaleAspectFit
         
@@ -211,7 +214,7 @@ class Checkout : MDCBottomSheetController {
         
         secureImage.translatesAutoresizingMaskIntoConstraints = false
         
-        secureImage.image = UIImage(named: "payment-logo-gray", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+        secureImage.image = UIImage(named: "payment-logo-gray", in: bundle, compatibleWith: nil)
         secureImage.contentMode = .scaleAspectFit
         
         scrollView.addSubview(secureImage)
@@ -327,15 +330,15 @@ class Checkout : MDCBottomSheetController {
             let suggestedCardType = text.suggestedCardType()
             switch  suggestedCardType{
             case .mastercard:
-                let icon =  UIImage(named: "mastercard-icon", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+                let icon =  UIImage(named: "mastercard-icon", in: bundle, compatibleWith: nil)
                 self.cardView.cardNumber.setIcon(icon ?? UIImage())
                 break
             case .visa:
-                let icon =  UIImage(named: "visa-icon", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+                let icon =  UIImage(named: "visa-icon", in: bundle, compatibleWith: nil)
                 self.cardView.cardNumber.setIcon(icon ?? UIImage())
                 break
             case .verve:
-                let icon =  UIImage(named: "verve-icon", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+                let icon =  UIImage(named: "verve-icon", in: bundle, compatibleWith: nil)
                 self.cardView.cardNumber.setIcon(icon ?? UIImage())
                 break
             default:
