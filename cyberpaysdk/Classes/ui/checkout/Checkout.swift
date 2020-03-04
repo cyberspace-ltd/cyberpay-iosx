@@ -264,11 +264,16 @@ class Checkout : MDCBottomSheetController {
         self.toggleVerificationView(shouldHide: true)
         onDisablePay()
         if (text.count == 10){
+            self.bankView.accoutNumber.setBottomBorderOnlyWith(color: UIColor.systemGreen.cgColor)
             view.endEditing(true)
             canContinue = true
             onDisablePay()
             btContinue.setTitle("Verifying...", for: UIControl.State.normal)
             presenter.getAccountName(bankCode: bankAccount.bank!.bankCode!, account: text)
+        }
+        else {
+            self.bankView.accoutNumber.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
+            
         }
     }
     
@@ -279,8 +284,10 @@ class Checkout : MDCBottomSheetController {
         if(text.isValidCvv()){
             self.card.cvv = text
             
-            print(self.card.expiry!)
+//            print(self.card.expiry!)
             
+            self.cardView.cardCvv.setBottomBorderOnlyWith(color: UIColor.systemGreen.cgColor)
+
             if(self.card.number?.isValidCardNumber() ?? false &&  self.card.expiry?.isValidExpiry() ?? false)
             {
                 onEnablePay()
@@ -288,6 +295,7 @@ class Checkout : MDCBottomSheetController {
         }
             
         else {
+            self.cardView.cardCvv.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
             onDisablePay()
         }
     }
@@ -298,6 +306,8 @@ class Checkout : MDCBottomSheetController {
             self.card.expiryYear = exp[1]
             self.card.expiryMonth = exp[0]
             
+            self.cardView.cardExpiry.setBottomBorderOnlyWith(color: UIColor.systemGreen.cgColor)
+
             if(self.card.number?.isValidCardNumber() ?? false &&  self.card.cvv?.isValidCvv() ?? false)
             {
                 onEnablePay()
@@ -306,6 +316,7 @@ class Checkout : MDCBottomSheetController {
             
         }
         else {
+            self.cardView.cardExpiry.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
             onDisablePay()
         }
     }
@@ -341,7 +352,8 @@ class Checkout : MDCBottomSheetController {
             
             self.card.cardType = text.suggestedCardType()
             self.card.number = text
-            
+            self.cardView.cardNumber.setBottomBorderOnlyWith(color: UIColor.systemGreen.cgColor)
+
             if(self.card.expiry?.isValidExpiry() ?? false &&  self.card.cvv?.isValidCvv() ?? false)
             {
                 onEnablePay()
@@ -349,6 +361,7 @@ class Checkout : MDCBottomSheetController {
             
         }
         else {
+            self.cardView.cardNumber.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
             onDisablePay()
         }
         
@@ -365,6 +378,34 @@ class Checkout : MDCBottomSheetController {
         
         if(presenter.paymentOption == TransactionType.Card){
             
+            if cardView.cardNumber.text == nil || cardView.cardNumber.text!.isEmpty || !cardView.cardNumber.text!.isValidCardNumber() {
+                self.cardView.cardNumber.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 3, revert: true)
+                self.cardView.cardNumber.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
+                return
+            }
+            else {
+                //remove border colour
+            }
+            
+            if cardView.cardExpiry.text == nil || cardView.cardExpiry.text!.isEmpty || !cardView.cardExpiry.text!.isValidExpiry() {
+                self.cardView.cardExpiry.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 3, revert: true)
+                self.cardView.cardExpiry.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
+                return
+            }
+            else {
+                //remove border colour
+            }
+            
+            
+            if cardView.cardCvv.text == nil || cardView.cardCvv.text!.isEmpty || !cardView.cardCvv.text!.isValidCvv() {
+                self.cardView.cardCvv.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 3, revert: true)
+                self.cardView.cardCvv.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
+                return
+            }
+            else {
+                //remove border colour
+            }
+            
             self.card.cvv = cardView.cardCvv.text!
             self.card.number = cardView.cardNumber.text!.formattedCardNumber()
             
@@ -372,6 +413,8 @@ class Checkout : MDCBottomSheetController {
             
             self.card.expiryMonth = exp[0]
             self.card.expiryYear = exp[1]
+            
+            
             
             if self.card.cardType == nil {
                 self.card.cardType = .verve // set default
