@@ -1806,6 +1806,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 0.1.1;
 				MODULEMAP_FILE = "Target Support Files/cyberpaysdk/cyberpaysdk.modulemap";
 				PRODUCT_MODULE_NAME = cyberpaysdk;
 				PRODUCT_NAME = cyberpaysdk;
@@ -1840,6 +1841,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 0.1.1;
 				MODULEMAP_FILE = "Target Support Files/cyberpaysdk/cyberpaysdk.modulemap";
 				PRODUCT_MODULE_NAME = cyberpaysdk;
 				PRODUCT_NAME = cyberpaysdk;
