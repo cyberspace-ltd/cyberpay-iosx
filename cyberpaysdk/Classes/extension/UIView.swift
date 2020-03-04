@@ -158,11 +158,18 @@ extension UIColor {
 }
 
 
-extension UIViewController {
+extension UIViewController: UIPopoverPresentationControllerDelegate {
     func presentOnRoot(with viewController : UIViewController){
-//        let navigationController = UINavigationController(rootViewController: viewController)
-//        navigationController.modalPresentationStyle = UIModalPresentationStyle.pageSheet
+        self.navigationItem.backBarButtonItem?.title = "Yaga"
         self.presentedViewController?.dismiss(animated: false, completion: nil)
         self.present(viewController, animated: false, completion: nil)
     }
+    
+    
+    @objc private func dismissPopover() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
 }

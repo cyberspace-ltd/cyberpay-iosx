@@ -181,7 +181,7 @@ internal class TransactionRepositoryImpl : TransactionRepository {
         return  service.verifyCardOtp(request: request)
             .flatMap{
                 result -> Observable<ApiResponse<VerifyOtp>> in
-                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
+                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.data?.message ?? result.message!))
         }
     }
     
@@ -193,7 +193,7 @@ internal class TransactionRepositoryImpl : TransactionRepository {
         return service.verifyBankOtp(request: request)
             .flatMap{
                 result -> Observable<ApiResponse<VerifyOtp>> in
-                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
+                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.data?.message ?? result.message!))
         }
     }
     
@@ -207,7 +207,7 @@ internal class TransactionRepositoryImpl : TransactionRepository {
         return service.finalBankOtp(request: request)
             .flatMap{
                 result -> Observable<ApiResponse<VerifyOtp>> in
-                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
+                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.data?.message ?? result.message!))
         }
         
     }
@@ -220,7 +220,7 @@ internal class TransactionRepositoryImpl : TransactionRepository {
               return service.mandateBankOtp(request: request)
                   .flatMap{
                       result -> Observable<ApiResponse<EnrollOtp>> in
-                      return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
+                      return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.data?.message ?? result.message!))
               }
         
     }
@@ -238,7 +238,7 @@ internal class TransactionRepositoryImpl : TransactionRepository {
         return service.chargeBank(request: request)
             .flatMap{
                 result -> Observable<ApiResponse<ChargeBank>> in
-                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
+                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.data?.message ?? result.message!))
         }
     }
     
@@ -250,7 +250,7 @@ internal class TransactionRepositoryImpl : TransactionRepository {
         return service.enrollBankOtp(request: request)
             .flatMap{
                 result -> Observable<ApiResponse<EnrollOtp>> in
-                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
+                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.data?.message ?? result.message!))
         }
         
     }
@@ -265,7 +265,7 @@ internal class TransactionRepositoryImpl : TransactionRepository {
         return service.enrollCardOtp(request: request)
             .flatMap{
                 result -> Observable<ApiResponse<EnrollOtp>> in
-                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.message!))
+                return result.succeeded ? Observable.just(result) : Observable.error(Exception.CyberpayException(message: result.data?.message ?? result.message!))
         }
         
     }

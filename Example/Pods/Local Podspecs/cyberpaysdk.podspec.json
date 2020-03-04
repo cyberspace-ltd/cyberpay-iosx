@@ -1,9 +1,9 @@
 {
   "name": "cyberpaysdk",
   "version": "0.1.0",
-  "summary": "A short description of cyberpaysdk.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/davidehigiator/cyberpaysdk",
+  "summary": "The iOS SDK for the cyberpay payment gateway",
+  "description": "The iOS SDK for the cyberpay payment gateway, with a drop in UI",
+  "homepage": "https://github.com/cyberspace-ltd/cyberpay-iosx",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,32 @@
     "davidehigiator": "david.ehigiator@cyberspace.net.ng"
   },
   "source": {
-    "git": "https://github.com/davidehigiator/cyberpaysdk.git",
+    "git": "https://github.com/cyberspace-ltd/cyberpay-iosx.git",
     "tag": "0.1.0"
   },
+  "swift_versions": "5.0",
   "platforms": {
-    "ios": "8.0"
+    "ios": "11.0"
   },
-  "source_files": "cyberpaysdk/Classes/**/*"
+  "source_files": "cyberpaysdk/Classes/**/*",
+  "resource_bundles": {
+    "cyberpaysdk": [
+      "cyberpaysdk/**/*.{pdf,png,jpeg,jpg,storyboard,xib,xcassets}"
+    ]
+  },
+  "dependencies": {
+    "RxSwift": [
+      "~> 5.0.1"
+    ],
+    "RxCocoa": [
+      "~> 5.0.1"
+    ],
+    "FittedSheets": [
+      "~> 1.4.5"
+    ],
+    "MaterialComponents/BottomSheet": [
+      "~> 94.4.0"
+    ]
+  },
+  "swift_version": "5.0"
 }

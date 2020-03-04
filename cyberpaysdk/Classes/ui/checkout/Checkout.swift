@@ -46,12 +46,14 @@ class Checkout : MDCBottomSheetController {
         return v
     }()
     
+    
+    
     func setupComponents() {
         
         //        self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height)
         
         self.view.addSubview(scrollView)
-        self.dismissOnDraggingDownSheet = false
+        self.dismissOnDraggingDownSheet = true
         self.dismissOnBackgroundTap = false
         
         // constrain the scroll view to 8-pts on each side
@@ -73,7 +75,9 @@ class Checkout : MDCBottomSheetController {
         let logoImage = UIImageView()
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.image = UIImage(named: "cyberpay-logo")
+        
+        logoImage.image = UIImage(named: "cyberpay-logo", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+        
         logoImage.contentMode = .scaleAspectFit
         
         
@@ -207,8 +211,7 @@ class Checkout : MDCBottomSheetController {
         
         secureImage.translatesAutoresizingMaskIntoConstraints = false
         
-        secureImage.image = UIImage(named: "payment-logo-gray")
-        //        secureImage.image = UIImage(named: "secured-logo")
+        secureImage.image = UIImage(named: "payment-logo-gray", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
         secureImage.contentMode = .scaleAspectFit
         
         scrollView.addSubview(secureImage)
@@ -256,15 +259,21 @@ class Checkout : MDCBottomSheetController {
     }
     
     
+    
     func accountNumberChanged(text: String) {
         self.toggleVerificationView(shouldHide: true)
         onDisablePay()
         if (text.count == 10){
+            self.bankView.accoutNumber.setBottomBorderOnlyWith(color: UIColor.systemGreen.cgColor)
             view.endEditing(true)
             canContinue = true
             onDisablePay()
             btContinue.setTitle("Verifying...", for: UIControl.State.normal)
             presenter.getAccountName(bankCode: bankAccount.bank!.bankCode!, account: text)
+        }
+        else {
+            self.bankView.accoutNumber.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
+            
         }
     }
     
@@ -275,8 +284,10 @@ class Checkout : MDCBottomSheetController {
         if(text.isValidCvv()){
             self.card.cvv = text
             
-            print(self.card.expiry!)
+//            print(self.card.expiry!)
             
+            self.cardView.cardCvv.setBottomBorderOnlyWith(color: UIColor.systemGreen.cgColor)
+
             if(self.card.number?.isValidCardNumber() ?? false &&  self.card.expiry?.isValidExpiry() ?? false)
             {
                 onEnablePay()
@@ -284,6 +295,7 @@ class Checkout : MDCBottomSheetController {
         }
             
         else {
+            self.cardView.cardCvv.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
             onDisablePay()
         }
     }
@@ -294,6 +306,8 @@ class Checkout : MDCBottomSheetController {
             self.card.expiryYear = exp[1]
             self.card.expiryMonth = exp[0]
             
+            self.cardView.cardExpiry.setBottomBorderOnlyWith(color: UIColor.systemGreen.cgColor)
+
             if(self.card.number?.isValidCardNumber() ?? false &&  self.card.cvv?.isValidCvv() ?? false)
             {
                 onEnablePay()
@@ -302,17 +316,44 @@ class Checkout : MDCBottomSheetController {
             
         }
         else {
+            self.cardView.cardExpiry.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
             onDisablePay()
         }
     }
     
     func cardNumberChanged(text: String) {
         
+        if text.count >  1 {
+            let suggestedCardType = text.suggestedCardType()
+            switch  suggestedCardType{
+            case .mastercard:
+                let icon =  UIImage(named: "mastercard-icon", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+                self.cardView.cardNumber.setIcon(icon ?? UIImage())
+                break
+            case .visa:
+                let icon =  UIImage(named: "visa-icon", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+                self.cardView.cardNumber.setIcon(icon ?? UIImage())
+                break
+            case .verve:
+                let icon =  UIImage(named: "verve-icon", in: Bundle(for: CyberpaySdk.self), compatibleWith: nil)
+                self.cardView.cardNumber.setIcon(icon ?? UIImage())
+                break
+            default:
+                break
+            }
+        }
+        else {
+            self.cardView.cardNumber.setIcon(UIImage())
+            
+        }
+        
+        
         if(text.isValidCardNumber()){
             
             self.card.cardType = text.suggestedCardType()
             self.card.number = text
-            
+            self.cardView.cardNumber.setBottomBorderOnlyWith(color: UIColor.systemGreen.cgColor)
+
             if(self.card.expiry?.isValidExpiry() ?? false &&  self.card.cvv?.isValidCvv() ?? false)
             {
                 onEnablePay()
@@ -320,46 +361,13 @@ class Checkout : MDCBottomSheetController {
             
         }
         else {
+            self.cardView.cardNumber.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
             onDisablePay()
         }
         
         
     }
     
-    @objc func bankNameDidBeginEditing(sender:UITextField)
-    {
-        // handle begin editing event
-        
-        DispatchQueue.main.async {
-            
-            let bankselectView = BankSelectView(rootController: self,banksResponse: self.bankList, onFinished: { (bank) in
-                
-                self.toggleVerificationView(shouldHide: true)
-                self.bankView.accoutNumber.text = ""
-                self.onDisablePay()
-                self.bankAccount.bank = bank
-                self.bankView.bankName.text = bank.bankName
-                
-                if bank.processingType == "External" {
-                    self.confirmRedirect(with: bank)
-                }
-                self.bankView.accoutNumber.isEnabled = true
-                
-                
-                
-            }) {
-                
-                
-            }
-            
-            self.present(bankselectView, animated: false, completion: nil)
-            
-            
-            
-        }
-        
-        
-    }
     
     func confirmRedirect(with bank: BankResponse){
         onBankRedirect!(bank)
@@ -370,6 +378,34 @@ class Checkout : MDCBottomSheetController {
         
         if(presenter.paymentOption == TransactionType.Card){
             
+            if cardView.cardNumber.text == nil || cardView.cardNumber.text!.isEmpty || !cardView.cardNumber.text!.isValidCardNumber() {
+                self.cardView.cardNumber.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 3, revert: true)
+                self.cardView.cardNumber.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
+                return
+            }
+            else {
+                //remove border colour
+            }
+            
+            if cardView.cardExpiry.text == nil || cardView.cardExpiry.text!.isEmpty || !cardView.cardExpiry.text!.isValidExpiry() {
+                self.cardView.cardExpiry.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 3, revert: true)
+                self.cardView.cardExpiry.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
+                return
+            }
+            else {
+                //remove border colour
+            }
+            
+            
+            if cardView.cardCvv.text == nil || cardView.cardCvv.text!.isEmpty || !cardView.cardCvv.text!.isValidCvv() {
+                self.cardView.cardCvv.isError(baseColor: UIColor.red.cgColor, numberOfShakes: 3, revert: true)
+                self.cardView.cardCvv.setBottomBorderOnlyWith(color: UIColor.red.cgColor)
+                return
+            }
+            else {
+                //remove border colour
+            }
+            
             self.card.cvv = cardView.cardCvv.text!
             self.card.number = cardView.cardNumber.text!.formattedCardNumber()
             
@@ -377,6 +413,8 @@ class Checkout : MDCBottomSheetController {
             
             self.card.expiryMonth = exp[0]
             self.card.expiryYear = exp[1]
+            
+            
             
             if self.card.cardType == nil {
                 self.card.cardType = .verve // set default
@@ -419,7 +457,7 @@ class Checkout : MDCBottomSheetController {
         super.init(contentViewController: rootController)
         
         onCardPay()
-
+        
         
     }
     
@@ -450,15 +488,15 @@ extension Checkout: CheckoutView {
     }
     
     func onBankPay() {
+        onDisablePay()
         presenter.loadBanks()
         presenter.getBankTransactionAdvice(transaction: transaction)
-        onDisablePay()
         
     }
     
     func onCardPay() {
-        presenter.getCardTransactionAdvice(transaction: transaction)
         onDisablePay()
+        presenter.getCardTransactionAdvice(transaction: transaction)
         
     }
     
@@ -480,12 +518,46 @@ extension Checkout: CheckoutView {
             self.bankView.bankName.isLoading = false
             self.bankView.bankName.isEnabled = true
             
-            self.bankView.bankName.addTarget(self, action: #selector(self.bankNameDidBeginEditing(sender:)), for: .allTouchEvents)
+            let bankNameRecognizer = UITapGestureRecognizer()
+            
+            bankNameRecognizer.addTarget(self, action: #selector(self.tappedBankNameTextView(_:)))
+            
+            self.bankView.bankName.addGestureRecognizer(bankNameRecognizer)
             
             
             //            self.bankView.bankName.loadDropdownData(data:  self.bankList.map {$0.bankName!}, onSelect: self.bankName_onSelect)
         }
         
+    }
+    
+    @objc func tappedBankNameTextView(_ sender: UITapGestureRecognizer) {
+        DispatchQueue.main.async {
+            
+            let bankselectView = BankSelectView(rootController: self,banksResponse: self.bankList, onFinished: { (bank) in
+                
+                self.toggleVerificationView(shouldHide: true)
+                self.bankView.accoutNumber.text = ""
+                self.onDisablePay()
+                self.bankAccount.bank = bank
+                self.bankView.bankName.text = bank.bankName
+                
+                if bank.processingType == "External" {
+                    self.confirmRedirect(with: bank)
+                }
+                self.bankView.accoutNumber.isEnabled = true
+                
+                
+                
+            }) {
+                
+                
+            }
+            
+            self.present(bankselectView, animated: false, completion: nil)
+            
+            
+            
+        }
     }
     
     func toggleVerificationView(shouldHide: Bool)  {
