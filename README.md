@@ -68,6 +68,32 @@ The Cyberpay iOS SDK is compatible with iOS Apps supporting iOS 10 and above.
                 //Not Needed
            })
 ```
+### Using our Alternate Drop-In UI (When Transaction has been set in the server)
+
+**Step 1**: Import the cyberpay sdk
+
+```swift
+    import cyberpaysdk
+   ``` 
+
+**Step 2**: Complete integration with Our Server Drop-In UI
+
+```swift
+         do {
+                try CyberpaySdk.shared.initialise(with: CYBERPAY_INTEGRATION_KEY, mode: .Debug)
+                    .continueTransactionFromServer(withReference: SERVER_TRANSACTION_REFERENCE)
+                    .serverDropInCheckout(rootController: self, onSuccess: { (result) in
+                        //Transaction was successful
+                        print(result.reference)
+                    }, onError: { (result, error) in
+                        //Transaction failed, returns an error
+                        print(error)
+                    }) { (result) in
+                        //Not Needed
+                }
+            } catch  {
+          }
+```
 
 **Note** : Ensure when going live, you change from `.Debug` to `.Live`, and also change the _integration key_. This key can be gotten from the merchant dashboard on the cyberpay merchant portal
 
