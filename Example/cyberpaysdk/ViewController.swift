@@ -21,7 +21,7 @@ class ViewController: UIViewController {
                     print(result.reference)
                     
                 }, onError: { (result, error) in
-                    print(error)
+                    print(error.localizedDescription)
                    
                 }, onValidate: {result in
                   

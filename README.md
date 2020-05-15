@@ -9,6 +9,8 @@
 
 Cyberpay provides you with the most convenient and fastest process of making and collecting payments from your customers all over the world
 
+[![cyberpayios.png](https://i.postimg.cc/vmLBPYt3/cyberpayios.png)](https://postimg.cc/7Chwhyc2)
+
 # About the SDK
 
 The mobile SDK will serve as an easy to use library to quickly integrate Cyberpay to your mobile application.

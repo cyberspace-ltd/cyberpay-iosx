@@ -793,7 +793,8 @@ public class CyberpaySdk {
         
         DispatchQueue.main.async {
             
-            self.showProgress(message: "Processing Transaction")
+            self.dismissProgress()
+            LoadingIndicatorView.hide()
             
             self.bottomSheetController = rootController
             

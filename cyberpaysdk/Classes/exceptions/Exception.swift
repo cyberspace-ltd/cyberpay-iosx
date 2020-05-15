@@ -8,13 +8,13 @@
 
 import Foundation
 
-public enum Exception : Error {
+public enum Exception : LocalizedError {
     case SDKNotInitializedException(message: String)
     case InvalidIntegrationException(message: String)
     case CyberpayException(message: String)
     case CardNotSetException(message: String)
     case TransactionNotFoundException(message: String)
-    var localizedDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case let .SDKNotInitializedException(message),
              let .InvalidIntegrationException(message),
@@ -22,7 +22,8 @@ public enum Exception : Error {
              let .CyberpayException(message),
              let .TransactionNotFoundException(message):
             return message
-        
+            
         }
     }
+    
 }

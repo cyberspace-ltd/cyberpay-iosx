@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'cyberpaysdk'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'The iOS SDK for the cyberpay payment gateway'
 
 # This description is used to generate tags and improve search results.
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.description  = "The iOS SDK for the cyberpay payment gateway, with a drop in UI"
 
   s.homepage         = 'https://github.com/cyberspace-ltd/cyberpay-iosx'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+   s.screenshots     = 'https://p0.f0.n0.cdn.getcloudapp.com/items/mXuBWGAX/cyberpayios.png?v=8ca7183d8a6b4e264f090e9af4952850'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'davidehigiator' => 'david.ehigiator@cyberspace.net.ng' }
   s.source           = { :git => 'https://github.com/cyberspace-ltd/cyberpay-iosx.git', :tag => s.version.to_s }
@@ -29,10 +29,10 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
 
   s.source_files = 'cyberpaysdk/Classes/**/*'
-  
-   s.resource_bundles = {
-     'cyberpaysdk' => ['cyberpaysdk/**/*.{pdf,png,jpeg,jpg,storyboard,xib,xcassets}']
-   }
+  s.resources = ['cyberpaysdk/Assets/Assets.xcassets']
+#   s.resource_bundles = {
+#     'cyberpaysdk' => ['cyberpaysdk/**/*.{pdf,png,jpeg,jpg,storyboard,xib,xcassets}']
+#   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
