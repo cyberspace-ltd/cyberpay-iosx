@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'cyberpaysdk'
-  s.version          = '0.1.5'
+  s.version          = '1.0.0'
   s.summary          = 'The iOS SDK for the cyberpay payment gateway'
 
 # This description is used to generate tags and improve search results.
@@ -37,8 +37,8 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
-  s.dependency "RxSwift", "~> 5.0.1"
-  s.dependency "RxCocoa", "~> 5.0.1"
-  s.dependency "FittedSheets", "~> 1.4.5"
+  s.dependency "RxSwift", "~> 5.1.1"
+  s.dependency "RxCocoa", "~> 5.1.1"
+  s.dependency "FittedSheets", "~> 1.4.6"
   s.dependency "MaterialComponents/BottomSheet", "~> 94.4.0"
 end

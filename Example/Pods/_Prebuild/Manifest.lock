@@ -1,5 +1,5 @@
 PODS:
-  - FittedSheets (1.4.5)
+  - FittedSheets (1.4.6)
   - MaterialComponents/BottomSheet (94.4.0):
     - MaterialComponents/Elevation
     - MaterialComponents/private/KeyboardWatcher
@@ -26,15 +26,15 @@ PODS:
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
-  - RxCocoa (5.0.1):
+  - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxRelay (5.0.1):
+  - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.0.1)
+  - RxSwift (5.1.1)
 
 DEPENDENCIES:
-  - FittedSheets (~> 1.4.5)
+  - FittedSheets (~> 1.4.6)
   - MaterialComponents/BottomSheet (~> 94.4.0)
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
@@ -48,12 +48,12 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
-  FittedSheets: 7f754c9f6fb4ea330cbc57c652b594255f2a6819
+  FittedSheets: 7f37fee2567d15dcde391f31eccbffb660ddebf0
   MaterialComponents: 3ee5327e02dc3f34df48c68205b5fd7dce171744
-  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
-  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
-  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: 28a473e62d76e2799844d99527c628fd6dc4c163
+PODFILE CHECKSUM: 17f8394c0f989ce4dacfd58157654e0aa0333136
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.9.1
